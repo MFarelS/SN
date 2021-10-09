@@ -968,6 +968,8 @@ denz.updatePresence(from, Presence.recording)
 			num = await fetchJson(`https://api.telnyx.com/anonymous/v2/number_lookup/${senderNumber}`, {method: 'get'})
        menu = `*Halo ${pushname} 👋*
 
+API : https://sneazy-api.herokuapp.com
+
 ${uwu}BOT INFO
 - Owner : @${otod.split('@')[0]}
 - Battery : ${baterai.battery}
@@ -1009,6 +1011,9 @@ case 'allmenu':
 				stst = stst.status == 401 ? '' : stst.status
 			num = await fetchJson(`https://api.telnyx.com/anonymous/v2/number_lookup/${senderNumber}`, {method: 'get'})
 menu = `${uwu}
+
+API : https://sneazy-api.herokuapp.com
+
 ╭─❒ 「 Bot Info 」 ❒
 │◦➛Creator : @${dtod.split('@')[0]}
 │◦➛Recode : @${ptod.split('@')[0]}
