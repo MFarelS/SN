@@ -53,7 +53,6 @@
     "request": "^2.88.2",
     "scraper-instagram": "^1.0.17",
     "spinnies": "^0.5.1",
-    "proxy-checker": "^1.0.0",
     "tiktok-scraper-without-watermark": "^1.0.6",
     "uninstall": "0.0.0",
     "ytsr": "^3.5.0"
