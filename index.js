@@ -2,6 +2,9 @@ const { WAConnection: _WAConnection, MessageType, Presence, Mimetype, ChatModifi
 const simple = require('./lib/simple.js')
 const WAConnection = simple.WAConnection(_WAConnection)
 const denz = new WAConnection()
+const reply = (teks) => {
+			denz.sendMessage(from, teks, text, { quoted: mek })
+		}
 const qrcode = require("qrcode-terminal")
 const moment = require("moment-timezone")
 const fs = require("fs")
