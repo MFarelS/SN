@@ -8,6 +8,7 @@ const fs = require("fs")
 const canvacord = require("canvacord")
 const util = require('util')
 const figlet = require('figlet')
+const imageToBase64 = require('image-to-base64')
 const time = moment().tz('Asia/Jakarta').format("HH:mm:ss")
 const fetch = require('node-fetch')
 uwu = '```'
