@@ -44,6 +44,8 @@
     "marker": "^0.1.2",
     "mathjs": "^9.4.3",
     "moment-timezone": "^0.5.33",
+"canvacord": "^5.2.3",
+"captcha-canvas": "^3.0.4",
     "multistream": "^4.1.0",
     "node-fetch": "^2.6.1",
     "node-tesseract-ocr": "^2.2.1",
