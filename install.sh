@@ -19,4 +19,4 @@ npm audit fix
 
 tty-clock -s -S -x -c -C 2 -b -B
 clear
-node index
+node index.js
