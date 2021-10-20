@@ -13,6 +13,7 @@ wget -O ~/../usr/share/tessdata/ind.traineddata "https://github.com/tesseract-oc
 npm install
 npm install proxy-checker
 npm install canvacord
+npm install captcha-canvas
 npm audit fix
 
 #!/usr/bin/bash
