@@ -8,6 +8,7 @@ const reply = (teks) => {
 const qrcode = require("qrcode-terminal")
 const moment = require("moment-timezone")
 const fs = require("fs")
+const canvacord = require('canvacord')
 const util = require('util')
 const figlet = require('figlet')
 //const reply = (teks) => {
