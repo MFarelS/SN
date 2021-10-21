@@ -101,8 +101,9 @@ const commandsDB = JSON.parse(fs.readFileSync('./database/commands.json'))
 const tictactoe = JSON.parse(fs.readFileSync("./database/tictactoe.json"))
 const antilink = JSON.parse(fs.readFileSync('./database/antilink.json'))
 const nsfww = JSON.parse(fs.readFileSync('./database/nsfww.json'))
-const _registered = JSON.parse(fs.readFileSync('./database/user.json'))
 const welkom = JSON.parse(fs.readFileSync('./database/welkom.json'))
+const _registered = JSON.parse(fs.readFileSync('./database/user.json'))
+//const welkom = JSON.parse(fs.readFileSync('./database/welkom.json'))
 const mute = JSON.parse(fs.readFileSync('./database/mute.json'))
 const settings = JSON.parse(fs.readFileSync('./settings.json'))
 const kickarea = JSON.parse(fs.readFileSync('./database/kickarea.json'))
@@ -1517,6 +1518,33 @@ case 'mulaiabsen':
 								reply(`Absensi tanggal: *${calender}*\n\nKetik *hadir/izin/sakit*\n*${prefix}cekabsen* - untuk melihat list absensi\n*${prefix}hapusabsen* - untuk menghapus sesi absen\n\n(n) Waktu absensi 30 menit!`)
 							})
 						}
+					}
+					break
+     case 'welcome': 
+     uwun = '```'
+if (!isGroup) return reply(mess.only.group)
+			if (!isOwner && !isGroupAdmins) return sticAdmin(from)
+					if (args[0] === 'on') {
+						if (isWelkom) return reply('Sudah Aktif Kak')
+						welkom.push(from)
+						fs.writeFileSync('./database/welkom.json', JSON.stringify(welkom))
+						reply('Sukses mengaktifkan fitur welcome')
+					} else if (args[0] === 'off') {
+						if (!isWelkom) return reply('Sudah Mati Kak')
+						var ini = welkom.indexOf(from)
+						welkom.splice(ini, 1)
+						fs.writeFileSync('./database/welkom.json', JSON.stringify(welkom))
+						reply('Sukses menonaktifkan fitur welcome')
+					} else if (!c){
+ anu =`Silahkan pilih salah satu\n\non: untuk mengaktifkan\noff: untuk menonaktifkan`
+punten = [{buttonId: 'welcome off', buttonText: {displayText: 'OFF️'}, type: 1},{buttonId: 'welcome on', buttonText: {displayText: 'ON️'}, type: 1}]
+const btngrass = {
+    contentText: `${anu}`,
+    footerText: ``${uwun}© BOT CREATED BY VINZX${uwun}`,
+    buttons: punten,
+    headerType: 1
+}
+await denz.sendMessage(from, btngrass, MessageType.buttonsMessage, {quoted: ftrol})
 					}
 					break
 case 'captcha':
