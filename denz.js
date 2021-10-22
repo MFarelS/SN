@@ -113,6 +113,7 @@ const mute = JSON.parse(fs.readFileSync('./database/mute.json'))
 const settings = JSON.parse(fs.readFileSync('./settings.json'))
 const kickarea = JSON.parse(fs.readFileSync('./database/kickarea.json'))
 let tebaklagu = JSON.parse(fs.readFileSync('./database/tebaklagu.json'))
+let tebakbendera = JSON.parse(fs.readFileSync('./database/tebakbendera.json'))
 const scommand = JSON.parse(fs.readFileSync('./database/scommand.json'))
 //const { addVote, delVote } = JSON.parse(fs.readFileSync('./database/'))
 const autosticker = JSON.parse(fs.readFileSync('./database/autosticker.json'))
@@ -962,6 +963,16 @@ denz.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
                     fs.writeFileSync("./database/tebaklagu.json", JSON.stringify(tebaklagu))
                 }
             }
+             if (tebakbendera.hasOwnProperty(sender.split('@')[0]) && !isCmd) {
+                kuis = true
+                jawaban = tebakbendera[sender.split('@')[0]]
+                if (budy.toLowerCase() == jawaban) {
+                	var html = randomNomor(100)
+                    await reply(`*_🎮 Tebak Bendera  🎮_*\n\n*•* *Jawaban Benar🎉*\n\nIngin bermain lagi? kirim *${prefix}tebakbendera*`)
+                    delete tebakbendera[sender.split('@')[0]]
+                    fs.writeFileSync("./database/tebakbendera.json", JSON.stringify(tebakbendera))
+                }
+            }
         const sendWebp = async(from, url) => {
                 var names = Date.now() / 10000;
                 var download = function (uri, filename, callback) {
@@ -1484,6 +1495,7 @@ TIME INFO
 sendButLocation(from, `${menu}`, `${uwu}© BOT CREATED BY VINZX${uwu}`, {jpegThumbnail:ofrply}, [{buttonId:`${prefix}allmenu`,buttonText:{displayText:'MENU📒'},type:1},{buttonId:`${prefix}owner`,buttonText:{displayText:'DEVELOPER👤'},type:1},{buttonId:`${prefix}script`,buttonText:{displayText:'INSTAGRAM🌹'},type:1}], {contextInfo: { mentionedJid: [ptod,dtod,otod,stod]}})
 break
  case 'tebaklagu':
+ if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
               if (tebaklagu.hasOwnProperty(sender.split('@')[0])) return reply("Selesein yg sebelumnya dulu atuh")
               get_result = await fetchJson(`https://api.xteam.xyz/game/tebaklagu?apikey=kurrxd09&id=4mFuArYRh3SO8jfffYLSER`)
               get_result = get_result.result
@@ -1503,7 +1515,27 @@ break
               delete tebaklagu[sender.split('@')[0]]
               fs.writeFileSync("./database/tebaklagu.json", JSON.stringify(tebaklagu))
 }
-              gameAdd(sender, glimit)
+break
+case 'tebakbendera':
+if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+        if (tebakbendera.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
+              get_result = await fetchJson(`https://lolhuman.herokuapp.com/api/tebak/bendera?apikey=511fc49c7ad4edcecf8653cf`)
+              get_result = get_result.result
+              jawaban = get_result.name
+              kisi_kisi = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '_')
+              pertanyaan = get_result.flag
+             denz.sendMessage(from, '*+* ```Tebak Bendera```\n\n• *Bendera* :'+pertanyaan+'\n• *kisi²* :'+kisi_kisi, text, { quoted: mek}).then(() => {
+              tebakbendera[sender.split('@')[0]] = jawaban.toLowerCase()
+              fs.writeFileSync("./database/tebakbendera.json", JSON.stringify(tebakbendera))
+})
+              await sleep(30000)
+              if (tebakbendera.hasOwnProperty(sender.split('@')[0])) {
+              console.log(color("Jawaban: " + jawaban))
+              reply("Jawaban: " + jawaban)
+              delete tebakbendera[sender.split('@')[0]]
+              fs.writeFileSync("./database/tebakbendera.json", JSON.stringify(tebakbendera))
+}
+              
               break
 case 'allmenu':
 if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
