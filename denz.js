@@ -1492,7 +1492,7 @@ break
               kisi_kisi = jawaban.replace(/[a|b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '_')
               ini_buffer = await getBuffer(ini_audio)
               reply('*+* ```Tebak Lagu```\n\n• *Petunjuk* :'+kisi_kisi+'\n• *Waktu* : 30s')
-              dha.sendMessage(from, ini_buffer, audio, {quoted: mek}).then(() => {
+              denz.sendMessage(from, ini_buffer, audio, {quoted: mek}).then(() => {
               tebaklagu[sender.split('@')[0]] = jawaban.toLowerCase()
               fs.writeFileSync("./database/tebaklagu.json", JSON.stringify(tebaklagu))
 })
