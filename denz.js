@@ -1553,7 +1553,7 @@ if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted
        stst = await denz.getStatus(`${sender.split('@')[0]}@c.us`)
 				stst = stst.status == 401 ? '' : stst.status
 			num = await fetchJson(`https://api.telnyx.com/anonymous/v2/number_lookup/${senderNumber}`, {method: 'get'})
-menu = `Hallo kak ${tampilucapan}
+menu = `Hallo kak ${tampilUcapan}
 Iam *Sneazy-BOT* And Use Prefix *${prefix}*
 
 ❏ *....: INFO BOT :....*
