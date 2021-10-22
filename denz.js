@@ -112,6 +112,7 @@ const _registered = JSON.parse(fs.readFileSync('./database/registered.json'))
 const mute = JSON.parse(fs.readFileSync('./database/mute.json'))
 const settings = JSON.parse(fs.readFileSync('./settings.json'))
 const kickarea = JSON.parse(fs.readFileSync('./database/kickarea.json'))
+let tebaklagu = JSON.parse(fs.readFileSync('./database/tebaklagu.json'))
 const scommand = JSON.parse(fs.readFileSync('./database/scommand.json'))
 //const { addVote, delVote } = JSON.parse(fs.readFileSync('./database/'))
 const autosticker = JSON.parse(fs.readFileSync('./database/autosticker.json'))
@@ -951,6 +952,16 @@ denz.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
 					});
 				});
 			}
+			if (tebaklagu.hasOwnProperty(sender.split('@')[0]) && !isCmd) {
+                kuis = true
+                jawaban = tebaklagu[sender.split('@')[0]]
+                if (budy.toLowerCase() == jawaban) {
+                	var htpl = randomNomor(100)
+                    await reply(`*_🎮 Tebak Lagu 🎮_*\n\n*•* *Jawaban Benar🎉*\n\nIngin bermain lagi? kirim *${prefix}tebaklagu*`)
+                    delete tebaklagu[sender.split('@')[0]]
+                    fs.writeFileSync("./database/tebaklagu.json", JSON.stringify(tebaklagu))
+                }
+            }
         const sendWebp = async(from, url) => {
                 var names = Date.now() / 10000;
                 var download = function (uri, filename, callback) {
@@ -1472,6 +1483,28 @@ TIME INFO
 - Tanggal : ${calender}${uwu}`
 sendButLocation(from, `${menu}`, `${uwu}© BOT CREATED BY VINZX${uwu}`, {jpegThumbnail:ofrply}, [{buttonId:`${prefix}allmenu`,buttonText:{displayText:'MENU📒'},type:1},{buttonId:`${prefix}owner`,buttonText:{displayText:'DEVELOPER👤'},type:1},{buttonId:`${prefix}script`,buttonText:{displayText:'INSTAGRAM🌹'},type:1}], {contextInfo: { mentionedJid: [ptod,dtod,otod,stod]}})
 break
+ case 'tebaklagu':
+              if (tebaklagu.hasOwnProperty(sender.split('@')[0])) return reply("Selesein yg sebelumnya dulu atuh")
+              get_result = await fetchJson(`https://api.xteam.xyz/game/tebaklagu?apikey=${setting.xteamkey}&id=4mFuArYRh3SO8jfffYLSER`)
+              get_result = get_result.result
+              ini_audio = get_result.preview
+              jawaban = get_result.judul
+              kisi_kisi = jawaban.replace(/[a|b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '_')
+              ini_buffer = await getBuffer(ini_audio)
+              reply('*+* ```Tebak Lagu```\n\n• *Petunjuk* :'+kisi_kisi+'\n• *Waktu* : 30s')
+              dha.sendMessage(from, ini_buffer, audio, {quoted: mek}).then(() => {
+              tebaklagu[sender.split('@')[0]] = jawaban.toLowerCase()
+              fs.writeFileSync("./database/tebaklagu.json", JSON.stringify(tebaklagu))
+})
+              await sleep(30000)
+              if (tebaklagu.hasOwnProperty(sender.split('@')[0])) {
+              console.log(color("Jawaban: " + jawaban))
+              reply("*Jawaban*: " + jawaban)
+              delete tebaklagu[sender.split('@')[0]]
+              fs.writeFileSync("./database/tebaklagu.json", JSON.stringify(tebaklagu))
+}
+              gameAdd(sender, glimit)
+              break
 case 'allmenu':
 if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
         ptod = "6282138919347@s.whatsapp.net"
@@ -1759,6 +1792,8 @@ API : https://sneazy-api.herokuapp.com
 │◦➛${prefix}pantun
 │◦➛${prefix}tospam [ reply audio/sticker/image|jumlah ]
 │◦➛${prefix}sharelock [ teks1|teks2 ]
+│◦➛${prefix}captcha
+│◦➛${prefix}tebaklagu
 │◦➛${prefix}dadu
 └─────────────────❒
 ${uwu}`
