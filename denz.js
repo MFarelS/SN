@@ -39,7 +39,7 @@ const base64Img = require('base64-img')
 const ms = require('parse-ms')
 const figlet = require('figlet')
 const ytsd = require('ytsr')
-const voting = JSON.parse(fs.readFileSync("./lib/voting.json"));
+const voting = JSON.parse(fs.readFileSync("./database/voting.json"));
 
 const crypto = require('crypto')
 const cheerio = require('cheerio')
