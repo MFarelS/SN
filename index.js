@@ -96,7 +96,7 @@ exec(`cd /sdcard/download && play *mp3`)
 			const welkom = JSON.parse(fs.readFileSync('./database/welkom.json'))
         	if(!welkom.includes(mdata.id)) return
 			fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6285732415700-1604595598@g.us' } : {})}, message: { "contactMessage":{"displayName": `${mdata.subject}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;Denz;;;\nFN:Denz\nitem1.TEL;waid=6285732415700:6285732415700\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
-		    num = anu.participants[0]
+/*		    num = anu.participants[0]
 			try {
 			ppimg = await denz.getProfilePicture(`${num.split('@')[0]}@c.us`)
 			} catch {
@@ -137,11 +137,50 @@ exec(`cd /sdcard/download && play *mp3`)
 					})
 				})
 			} */
-		let buff = await getBuffer(ppimg)
+		/*let buff = await getBuffer(ppimg)
 			masuk =`${uwu}Welcome @${num.split('@')[0]}\n\nWe hope you feel comfortable here!!${uwu}`
 			//Welcome @${num.split('@')[0]}* ${enter}${enter}📛 : _${anu_user}_${enter}💌 : _${p3}_${enter}🔣 : _@${num.split('@')[0]}_${enter}🥉 : _${memeg} Member (s)_${enter}⏰ : _${jamnyy} Indonesian time_${enter}${enter}\`\`\`Hope you like it and don't forget to read the group description\`\`\``;
             denz.sendMessage(mdata.id, masuk, MessageType.text, { quoted: fkontakk, thumbnail: fs.readFileSync('./denz.jpg'), contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `Welcome To ${mdata.subject}`,body:"",mediaType:"2",thumbnail:buff,mediaUrl:`https://youtu.be/dQw4w9WgXcQ`}}})
-			} 
+			} */
+			num = anu.participants[0]
+				var namea = denz.contacts[num] != undefined ? denz.contacts[num].vname || denz.contacts[num].notify : 'unknown'
+				try {
+					ppimg = await denz.getProfilePicture(`${anu.participants[0].split('@')[0]}@c.us`)
+				} catch {
+					ppimg = 'https://i.ibb.co/HnbZ6vz/coders.png'
+				}
+				acu = await getBuffer(ppimg)
+				nu1 = ['1','2','3','4','5','6','7','8','9']
+				dom1 = nu1[Math.floor(Math.random() * nu1.length)]
+				dom2 = nu1[Math.floor(Math.random() * nu1.length)]
+				dom3 = nu1[Math.floor(Math.random() * nu1.length)]
+				dom4 = nu1[Math.floor(Math.random() * nu1.length)]
+				datae = await imageToBase64(JSON.stringify(ppimg).replace(/\"/gi, ''))
+				xuxu = getRandom('.jpg')
+				xaxa = getRandom('.png')
+				fs.writeFileSync(`./${xuxu}`, datae, 'base64')
+				exec(`ffmpeg -i ./${xuxu} ./${xaxa}`, (err) => {
+					imgbb("046987b675ceee8523a0bbb17398620a", `./${xaxa}`).then(hesel => {
+						var wellcome = new canvacord.Welcomer()
+						.setUsername(namea)
+						.setDiscriminator(`${dom1}${dom2}${dom3}${dom4}`)
+						.setMemberCount(mdata.participants.length)
+						.setAvatar(hesel.display_url)
+						.setGuildName(mdata.subject)
+						.setBackground("https://i.ibb.co/pQsDkM2/1616829457-picsay.png")
+						.setColor("border", "#c007d9")
+						.setColor("username-box", "#c007d9")
+						.setColor("discriminator-box", "#c007d9")
+						.setColor("message-box", "#c007d9")
+						.setColor("title", "#c007d9")
+						.setColor("avatar", "#c007d9")
+						wellcome.build()
+						.then(kom => {
+							denz.sendMessage(mdata.id, kom, MessageType.image, {caption: `Welcome @${num.split('@')[0]} !`, contextInfo: {"mentionedJid": [num]}})
+						})
+					})
+				})
+			}
 			else if (anu.action == 'remove') {
 			const welkom = JSON.parse(fs.readFileSync('./database/welkom.json'))
 			const cord = require("canvacord")
