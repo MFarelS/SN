@@ -5586,7 +5586,7 @@ case 'bugrow':
 if (!isOwner && !mek.key.fromMe) return reply(mess.only.ownerB)
 denz.toggleDisappearingMessages(from, 0)
  listMsg = {
- buttonText: 'LIST sappearingMessages,
+ buttonText: 'LIST sappearingMessages',
  footerText: `${emoji2(prefix)}`,
  description: `${virtex6(prefix)}`,
  sections: [
