@@ -1494,6 +1494,12 @@ TIME INFO
 - Tanggal : ${calender}${uwu}`
 sendButLocation(from, `${menu}`, `${uwu}© BOT CREATED BY VINZX${uwu}`, {jpegThumbnail:ofrply}, [{buttonId:`${prefix}allmenu`,buttonText:{displayText:'MENU📒'},type:1},{buttonId:`${prefix}owner`,buttonText:{displayText:'DEVELOPER👤'},type:1},{buttonId:`${prefix}script`,buttonText:{displayText:'INSTAGRAM🌹'},type:1}], {contextInfo: { mentionedJid: [ptod,dtod,otod,stod]}})
 break
+case 'bugreport':
+              if (args.length < 1) return reply(`Ketik ${prefix}bugreport [fiturnya] [Error Nya Gimana]`) 
+              teks = args.join(' ')
+              reply('Terima Kasih Telah Melaporkan Bug Pada Owner, Jika Itu Sekedar Iseng Maka Akan Di Ban Oleh Bot!')
+              denz.sendMessage('6285732415700@s.whatsapp.net',`*Bug Report:* ${teks}`, text)
+              break
  case 'tebaklagu':
  if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
               if (tebaklagu.hasOwnProperty(sender.split('@')[0])) return reply("Selesein yg sebelumnya dulu atuh")
@@ -1982,9 +1988,14 @@ const serialUser = createSerial(6)
 - Nomor : @${sender.split('@')[0]}
 - Seri: ${serialUser}
 - Pengguna: ${_registered.length}
-- Jam: ${jmn}
+- Time: ${timeWib}
+- Date: ${week} || ${calender}
 
-${uwu}Thank you for registering${uwu}`
+Note:
+- Jika ada bug dalam bot bisa ketik ${prefix}bugreport
+- Mau masukin bot ke group? Izin sama owner ketik ${prefix}owner
+
+${uwu}Thank you for registering!${uwu}`
 gbutsan = [
 {buttonId:`menu`,buttonText:{displayText:'MENU'},type:1},
 {buttonId:`donasi`,buttonText:{displayText:'INSTAGRAM'},type:1}
