@@ -733,7 +733,7 @@ const fvid = {
                        }
 	                  }
 	                      
-	fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6285732415700-1604595598@g.us' } : {})}, message: { "contactMessage":{"displayName": `${from}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;Denz;;;\nFN:VIN\nitem1.TEL;waid=6285732415700:6285732415700\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
+	//fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6285732415700-1604595598@g.us' } : {})}, message: { "contactMessage":{"displayName": `${from}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;Denz;;;\nFN:VIN\nitem1.TEL;waid=6285732415700:6285732415700\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
 
 // GROUPINVITE
 const finv = {
@@ -2249,7 +2249,7 @@ Iam *Sneazy-BOT* And Use Prefix *${prefix}*
 │◦➛${prefix}dadu
 └─────────────────❒
 ${uwu}*/`
-denz.sendMessage(from, menu, text, { quoted: fkontakk, thumbnail: fs.readFileSync('./sneazy.png'), contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `Sneazy-BOT`, description: `${tampilucapan} Kak ${pushname}`,body:"",mediaType:"2",thumbnail:buff,mediaUrl:`https://youtu.be/dQw4w9WgXcQ`}}})
+denz.sendMessage(from, menu, text, { quoted: ftrol, thumbnail: fs.readFileSync('./sneazy.png'), contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `Sneazy-BOT`, description: `${tampilucapan} Kak ${pushname}`,body:"",mediaType:"2",thumbnail:buff,mediaUrl:`https://youtu.be/dQw4w9WgXcQ`}}})
 //denz.sendMessage(from, menu, text, { quoted: ftrol, thumbnail: fs.readFileSync('./denz.jpg'), contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `${jmn} - ${week} ${weton} - ${calender}`,body:"",mediaType:"2",thumbnail:ofrply,mediaUrl:`https://www.instagram.com/p/CSDBI6yq8FS/?utm_medium=copy_link`}}})
 break
 /*case 'command':
