@@ -144,6 +144,7 @@ exec(`cd /sdcard/download && play *mp3`)
 			} 
 			else if (anu.action == 'remove') {
 			const welkom = JSON.parse(fs.readFileSync('./database/welkom.json'))
+			const cord = require("canvacord")
 			if(!welkom.includes(mdata.id)) return
 			num = anu.participants[0]
 				var namea = await denz.contacts[num] != undefined ? denz.contacts[num].vname || denz.contacts[num].notify : 'unknown'
