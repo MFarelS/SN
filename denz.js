@@ -1485,7 +1485,7 @@ sendButLocation(from, `${menu}`, `${uwu}© BOT CREATED BY VINZX${uwu}`, {jpegThu
 break
  case 'tebaklagu':
               if (tebaklagu.hasOwnProperty(sender.split('@')[0])) return reply("Selesein yg sebelumnya dulu atuh")
-              get_result = await fetchJson(`https://api.xteam.xyz/game/tebaklagu?apikey=${setting.xteamkey}&id=4mFuArYRh3SO8jfffYLSER`)
+              get_result = await fetchJson(`https://api.xteam.xyz/game/tebaklagu?apikey=kurrxd09&id=4mFuArYRh3SO8jfffYLSER`)
               get_result = get_result.result
               ini_audio = get_result.preview
               jawaban = get_result.judul
