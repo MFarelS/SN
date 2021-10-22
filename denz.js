@@ -112,6 +112,7 @@ const settings = JSON.parse(fs.readFileSync('./settings.json'))
 const kickarea = JSON.parse(fs.readFileSync('./database/kickarea.json'))
 const scommand = JSON.parse(fs.readFileSync('./database/scommand.json'))
 const { addVote, delVote } = require("./database/vote.json");
+const voting = JSON.parse(fs.readFileSync(".database/voting.json"));
 const autosticker = JSON.parse(fs.readFileSync('./database/autosticker.json'))
 
 ky_ttt = []
