@@ -548,30 +548,30 @@ await denz.chatRead(jid)
 			var ase = new Date();
                         var jamss = ase.getHours();
                          switch(jamss){
-                case 0: jamss = "Midnight"; break;
-                case 1: jamss = "Midnight"; break;
-                case 2: jamss = "Midnight"; break;
-                case 3: jamss = "Midnight"; break;
-                case 4: jamss = "Midnight"; break;
-                case 5: jamss = "Dawn"; break;
-                case 6: jamss = "Morning"; break;
-                case 7: jamss = "Morning"; break;
-                case 8: jamss = "Morning"; break;
-                case 9: jamss = "Morning"; break;
-                case 10: jamss = "Morning"; break;
-                case 11: jamss = "Afternoon"; break;
-                case 12: jamss = "Zuhur"; break;
-                case 13: jamss = "Afternoon"; break;
-                case 14: jamss = "Afternoon"; break;
-                case 15: jamss = "Asr"; break;
-                case 16: jamss = "Afternoon"; break;
-                case 17: jamss = "Evening"; break;
-                case 18: jamss = "Maghrib"; break;
-                case 19: jamss = "Isha"; break;
-                case 20: jamss = "Night"; break;
-                case 21: jamss = "Night"; break;
-                case 22: jamss = "Midnight"; break;
-                case 23: jamss = "Midnight"; break;
+                case 0: jamss = "Midnight 🌚"; break;
+                case 1: jamss = "Midnight 🌚"; break;
+                case 2: jamss = "Midnight 🌚"; break;
+                case 3: jamss = "Midnight 🌚"; break;
+                case 4: jamss = "Midnight 🌚"; break;
+                case 5: jamss = "Midnight 🌚"; break;
+                case 6: jamss = "GoodMorning 🌅"; break;
+                case 7: jamss = "GoodMorning 🌅"; break;
+                case 8: jamss = "GoodMorning 🌅"; break;
+                case 9: jamss = "GoodMorning 🌅"; break;
+                case 10: jamss = "GoodMorning 🌅"; break;
+                case 11: jamss = "GoodMorning 🌅"; break;
+                case 12: jamss = "GoodAfternoon 🌝"; break;
+                case 13: jamss = "GoodAfternoon 🌞"; break;
+                case 14: jamss = "GoodAfternoon 🌞"; break;
+                case 15: jamss = "GoodAfternoon 🌞"; break;
+                case 16: jamss = "GoodAfternoon 🌞"; break;
+                case 17: jamss = "GoodEvening 🌛"; break;
+                case 18: jamss = "GoodNight 🌜"; break;
+                case 19: jamss = "GoodNight 🌜"; break;
+                case 20: jamss = "GoodNight 🌜"; break;
+                case 21: jamss = "GoodNight 🌜"; break;
+                case 22: jamss = "Midnight 🌚"; break;
+                case 23: jamss = "Midnight 🌚"; break;
             }
             const totalChat = await denz.chats.all()
             var groups = denz.chats.array.filter(v => v.jid.endsWith('g.us'))
@@ -1552,9 +1552,421 @@ if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted
        stst = await denz.getStatus(`${sender.split('@')[0]}@c.us`)
 				stst = stst.status == 401 ? '' : stst.status
 			num = await fetchJson(`https://api.telnyx.com/anonymous/v2/number_lookup/${senderNumber}`, {method: 'get'})
-menu = `${uwu}
+menu = `Hallo kak ${tampilucapan}
+Iam *Sneazy-BOT* And Use Prefix *${prefix}*
 
-API : https://sneazy-api.herokuapp.com
+❏ *....: INFO BOT :....*
+▷ *Bot Name : Sneazy-BOT*
+▷ Version : _8.0.9_
+▷ Battery :  ${baterai.battery}
+▷ Hit : ${cmhit.length}
+▷ Owner : *@${dtod.split('@')[0]}*
+▷ Mode : ${publik ? 'Public' : 'Self'}
+▷ Hostname : ${os.hostname()}
+▷ Platform : ${os.platform()}
+▷ MNC : ${mnc}
+▷ MCC : ${mcc}
+▷ Device Model: ${denz.user.phone.device_model}
+▷ Device Manufactur : ${device_manufacturer}
+▷ Wa Version: ${denz.user.phone.wa_version}
+▷ Os Version: ${denz.user.phone.os_version}
+
+❏ *SOCIAL MEDIA*
+▷ https://instagram.com/ardynvyn__
+▷ https://github.com/sneazyvin
+
+❏ *....: INFO USER :....*
+▷ Status : ${isOwner ? 'Owner' : 'User'}
+▷ Nama : ${pushname}
+▷ Bio : ${stst}
+▷ Nomor : @${stod.split('@')[0]}
+▷ Network provider : ${num.data.carrier.type} - ${num.data.carrier.name}
+
+❏ *....: TIME AND DATE :....*
+▷ Jam : ${jmn}
+▷ Hari : ${week}
+▷ Weton : ${weton}
+▷ Tanggal : ${calender}
+▷ WIB : ${timeWib}
+▷ WITA : ${timeWita}
+▷ WIT : ${timeWit}
+
+❏ *....: STORAGE BOT :....*
+▷ Uptime : ${kyun(os.uptime())}
+▷ Private Chat : ${privat.length}
+▷ Group Chat : ${groups.length}
+▷ Total Chat : ${totalChat.length}
+▷ Auto Respon: ${autorespon}
+▷ Auto Read: ${readPc}
+▷ Penggunaan Ram : ${ram2}
+▷ Register : ${_registered.length}
+▷ Jadi Bot : 0
+
+
+
+
+╭─「 Information 」
+│ • ${prefix}tos
+│ • ${prefix}owner
+│ • ${prefix}update
+│ • ${prefix}runtime
+│ • ${prefix}infogempa
+│ • ${prefix}listgrup
+│ • ${prefix}whatmusik
+│ • ${prefix}parse
+│ • ${prefix}solve
+╰────
+
+
+╭─「 Absen/Voting menu 」
+│ • hadir (reply)
+│ • sakit (reply)
+│ • ${prefix}mulaiabsen
+│ • ${prefix}cekabsen
+│ • ${prefix}delabsen
+│ • vote (reply)
+│ • devote (reply)
+│ • ${prefix}voting @tag|text|1 (1=1 menit)
+│ • ${prefix}delvote
+╰────
+
+
+╭─「 Jadibot menu 」
+│ • ${prefix}jadibot
+│ • ${prefix}stopjadibot
+│ • ${prefix}listjadibot
+╰────
+
+
+╭─「 Game menu 」
+│ • ${prefix}tebaklagu
+│ • ${prefix}tebakbendera
+│ • ${prefix}tebakanime
+│ • ${prefix}tebakgambar
+│ • ${prefix}slots
+│ • ${prefix}tictactoe
+│ • ${prefix}deltictactoe
+│ • ${prefix}suit
+│ • ${prefix}captcha
+│ • ${prefix}dadu
+│ • ${prefix}math
+╰────
+
+
+╭─「 Storage menu 」
+│ • ${prefix}addsticker [ nama ]
+│ • ${prefix}delsticker [ nama ]
+│ • ${prefix}addvn [ nama ]
+│ • ${prefix}delvn [ nama ]
+│ • ${prefix}addimage [ nama ]
+│ • ${prefix}delimage [ nama ]
+│ • ${prefix}liststicker
+│ • ${prefix}listvn
+│ • ${prefix}listimage
+╰────
+
+
+╭─「 Baileys menu 」
+│ • ${prefix}inspect *url*
+│ • ${prefix}searchmsg *query*
+│ • ${prefix}tagme
+│ • ${prefix}kontak nomor|nama
+│ • ${prefix}kontag nomor|nama
+│ • ${prefix}hidetag
+│ • ${prefix}getpp @tag atau 'group'
+╰────
+
+
+╭─「 Maker menu 」
+│ • ${prefix}foliokiri
+│ • ${prefix}foliokanan
+│ • ${prefix}nuliskiri
+│ • ${prefix}nuliskanan
+│ • ${prefix}matrix
+│ • ${prefix}googletxt
+│ • ${prefix}spiderman
+│ • ${prefix}express
+│ • ${prefix}dance
+│ • ${prefix}blackbird
+│ • ${prefix}halloween
+│ • ${prefix}vampire
+│ • ${prefix}codetxt
+│ • ${prefix}text3d
+│ • ${prefix}warrior
+│ • ${prefix}maker2d2
+│ • ${prefix}maker2d3
+│ • ${prefix}maker2d4
+│ • ${prefix}maker3d
+│ • ${prefix}maker3d2
+│ • ${prefix}maker3d3
+│ • ${prefix}maker3d4
+│ • ${prefix}transformer
+│ • ${prefix}battlefield
+│ • ${prefix}coffeecup
+│ • ${prefix}coffeecup2
+│ • ${prefix}neon
+│ • ${prefix}glow
+│ • ${prefix}summer
+│ • ${prefix}flower
+│ • ${prefix}burn
+│ • ${prefix}quote
+│ • ${prefix}wooden
+│ • ${prefix}golden
+╰────
+
+
+╭─「 Tools menu  」
+│ • ${prefix}getscmd
+│ • ${prefix}bin-checker
+│ • ${prefix}cc-checker
+│ • ${prefix}get-bin
+│ • ${prefix}shell-checker
+│ • ${prefix}debase64
+│ • ${prefix}ehex
+│ • ${prefix}dehex
+│ • ${prefix}ebinary
+│ • ${prefix}debinary
+│ • ${prefix}dork
+│ • ${prefix}ipgeolocation
+│ • ${prefix}translate
+│ • ${prefix}encode64 
+│ • ${prefix}decode64
+│ • ${prefix}decode32
+│ • ${prefix}encode32
+│ • ${prefix}encbinary
+│ • ${prefix}decbinary
+│ • ${prefix}encoctal
+│ • ${prefix}decoctol
+│ • ${prefix}becrypt
+│ • ${prefix}hashidentifier
+│ • ${prefix}dorking
+│ • ${prefix}sha1hash
+│ • ${prefix}sha256hash
+│ • ${prefix}sha512hash
+│ • ${prefix}findhost
+╰────
+
+
+╭─「 Download menu 」
+│ • ${prefix}herolist
+│ • ${prefix}herodetail [ hero ]
+│ • ${prefix}google [ search ]
+│ • ${prefix}gimage [ search ]
+│ • ${prefix}wiki [ search ]
+│ • ${prefix}mediafire [ link ]
+│ • ${prefix}ytsearch [ judul ]
+│ • ${prefix}ytmp4 [ link ]
+│ • ${prefix}ytmp3 [ link ]
+│ • ${prefix}play [ judul ]
+│ • ${prefix}video [ judul ]
+│ • ${prefix}fetch
+│ • ${prefix}igdl [ link ]
+│ • ${prefix}tiktokdl [ link ]
+│ • ${prefix}pinterest [ search ]
+│ • ${prefix}lirik
+│ • ${prefix}upload [ reply ]
+│ • ${prefix}tourl
+│ • ${prefix}resepmasakan
+│ • ${prefix}artimimpi
+│ • ${prefix}bilanganangka
+│ • ${prefix}kalkulator
+│ • ${prefix}fancytext [ text ]
+│ • ${prefix}githubstalk
+│ • ${prefix}igstalk
+│ • ${prefix}ss [ link ]
+│ • ${prefix}tiktokaudio
+│ • ${prefix}igstory
+│ • ${prefix}playstore
+│ • ${prefix}fb
+│ • ${prefix}twitter
+╰────
+
+
+╭─「 18+ menu 」
+│ • ${prefix}trapnime
+│ • ${prefix}neko
+│ • ${prefix}pussy
+│ • ${prefix}megumin
+│ • ${prefix}blowjob
+│ • ${prefix}hentai
+│ • ${prefix}awoo
+│ • ${prefix}bj
+│ • ${prefix}eroneko
+│ • ${prefix}lesbian
+│ • ${prefix}anal
+│ • ${prefix}yuri
+│ • ${prefix}baka
+│ • ${prefix}neko2
+│ • ${prefix}kitsune
+│ • ${prefix}keta
+│ • ${prefix}poke
+│ • ${prefix}slap
+│ • ${prefix}bokep
+╰────
+
+
+╭─「 Sticker menu 」
+│ • ${prefix}sticker
+│ • ${prefix}take
+│ • ${prefix}colong
+│ • ${prefix}semoji
+│ • ${prefix}telestick [ query ]
+│ • ${prefix}attp
+╰────
+
+
+╭─「 Bug menu 」
+│ • ${prefix}virtex
+│ • ${prefix}bugtroli
+│ • ${prefix}bugkatalog
+│ • ${prefix}bugloc
+│ • ${prefix}bugrow
+│ • ${prefix}buglink
+│ • ${prefix}bugbutton
+│ • ${prefix}bug [ jumlah ]
+│ • ${prefix}bugpc2 [ jumlah ]
+│ • ${prefix}bugtroli2 [ jumlah ]
+│ • ${prefix}bugtroli3
+│ • ${prefix}bugpc
+│ • ${prefix}bugcombine
+│ • ${prefix}bughole
+│ • ${prefix}buglokasi
+╰────
+
+
+╭─「 Other menu 」
+│ • ${prefix}caripesan
+│ • ${prefix}fdeface [replyimg link|teks1|teks2]
+│ • ${prefix}tospam
+│ • ${prefix}tts
+│ • ${prefix}linkwa
+│ • ${prefix}puisi
+│ • ${prefix}dafont
+│ • ${prefix}dafontd
+╰────
+
+
+╭─「 Canvacord menu 」
+│ • ${prefix}ytkomen [teks|teks]
+│ • ${prefix}phkomen [teks|teks]
+│ • ${prefix}twitkomen [teks|teks]
+│ • ${prefix}trumptweet [teks]
+│ • ${prefix}efbe [@Tag|teks]
+│ • ${prefix}card [teks|teks](reply gambar)
+╰────
+
+
+╭─「 Shortner menu 」
+│ • ${prefix}tinyurl [link]
+│ • ${prefix}bitly [link]
+│ • ${prefix}cuttly [link]
+│ • ${prefix}at [link]
+│ • ${prefix}shrtco [link]
+│ • ${prefix}is.dg [link]
+╰────
+
+
+╭─「 Group menu 」
+│ • ${prefix}getpict [ @tag ]
+│ • ${prefix}getname
+│ • ${prefix}getbio
+│ • ${prefix}promote
+│ • ${prefix}demote
+│ • ${prefix}welcome
+│ • ${prefix}antilink
+│ • ${prefix}creategrup
+│ • ${prefix}nsfw
+│ • ${prefix}kick
+│ • ${prefix}add
+│ • ${prefix}getdeskgc
+│ • ${prefix}resetlink
+│ • ${prefix}sider
+│ • ${prefix}hacked
+│ • ${prefix}setnamegc
+│ • ${prefix}hidetag [ text ]
+│ • ${prefix}fitnah
+│ • ${prefix}opengc
+│ • ${prefix}closegc
+│ • ${prefix}bukatime [ waktu ]
+│ • ${prefix}tutuptime [ waktu ]
+│ • ${prefix}leavetime [ waktu ]
+│ • ${prefix}totag
+╰────
+
+
+╭─「 Revoke menu 」
+│ • ${prefix}revoke [enable/disable]
+│ • ${prefix}revoke [ctmati/ctaktif]
+│ • ${prefix}revoke banchat
+╰────
+
+
+╭─「 Owner menu 」
+│ • ${prefix}addupdate
+│ • ${prefix}bc
+│ • ${prefix}tobc
+│ • > [eval]
+│ • ${prefix}return
+│ • ${prefix}clearall
+│ • ${prefix}pin
+│ • ${prefix}archive
+│ • ${prefix}unarchive
+│ • ${prefix}mute
+│ • ${prefix}unmute
+│ • ${prefix}public
+│ • ${prefix}self
+│ • ${prefix}ban
+│ • ${prefix}promoteall
+│ • ${prefix}demoteall
+│ • ${prefix}addcmd [reply sticker]
+│ • ${prefix}delcmd [replysticker]
+│ • ${prefix}listcmd
+│ • ${prefix}spamsw [teks|jumlah]
+│ • ${prefix}upswteks
+│ • ${prefix}upswlokasi
+│ • ${prefix}upswaudio
+│ • ${prefix}upswvoice
+│ • ${prefix}upswsticker
+│ • ${prefix}upswimage
+│ • ${prefix}upswgif
+│ • ${prefix}upswvideo
+│ • ${prefix}shutdown
+│ • ${prefix}offline
+│ • ${prefix}online
+│ • ${prefix}exif
+│ • ${prefix}setprofile
+│ • ${prefix}setname
+│ • ${prefix}setprefix
+│ • ${prefix}setbio
+│ • ${prefix}leave
+│ • ${prefix}restart
+│ • ${prefix}join
+│ • ${prefix}addrespon [tanya|jawab]
+│ • ${prefix}delrespon [nama]
+│ • ${prefix}addchangelog
+│ • ${prefix}delchangelog
+│ • ${prefix}q
+╰───
+
+
+╭─「 Converter menu 」
+│ • ${prefix}tomp4
+│ • ${prefix}tomp3
+│ • ${prefix}toptt
+│ • ${prefix}toimg
+│ • ${prefix}togif
+│ • ${prefix}detikvn
+│ • ${prefix}detikvideo
+│ • ${prefix}bass
+│ • ${prefix}balik
+│ • ${prefix}robot
+│ • ${prefix}distord
+│ • ${prefix}nightmare
+╰────
+
+
+*SNEAZY-BOT^8.0.9*
+/*${uwu}API : https://sneazy-api.herokuapp.com
 
 ╭─❒ 「 Bot Info 」 ❒
 │◦➛Creator : @${dtod.split('@')[0]}
@@ -1835,8 +2247,9 @@ API : https://sneazy-api.herokuapp.com
 │◦➛${prefix}tebaklagu
 │◦➛${prefix}dadu
 └─────────────────❒
-${uwu}`
-denz.sendMessage(from, menu, text, { quoted: ftrol, thumbnail: fs.readFileSync('./denz.jpg'), contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `${jmn} - ${week} ${weton} - ${calender}`,body:"",mediaType:"2",thumbnail:ofrply,mediaUrl:`https://www.instagram.com/p/CSDBI6yq8FS/?utm_medium=copy_link`}}})
+${uwu}*/`
+denz.sendMessage(from, menu, text, { quoted: fkontakk, thumbnail: fs.readFileSync('./sneazy.png'), contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `Sneazy-BOT`, description: `${tampilucapan} Kak ${pushname}`,body:"",mediaType:"2",thumbnail:buff,mediaUrl:`https://youtu.be/dQw4w9WgXcQ`}}})
+//denz.sendMessage(from, menu, text, { quoted: ftrol, thumbnail: fs.readFileSync('./denz.jpg'), contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `${jmn} - ${week} ${weton} - ${calender}`,body:"",mediaType:"2",thumbnail:ofrply,mediaUrl:`https://www.instagram.com/p/CSDBI6yq8FS/?utm_medium=copy_link`}}})
 break
 /*case 'command':
  listMsg = {
@@ -5172,7 +5585,7 @@ case 'bugrow':
 if (!isOwner && !mek.key.fromMe) return reply(mess.only.ownerB)
 denz.toggleDisappearingMessages(from, 0)
  listMsg = {
- buttonText: 'LIST MENU',
+ buttonText: 'LIST sappearingMessages,
  footerText: `${emoji2(prefix)}`,
  description: `${virtex6(prefix)}`,
  sections: [
