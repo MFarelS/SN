@@ -137,12 +137,12 @@ exec(`cd /sdcard/download && play *mp3`)
 					})
 				})
 			} */
-		/*let buff = await getBuffer(ppimg)
+		let buff = await getBuffer(ppimg)
 			masuk =`${uwu}Welcome @${num.split('@')[0]}\n\nWe hope you feel comfortable here!!${uwu}`
 			//Welcome @${num.split('@')[0]}* ${enter}${enter}📛 : _${anu_user}_${enter}💌 : _${p3}_${enter}🔣 : _@${num.split('@')[0]}_${enter}🥉 : _${memeg} Member (s)_${enter}⏰ : _${jamnyy} Indonesian time_${enter}${enter}\`\`\`Hope you like it and don't forget to read the group description\`\`\``;
             denz.sendMessage(mdata.id, masuk, MessageType.text, { quoted: fkontakk, thumbnail: fs.readFileSync('./denz.jpg'), contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `Welcome To ${mdata.subject}`,body:"",mediaType:"2",thumbnail:buff,mediaUrl:`https://youtu.be/dQw4w9WgXcQ`}}})
-			} */
-			num = anu.participants[0]
+			} 
+			/*num = anu.participants[0]
 				var namea = denz.contacts[num] != undefined ? denz.contacts[num].vname || denz.contacts[num].notify : 'unknown'
 				try {
 					ppimg = await denz.getProfilePicture(`${anu.participants[0].split('@')[0]}@c.us`)
@@ -180,7 +180,7 @@ exec(`cd /sdcard/download && play *mp3`)
 						})
 					})
 				})
-			}
+			}*/
 			else if (anu.action == 'remove') {
 			const welkom = JSON.parse(fs.readFileSync('./database/welkom.json'))
 			const cord = require("canvacord")
