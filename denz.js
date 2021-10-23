@@ -674,7 +674,7 @@ return crypto.randomBytes(size).toString('hex').slice(0, size)
 // TROLI
 const ftrol = {
 	key : {
-                          participant : 'status@broadcast'
+                          participant : '0@s.whatsapp.net'
                         },
        message: {
                     orderMessage: {
@@ -682,9 +682,9 @@ const ftrol = {
                             status: 1,
                             surface : 1,
                             message: `Hai kak ${pushname}👋
-                            ${tampilUcapan}`, //Kasih namalu
+                            Runtime: ${kyun(os.uptime())}`, //Kasih namalu
                             orderTitle: `Hai kak ${pushname}👋
-                            ${tampilUcapan}`,
+                            Runtime: ${kyun(os.uptime())}`,
                             thumbnail: dfrply, //Gambarnye
                             sellerJid: '6285732415700@s.whatsapp.net' 
                           }
@@ -1552,10 +1552,11 @@ if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted
         ptod = "6282138919347@s.whatsapp.net"
         stod = `${sender}`
         uwu = '```'
-       stst = await denz.getStatus(`${sender.split('@')[0]}@c.us`)
+        		var ra2 = `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB`
+			 stst = await denz.getStatus(`${sender.split('@')[0]}@c.us`)
 				stst = stst.status == 401 ? '' : stst.status
 			num = await fetchJson(`https://api.telnyx.com/anonymous/v2/number_lookup/${senderNumber}`, {method: 'get'})
-menu = `Hallo kak ${pushname}${tampilUcapan}
+menu = `Hallo kak ${pushname} ${tampilUcapan}
 Iam *Sneazy-BOT* And Use Prefix *${prefix}*
 
 
@@ -1597,6 +1598,7 @@ Iam *Sneazy-BOT* And Use Prefix *${prefix}*
 ▷ WITA : ${timeWita}
 ▷ WIT : ${timeWit}
 
+
 ❏ *....: STORAGE BOT :....*
 ▷ Uptime : ${kyun(os.uptime())}
 ▷ Private Chat : ${privat.length}
@@ -1604,7 +1606,7 @@ Iam *Sneazy-BOT* And Use Prefix *${prefix}*
 ▷ Total Chat : ${totalChat.length}
 ▷ Auto Respon: ${autorespon}
 ▷ Auto Read: ${readPc}
-▷ Penggunaan Ram : ${ram2}
+▷ Penggunaan Ram : ${ra2}
 ▷ Register : ${_registered.length}
 ▷ Jadi Bot : 0
 
