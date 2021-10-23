@@ -2887,7 +2887,7 @@ katalog(menu)
 break
 case 'tos':
 					const tiez = moment().tz('Asia/Jakarta').format("HH:mm:ss")
-								kala = fs.readFileSync(`./src/terms.jpg`)
+								kala = fs.readFileSync(`./tos.png`)
 					terms = `*TERMS OF SERVICE* | *${tiez}*
 
 SNEAZY BOT merupakan project bot WhatsApp yang menggunakan termux, dijalankan menggunakan engine nodejs v14.0.0
