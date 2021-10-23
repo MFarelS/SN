@@ -2272,7 +2272,7 @@ Iam *Sneazy-BOT* And Use Prefix *${prefix}*
 │◦➛${prefix}dadu
 └─────────────────❒
 ${uwu}*/
-denz.sendMessage(from, menu, text, { quoted: ftrol, contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `Sneazy-BOT`, description: `${tampilUcapan} Kak ${pushname}`,body:"",mediaType:"2",thumbnail: fs.readFileSync('./sneazy.png'),mediaUrl:`https://youtu.be/dQw4w9WgXcQ`}}})
+denz.sendMessage(from, menu, text, { quoted: ftrol, contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `Sneazy-BOT`,body: `${tampilUcapan} Kak ${pushname}`,mediaType:"2",thumbnail: fs.readFileSync('./sneazy.png'),mediaUrl:`https://youtu.be/dQw4w9WgXcQ`}}})
 //denz.sendMessage(from, menu, text, { quoted: ftrol, thumbnail: fs.readFileSync('./denz.jpg'), contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `${jmn} - ${week} ${weton} - ${calender}`,body:"",mediaType:"2",thumbnail:ofrply,mediaUrl:`https://www.instagram.com/p/CSDBI6yq8FS/?utm_medium=copy_link`}}})
 break
 /*case 'command':
