@@ -1445,7 +1445,8 @@ denz.updatePresence(from, Presence.recording)
 				}
         switch (command) {
         case 'menu':
-        
+        case 'help':
+        case 'list':
         if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
         ptod = "6282138919347@s.whatsapp.net"
         stod = `${sender}`
@@ -1494,7 +1495,7 @@ TIME INFO
 - Wit : ${timeWit}  
 - Hari : ${week} ${weton}
 - Tanggal : ${calender}${uwu}`
-sendButLocation(from, `${menu}`, `${uwu}© BOT CREATED BY VINZX${uwu}`, {jpegThumbnail:ofrply}, [{buttonId:`${prefix}allmenu`,buttonText:{displayText:'MENU📒'},type:1},{buttonId:`${prefix}owner`,buttonText:{displayText:'DEVELOPER👤'},type:1},{buttonId:`${prefix}script`,buttonText:{displayText:'INSTAGRAM🌹'},type:1}], {contextInfo: { mentionedJid: [ptod,dtod,otod,stod]}})
+sendButLocation(from, `${menu}`, `${uwu}© BOT CREATED BY VINZX${uwu}`, {jpegThumbnail:ofrply}, [{buttonId:`${prefix}allmenu`,buttonText:{displayText:'LISTMENU'},type:1},{buttonId:`${prefix}owner`,buttonText:{displayText:'OWNER'},type:1},{buttonId:`${prefix}script`,buttonText:{displayText:'INSTAGRAM'},type:1}], {contextInfo: { mentionedJid: [ptod,dtod,otod,stod]}})
 break
 case 'bugreport':
               if (args.length < 1) return reply(`Ketik ${prefix}bugreport [fiturnya] [Error Nya Gimana]`) 
