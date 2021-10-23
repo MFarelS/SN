@@ -1785,6 +1785,7 @@ Iam *Sneazy-BOT* And Use Prefix *${prefix}*
 │ • ${prefix}playstore
 │ • ${prefix}fb
 │ • ${prefix}twitter
+│ • ${prefix}joox
 ╰────
 
 
@@ -1818,6 +1819,10 @@ Iam *Sneazy-BOT* And Use Prefix *${prefix}*
 │ • ${prefix}semoji
 │ • ${prefix}telestick [ query ]
 │ • ${prefix}attp
+│ • ${prefix}stickerfire
+│ • ${prefix}trigger
+│ • ${prefix}sticktag
+│ • ${prefix}stickernobg
 ╰────
 
 
@@ -1849,6 +1854,8 @@ Iam *Sneazy-BOT* And Use Prefix *${prefix}*
 │ • ${prefix}puisi
 │ • ${prefix}dafont
 │ • ${prefix}dafontd
+│ • ${prefix}qrcode
+│ • ${prefix}readcode
 ╰────
 
 
@@ -1857,6 +1864,7 @@ Iam *Sneazy-BOT* And Use Prefix *${prefix}*
 │ • ${prefix}phkomen [teks|teks]
 │ • ${prefix}twitkomen [teks|teks]
 │ • ${prefix}trumptweet [teks]
+│ • ${prefix}hitler [ text ]
 │ • ${prefix}efbe [@Tag|teks]
 │ • ${prefix}card [teks|teks](reply gambar)
 ╰────
@@ -1869,6 +1877,15 @@ Iam *Sneazy-BOT* And Use Prefix *${prefix}*
 │ • ${prefix}at [link]
 │ • ${prefix}shrtco [link]
 │ • ${prefix}is.dg [link]
+╰────
+
+
+╭─「 Education menu 」
+│ • ${prefix}googlesearch
+│ • ${prefix}kbbi
+│ • ${prefix}translate
+│ • ${prefix}brainly
+│ • ${prefix}wiki
 ╰────
 
 
@@ -2413,6 +2430,7 @@ const serialUser = createSerial(6)
 Note:
 - Jika ada bug dalam bot bisa ketik ${prefix}bugreport
 - Mau masukin bot ke group? Izin sama owner ketik ${prefix}owner
+- Sebelum menggunakan bot alangkah lebih baik membaca _termsofservice_ ketik ${prefix}tos
 
 ${uwu}Thank you for registering!${uwu}`
 gbutsan = [
@@ -2866,6 +2884,27 @@ menu = `❏ 「 \`\`\`MENU OTHER\`\`\` 」
 │◦➛${prefix}sharelock [ teks1|teks2 ]
 └${prefix}dadu`
 katalog(menu)
+break
+case 'tos':
+					const tiez = moment().tz('Asia/Jakarta').format("HH:mm:ss")
+								kala = fs.readFileSync(`./src/terms.jpg`)
+					terms = `*TERMS OF SERVICE* | *${tiez}*
+
+SNEAZY BOT merupakan project bot WhatsApp yang menggunakan termux, dijalankan menggunakan engine nodejs v14.0.0
+
+Adapun persyaratan yang telah dibuat, antara lain:
+
+*1*. User berhak mencoba semua perintah/command yang telah disedikan oleh bot dengan tidak melakukan tindakan spaming terhadap bot.
+*2*. Bot berhak mem-blokir user yang melanggar aturan rules saat ini, adapun rules yang harus di patuhi user antara lain:
+   ✓. Tidak melakukan panggilan telepon atau video call kepada bot
+   ✓. Tidak melakukan spam perintah kepada bot sehingga membuat server down
+   ✓. mendiskriminasi bot atau mengancam tindakan kekerasan terhadap bot.
+*3*. Dilarang mengirim pesan-pesan yang tidak jelas, seperti mengirim virtext dan lainnya yang dapat menyebabkan bot crash.
+*4*. Didalam bot ini terdapat fitur berbahaya jangan di salah gunakan!! Apa bila di salah gunakan anda akan SAYA BANNED
+*5*. Jika menemukan bug/semacamnya lapor kepada owner Terimakasih....
+
+Owner: VIN | wa.me/6285732415700`
+denz.sendMessage(from, kala, image, {quoted: ftrol, thumbnail: fs.readFileSync('./tos.png'), caption: terms})
 break
 //Hardianto nsfw
 case 'yuri':
