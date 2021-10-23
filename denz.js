@@ -974,6 +974,7 @@ denz.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
                     fs.writeFileSync("./database/tebakbendera.json", JSON.stringify(tebakbendera))
                 }
             }
+            const toJSON = j => JSON.stringify(j, null,'\t')
         const sendWebp = async(from, url) => {
                 var names = Date.now() / 10000;
                 var download = function (uri, filename, callback) {
@@ -2548,6 +2549,15 @@ if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted
 					}
 				}
 				break
+case 'return':
+				
+                                        try {
+                                        return denz.sendMessage(from, toJSON(eval(args.join(''))), text, {quoted: mek})
+                                        } catch (e) {
+                                        reply(String(e))
+                                        }
+                                        break
+                                        
 case 'pin':
                 if (!isOwner && !mek.key.fromMe) return reply(mess.only.ownerB)
                 denz.modifyChat(from, ChatModification.pin)
