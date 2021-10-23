@@ -681,10 +681,8 @@ const ftrol = {
                             itemCount : 8888,
                             status: 1,
                             surface : 1,
-                            message: `Hai kak ${pushname}👋
-                            Runtime: ${kyun(os.uptime())}`, //Kasih namalu
-                            orderTitle: `Hai kak ${pushname}👋
-                            Runtime: ${kyun(os.uptime())}`,
+                            message: `Hai kak ${pushname}👋\nRuntime: ${kyun(os.uptime())}`, //Kasih namalu
+                            orderTitle: `Hai kak ${pushname}👋\nRuntime: ${kyun(os.uptime())}`,
                             thumbnail: dfrply, //Gambarnye
                             sellerJid: '6285732415700@s.whatsapp.net' 
                           }
