@@ -932,7 +932,10 @@ denz.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
 				}
 			}
 		}
-		const sendStickerUrl = async(to, url) => {
+	function randomNomor(angka){
+            return Math.floor(Math.random() * angka) + 1
+        }
+	const sendStickerUrl = async(to, url) => {
 			console.log(color(time, 'magenta'), color(moment.tz('Asia/Jakarta').format('HH:mm:ss'), "gold"), color('Downloading sticker'))
 				var names = getRandom('.webp')
 				var namea = getRandom('.png')
