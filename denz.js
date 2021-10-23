@@ -1445,7 +1445,7 @@ denz.updatePresence(from, Presence.recording)
 				}
         switch (command) {
         case 'menu':
-        case 'help':
+        
         if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
         ptod = "6282138919347@s.whatsapp.net"
         stod = `${sender}`
@@ -2272,7 +2272,7 @@ Iam *Sneazy-BOT* And Use Prefix *${prefix}*
 │◦➛${prefix}dadu
 └─────────────────❒
 ${uwu}*/
-denz.sendMessage(from, menu, text, { quoted: ftrol, contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `Sneazy-BOT`,body: `${tampilUcapan} Kak ${pushname}`,mediaType:"2",thumbnail: fs.readFileSync('./sneazy.png'),mediaUrl:`https://youtu.be/dQw4w9WgXcQ`}}})
+denz.sendMessage(from, menu, text, { quoted: ftrol, contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `Sneazy-BOT`,body: `${tampilUcapan} Kak ${pushname}\nHarap gunakan bot dengan bijak!!`,mediaType:"2",thumbnail: fs.readFileSync('./sneazy.png'),mediaUrl:`https://youtu.be/dQw4w9WgXcQ`}}})
 //denz.sendMessage(from, menu, text, { quoted: ftrol, thumbnail: fs.readFileSync('./denz.jpg'), contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `${jmn} - ${week} ${weton} - ${calender}`,body:"",mediaType:"2",thumbnail:ofrply,mediaUrl:`https://www.instagram.com/p/CSDBI6yq8FS/?utm_medium=copy_link`}}})
 break
 /*case 'command':
@@ -2435,7 +2435,7 @@ Note:
 
 ${uwu}Thank you for registering!${uwu}`
 gbutsan = [
-{buttonId:`menu`,buttonText:{displayText:'MENU'},type:1},
+{buttonId:`allmenu`,buttonText:{displayText:'MENU'},type:1},
 {buttonId:`donasi`,buttonText:{displayText:'INSTAGRAM'},type:1}
 ]
 mhan = await denz.prepareMessage(from, ofrply, image, {thumbnail: ofrply})
@@ -6181,6 +6181,7 @@ break
 					denz.sendMessage(from, `Sukses, silahkan cek dengan *${prefix}listimage*`, MessageType.text, { quoted: mek })
 					break
 				case 'delimage':
+				
 				if (!isOwner && !mek.key.fromMe) return reply(mess.only.ownerB)
 					try {
 					 nmm = body.slice(10)
@@ -6195,7 +6196,10 @@ break
 					break
 					case 'imagelist':
 				case 'listimage':
+				if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+
 					teks = '*Image List :*\n\n'
+					
 					for (let awokwkwk of imagi) {
 						teks += `- ${awokwkwk}\n`
 					}
@@ -6203,6 +6207,8 @@ break
 					denz.sendMessage(from, teks.trim(), extendedText, { quoted: mek, contextInfo: { "mentionedJid": imagi } })
 					break
 				case 'sticktag':
+				if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+
 				if (!isGroup) return reply(mess.only.group)
 				anu  = body.slice(10)
 				wanu = anu.split('|')
@@ -6216,6 +6222,8 @@ break
 				denz.sendMessage(`${wanu[0]}`, result, sticker, { contextInfo: { "mentionedJid": mem }})
 				break
 			case 'runtime':
+			if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+
 				runtime = process.uptime()
 				reply(`Runtime : ${waktu(runtime)}`)
 				break
@@ -6234,6 +6242,7 @@ break
                 reply(`Sukses mengganti nama ke ${body.slice(9)}`)
                 break
 			case 'add':
+			if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
 			if (!isGroup) return reply(mess.only.group)
 			if (!isGroupAdmins) return reply(mess.only.admin)
 			if (!isBotGroupAdmins) return reply(mess.only.Badmin)
