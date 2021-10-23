@@ -1511,7 +1511,7 @@ case 'bugreport':
               ini_audio = get_result.preview
               jawaban = get_result.judul
               //kisi_kisi = jawaban.replace(/[a|b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '_')
-              teks = get.result.jawaban.toLowerCase().replace(/['b','j','g','s','l','m','n','k','t','c','f','r','y','d','w']/g, ' _ ')
+              teks = get_result.result.jawaban.toLowerCase().replace(/['b','j','g','s','l','m','n','k','t','c','f','r','y','d','w']/g, ' _ ')
               ini_buffer = await getBuffer(ini_audio)
               reply('*+* ```Tebak Lagu```\n\n• *Petunjuk* :'+teks'\n• *Waktu* : 30s')
               //denz.sendMessage(from, ini_buffer, audio, {quoted: mek})
