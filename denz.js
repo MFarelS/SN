@@ -1510,9 +1510,10 @@ case 'bugreport':
               get_result = get_result.result
               ini_audio = get_result.preview
               jawaban = get_result.judul
-              kisi_kisi = jawaban.replace(/[a|b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '_')
+              //kisi_kisi = jawaban.replace(/[a|b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '_')
+              teks = get.result.jawaban.toLowerCase().replace(/['b','j','g','s','l','m','n','k','t','c','f','r','y','d','w']/g, ' _ ')
               ini_buffer = await getBuffer(ini_audio)
-              reply('*+* ```Tebak Lagu```\n\n• *Petunjuk* :'+kisi_kisi+'\n• *Waktu* : 30s')
+              reply('*+* ```Tebak Lagu```\n\n• *Petunjuk* :'+teks'\n• *Waktu* : 30s')
               //denz.sendMessage(from, ini_buffer, audio, {quoted: mek})
               denz.sendMessage(from, ini_buffer, audio, { mimetype: 'audio/mp4', duration: 359996400, ptt: true, quoted: mek, contextInfo: { forwardingScore: 508, isForwarded: true}}).then(() => {
               tebaklagu[sender.split('@')[0]] = jawaban.toLowerCase()
