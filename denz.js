@@ -957,26 +957,7 @@ denz.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
 					});
 				});
 			}
-			if (tebaklagu.hasOwnProperty(sender.split('@')[0]) && !isCmd) {
-                kuis = true
-                jawaban = tebaklagu[sender.split('@')[0]]
-                if (budy.toLowerCase() == jawaban) {
-                	var htpl = randomNomor(100)
-                    await reply(`*_🎮 Tebak Lagu 🎮_*\n\n*•* *Jawaban Benar🎉*\n\nIngin bermain lagi? kirim *${prefix}tebaklagu*`)
-                    delete tebaklagu[sender.split('@')[0]]
-                    fs.writeFileSync("./database/tebaklagu.json", JSON.stringify(tebaklagu))
-                }
-            }
-             if (tebakbendera.hasOwnProperty(sender.split('@')[0]) && !isCmd) {
-                kuis = true
-                jawaban = tebakbendera[sender.split('@')[0]]
-                if (budy.toLowerCase() == jawaban) {
-                	var html = randomNomor(100)
-                    await reply(`*_🎮 Tebak Bendera  🎮_*\n\n*•* *Jawaban Benar🎉*\n\nIngin bermain lagi? kirim *${prefix}tebakbendera*`)
-                    delete tebakbendera[sender.split('@')[0]]
-                    fs.writeFileSync("./database/tebakbendera.json", JSON.stringify(tebakbendera))
-                }
-            }
+		
             const toJSON = j => JSON.stringify(j, null,'\t')
         const sendWebp = async(from, url) => {
                 var names = Date.now() / 10000;
@@ -1039,6 +1020,26 @@ console.log(e)
 })
 })
 }
+	if (tebaklagu.hasOwnProperty(sender.split('@')[0]) && !isCmd) {
+                kuis = true
+                jawaban = tebaklagu[sender.split('@')[0]]
+                if (budy.toLowerCase() == jawaban) {
+                	var htpl = randomNomor(100)
+                    await reply(`*_🎮 Tebak Lagu 🎮_*\n\n*•* *Jawaban Benar🎉*\n\nIngin bermain lagi? kirim *${prefix}tebaklagu*`)
+                    delete tebaklagu[sender.split('@')[0]]
+                    fs.writeFileSync("./database/tebaklagu.json", JSON.stringify(tebaklagu))
+                }
+            }
+             if (tebakbendera.hasOwnProperty(sender.split('@')[0]) && !isCmd) {
+                kuis = true
+                jawaban = tebakbendera[sender.split('@')[0]]
+                if (budy.toLowerCase() == jawaban) {
+                	var html = randomNomor(100)
+                    await reply(`*_🎮 Tebak Bendera  🎮_*\n\n*•* *Jawaban Benar🎉*\n\nIngin bermain lagi? kirim *${prefix}tebakbendera*`)
+                    delete tebakbendera[sender.split('@')[0]]
+                    fs.writeFileSync("./database/tebakbendera.json", JSON.stringify(tebakbendera))
+                }
+            }
   const sendMediaURL = async(to, url, text="", mids=[]) =>{
 				if(mids.length > 0){
 					text = normalizeMention(to, text, mids)
