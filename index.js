@@ -212,7 +212,7 @@ num = anu.participants[0]
 					exec(`ffmpeg -i ./${xixi} ./${xoxo}`, (err) => {
 						imgbb("046987b675ceee8523a0bbb17398620a", `./${xaxa}`).then(hesel => {
 							imgbb("046987b675ceee8523a0bbb17398620a", `./${xoxo}`).then(data => {
-								useless = cord.Goodbye()
+								const haha = await new cord.Goodbye()
 								.setUsername(namea)
 								.setDiscriminator(`${dom1}${dom2}${dom3}${dom4}`)
 								.setMemberCount(mdata.participants.length)
