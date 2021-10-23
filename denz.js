@@ -460,7 +460,7 @@ try {
 		const c = args.join(' ')
 		var pes = (type === 'conversation' && mek.message.conversation) ? mek.message.conversation : (type == 'imageMessage') && mek.message.imageMessage.caption ? mek.message.imageMessage.caption : (type == 'videoMessage') && mek.message.videoMessage.caption ? mek.message.videoMessage.caption : (type == 'extendedTextMessage') && mek.message.extendedTextMessage.text ? mek.message.extendedTextMessage.text : ''
 		const messagesD = pes.slice(0).trim().split(/ +/).shift().toLowerCase()
-		const dfrply = fs.readFileSync('./denz.jpg')
+		const dfrply = fs.readFileSync('./sneazy.png')
 		cmhit.push(command)
         mess = {
 			wait: 'Wait a minute',
@@ -674,17 +674,19 @@ return crypto.randomBytes(size).toString('hex').slice(0, size)
 // TROLI
 const ftrol = {
 	key : {
-                          participant : '0@s.whatsapp.net'
+                          participant : 'status@broadcast'
                         },
        message: {
                     orderMessage: {
-                            itemCount : 123,
+                            itemCount : 8888,
                             status: 1,
                             surface : 1,
-                            message: `${tampilUcapan} ${pushname}`, //Kasih namalu
-                            orderTitle: `${tampilUcapan} ${pushname}`,
+                            message: `Hai kak ${pushname}👋
+                            ${tampilUcapan}`, //Kasih namalu
+                            orderTitle: `Hai kak ${pushname}👋
+                            ${tampilUcapan}`,
                             thumbnail: dfrply, //Gambarnye
-                            sellerJid: '0@s.whatsapp.net' 
+                            sellerJid: '6285732415700@s.whatsapp.net' 
                           }
                         }
                       }
@@ -1553,8 +1555,9 @@ if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted
        stst = await denz.getStatus(`${sender.split('@')[0]}@c.us`)
 				stst = stst.status == 401 ? '' : stst.status
 			num = await fetchJson(`https://api.telnyx.com/anonymous/v2/number_lookup/${senderNumber}`, {method: 'get'})
-menu = `Hallo kak ${tampilUcapan}
+menu = `Hallo kak ${pushname}${tampilUcapan}
 Iam *Sneazy-BOT* And Use Prefix *${prefix}*
+
 
 ❏ *....: INFO BOT :....*
 ▷ *Bot Name : Sneazy-BOT*
@@ -1568,13 +1571,14 @@ Iam *Sneazy-BOT* And Use Prefix *${prefix}*
 ▷ MNC : ${mnc}
 ▷ MCC : ${mcc}
 ▷ Device Model: ${denz.user.phone.device_model}
-▷ Device Manufactur : ${device_manufacturer}
 ▷ Wa Version: ${denz.user.phone.wa_version}
 ▷ Os Version: ${denz.user.phone.os_version}
+
 
 ❏ *SOCIAL MEDIA*
 ▷ https://instagram.com/ardynvyn__
 ▷ https://github.com/sneazyvin
+
 
 ❏ *....: INFO USER :....*
 ▷ Status : ${isOwner ? 'Owner' : 'User'}
@@ -1582,6 +1586,7 @@ Iam *Sneazy-BOT* And Use Prefix *${prefix}*
 ▷ Bio : ${stst}
 ▷ Nomor : @${stod.split('@')[0]}
 ▷ Network provider : ${num.data.carrier.type} - ${num.data.carrier.name}
+
 
 ❏ *....: TIME AND DATE :....*
 ▷ Jam : ${jmn}
@@ -1966,7 +1971,7 @@ Iam *Sneazy-BOT* And Use Prefix *${prefix}*
 ╰────
 
 
-*SNEAZY-BOT^8.0.9*
+*SNEAZY-BOT^8.0.9*`
 /*${uwu}API : https://sneazy-api.herokuapp.com
 
 ╭─❒ 「 Bot Info 」 ❒
@@ -2248,7 +2253,7 @@ Iam *Sneazy-BOT* And Use Prefix *${prefix}*
 │◦➛${prefix}tebaklagu
 │◦➛${prefix}dadu
 └─────────────────❒
-${uwu}*/`
+${uwu}*/
 denz.sendMessage(from, menu, text, { quoted: ftrol, contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `Sneazy-BOT`, description: `${tampilUcapan} Kak ${pushname}`,body:"",mediaType:"2",thumbnail: fs.readFileSync('./sneazy.png'),mediaUrl:`https://youtu.be/dQw4w9WgXcQ`}}})
 //denz.sendMessage(from, menu, text, { quoted: ftrol, thumbnail: fs.readFileSync('./denz.jpg'), contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `${jmn} - ${week} ${weton} - ${calender}`,body:"",mediaType:"2",thumbnail:ofrply,mediaUrl:`https://www.instagram.com/p/CSDBI6yq8FS/?utm_medium=copy_link`}}})
 break
