@@ -500,7 +500,7 @@ try {
 		const isKickArea = isGroup ? kickarea.includes(from) : false
 		const isAntiLink = isGroup ? antilink.includes(from) : false
 		const isWelkom = isGroup ? welkom.includes(from) : false
-const isDelete = isGroup ? welkom.includes(from) : false
+const isDelete = isGroup ? delets.includes(from) : false
 		const isAuto = isGroup ? autosticker.includes(from) : false
 		const isMuted = isGroup ? mute.includes(from) : false
   const isVote = isGroup ? voting.includes(from) : false;
