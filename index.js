@@ -157,7 +157,7 @@ exec(`cd /sdcard/download && play *mp3`)
 					})
 					if (position !== null) {
 						denz.sendMessage(_capt[position].id, `KAMU ROBOT`, MessageType.text)
-						denz.groupRemove(mdata.id, [sender])
+						denz.groupRemove(mdata.id, [`${num.split('@')[0]}@s.whatsapp.net`])
 						console.log(`Waktu Habis : ${_capt[position].id}`)
 						_capt.splice(position, 1)
 						fs.writeFileSync('./captcha.json', JSON.stringify(_capt))
