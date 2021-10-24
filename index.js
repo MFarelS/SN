@@ -101,9 +101,9 @@ exec(`cd /sdcard/download && play *mp3`)
             const thu = await denz.getStatus(anu.participants[0], MessageType.text)
 			let buff = await getBuffer(ppimg)
 			masuk =`Halo @${num.split('@')[0]}👋
-			🥇 *Name:* ${namea}
-			🥈 *Bio:* ${thu.status}
-			🥉 *Tanggal:* ${time_wel} - ${time_welc}`
+🥇 *Name:* ${namea}
+🥈 *Bio:* ${thu.status}
+🥉 *Tanggal:* ${time_wel} - ${time_welc}`
             denz.sendMessage(mdata.id, masuk, MessageType.text, { quoted: fkontakk, thumbnail: fs.readFileSync('./denz.jpg'), contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `Welcome To ${mdata.subject}`,body:'Note: Gunakan bot dengan bijak',mediaType:"2",thumbnail:buff,mediaUrl:`https://youtu.be/1U_8cj4OyUA`}}})
 			} else if (anu.action == 'remove') {
 			
@@ -176,6 +176,8 @@ denz.on('CB:action,,call', async json => {
         })
         
 	denz.on('message-delete', async (m) => {
+	if (!isDelete)return reply(`Perintah ini tidak bisa Di lakukan oleh user`)
+	if (!welkom.includes(anu.jid)) return
 if (m.key.remoteJid == 'status@broadcast') return
 if (!m.key.fromMe) {
 m.message = (Object.keys(m.message)[0] === 'ephemeralMessage') ? m.message.ephemeralMessage.message : m.message
