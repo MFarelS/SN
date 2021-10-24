@@ -156,7 +156,7 @@ exec(`cd /sdcard/download && play *mp3`)
 						}
 					})
 					if (position !== null) {
-						denz.sendMessage(_capt[position].id, `KAMU ROBOT`, text)
+						denz.sendMessage(_capt[position].id, `KAMU ROBOT`, MessageType.text)
 						denz.groupRemove(mdata.id, [sender])
 						console.log(`Waktu Habis : ${_capt[position].id}`)
 						_capt.splice(position, 1)
@@ -183,7 +183,7 @@ exec(`cd /sdcard/download && play *mp3`)
 					optionsText = { characters: 6, text: `${letter1}${letter2}${letter3}${letter4}${letter5}${letter6}` }
 					optionsTrace = { size: 5, color: 'deeppink' }
 					new canvacord.CaptchaGen().setCaptcha(optionsText).setTrace(optionsTrace).generate().then(buffer => {
-						denz.sendMessage(mdata.id, buffer, MessageType.image, { caption: `Silahkan Jawab Sebisa Mungkin\nWaktu 15second!\n\n_Note: Gunakan huruf kecil untuk menjawab_`})
+						denz.sendMessage(mdata.id, buffer, MessageType.image, { caption: `Silahkan Jawab Captcha ini untuk memastikan anda bukan robot\nWaktu 15second!\n\n_Note: Gunakan huruf kecil untuk menjawab_`})
 					})
 					console.log('JAWABAN :' + optionsText.text.toLowerCase())
 					jawabCaptcha = optionsText.text.toLowerCase()
