@@ -161,7 +161,7 @@ num = anu.participants[0]
 //		bbbbuuuuffff = await getBuffer(`http://hadi-api.herokuapp.com/api/card/goodbye2?nama=${encodeURIComponent(anu_user.notify)}&descriminator=${member}&memcount=${member}&gcname=${mdata.subject}&gcicon=${pp_grup}&pp=${pp_user}&bg=${pp_grup}`)
 			masuk =`${uwu}Welcome @${num.split('@')[0]}\n\nWe hope you feel comfortable here!!${uwu}`
 			//Welcome @${num.split('@')[0]}* ${enter}${enter}📛 : _${anu_user}_${enter}💌 : _${p3}_${enter}🔣 : _@${num.split('@')[0]}_${enter}🥉 : _${memeg} Member (s)_${enter}⏰ : _${jamnyy} Indonesian time_${enter}${enter}\`\`\`Hope you like it and don't forget to read the group description\`\`\``;
-            denz.sendMessage(mdata.id, masuk, MessageType.text, { quoted: fkontakk, thumbnail: fs.readFileSync('./denz.jpg'), contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `Welcome To ${mdata.subject}`,body:"",mediaType:"2",thumbnail:bbbuuufff,mediaUrl:`https://youtu.be/dQw4w9WgXcQ`}}})
+            denz.sendMessage(mdata.id, masuk, MessageType.text, { quoted: fkontakk, thumbnail: fs.readFileSync('./denz.jpg'), contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `Welcome To ${mdata.subject}`,body:"Semoga betah!!",mediaType:"2",thumbnail:`${bbbuuufff}`,mediaUrl:`https://youtu.be/dQw4w9WgXcQ`}}})
 			} 
 			/*num = anu.participants[0]
 				var namea = denz.contacts[num] != undefined ? denz.contacts[num].vname || denz.contacts[num].notify : 'unknown'
