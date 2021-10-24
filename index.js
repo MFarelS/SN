@@ -97,7 +97,7 @@ exec(`cd /sdcard/download && play *mp3`)
 			time_welc = moment.tz('Asia/Jakarta').format('DD/MM/YYYY')
                 time_wel = moment.tz('Asia/Jakarta').format("hh:mm")
 			const memeg = mdata.participants.length
-            const thu = await client.getStatus(anu.participants[0], MessageType.text)
+            const thu = await denz.getStatus(anu.participants[0], MessageType.text)
 			let buff = await getBuffer(ppimg)
 			masuk =`Halo @${num.split('@')[0]}
 			Bio = ${thu.status}
