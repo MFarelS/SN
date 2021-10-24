@@ -1617,7 +1617,6 @@ Iam *Sneazy-BOT* And Use Prefix *${prefix}*
 
 
 
-
 ╭─「 Information 」
 │ • ${prefix}tos
 │ • ${prefix}owner
@@ -1895,6 +1894,25 @@ Iam *Sneazy-BOT* And Use Prefix *${prefix}*
 │ • ${prefix}wiki
 ╰────
 
+
+╭─「 Spammer menu 」
+│ • ${prefix}pizzahut
+│ • ${prefix}olx
+│ • ${prefix}shopee
+│ • ${prefix}lcq
+│ • ${prefix}danacita
+│ • ${prefix}Akademi
+│ • ${prefix}jagreward
+╰────
+
+
+╭─「 Primbon menu 」
+│ • ${prefix}artinama
+│ • ${prefix}kecocokannama
+│ • ${prefix}nomorhoki
+│ • ${prefix}ramalancinta
+│ • ${prefix}tafsirmimpi
+╰────
 
 ╭─「 Group menu 」
 │ • ${prefix}getpict [ @tag ]
