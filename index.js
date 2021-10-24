@@ -94,7 +94,7 @@ exec(`cd /sdcard/download && play *mp3`)
 			} catch {
 			ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
 			}
-				var namea = denz.contacts[num] != undefined ? denz.contacts[num].vname || denz.contacts[num].notify : 'unknown'
+				/*var namea = denz.contacts[num] != undefined ? denz.contacts[num].vname || denz.contacts[num].notify : 'unknown'
 			time_welc = moment.tz('Asia/Jakarta').format('DD/MM/YYYY')
                 time_wel = moment.tz('Asia/Jakarta').format("hh:mm")
 			const memeg = mdata.participants.length
@@ -105,7 +105,86 @@ exec(`cd /sdcard/download && play *mp3`)
 🥈 *Bio:* ${thu.status}
 🥉 *Tanggal:* ${time_wel} - ${time_welc}`
             denz.sendMessage(mdata.id, masuk, MessageType.text, { quoted: fkontakk, thumbnail: fs.readFileSync('./denz.jpg'), contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `Welcome To ${mdata.subject}`,body:'Note: Gunakan bot dengan bijak',mediaType:"2",thumbnail:buff,mediaUrl:`https://youtu.be/1U_8cj4OyUA`}}})
-			} else if (anu.action == 'remove') {
+			} */
+			const _capt = JSON.parse(fs.readFileSync('./captcha.json'))
+			 const addCaptcha = (id, jawaban, expired) => {
+				let obi = { id: id, jawaban: jawaban, expired: Date.now() + toMs(`${expired}s`) }
+				_capt.push(obi)
+				fs.writeFileSync('./captcha.json', JSON.stringify(_capt))
+			}
+			const getAnswer = (userId) => {
+				let found = false
+				Object.keys(_capt).forEach((i) => {
+					if (_capt[i].id === userId) {
+						found = i
+					}
+				})
+				if (found !== false) {
+					return _capt[found].jawaban
+				}
+			}
+			const isCaptcha = (userId) => {
+				let status = false
+				Object.keys(_capt).forEach((i) => {
+					if (_capt[i].id === userId) {
+						status = true
+					}
+				})
+				return status
+			}
+			const getPositionCP = (userId) => {
+				let position = null
+				Object.keys(_capt).forEach((i) => {
+					if (_capt[i].id === userId) {
+						position = i
+					}
+				})
+				if (position !== null) {
+					return position
+				}
+			}
+			const waktuCaptcha = (_capt) => {
+				setInterval(() => {
+					let position = null
+					Object.keys(_capt).forEach((i) => {
+						if (Date.now() >= _capt[i].expired) {
+							position = i
+						}
+					})
+					if (position !== null) {
+						denz.sendMessage(_capt[position].id, `KAMU ROBOT`, text)
+						denz.groupRemove(from, [sender])
+						console.log(`Waktu Habis : ${_capt[position].id}`)
+						_capt.splice(position, 1)
+						fs.writeFileSync('./captcha.json', JSON.stringify(_capt))
+					}
+				}, 1000)
+			}
+			if (isCaptcha(from)) {
+				if (budy.includes(getAnswer(from))) {
+					reply(`*Kamu bukan robot*`)
+					
+					_capt.splice(getPositionCP(from), 1)
+					fs.writeFileSync('./captcha.json', JSON.stringify(_capt))
+				}
+			}
+			waktuCaptcha(_capt)
+					var letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+					var letter1 = letters[Math.floor(Math.random() * letters.length)];
+					var letter2 = letters[Math.floor(Math.random() * letters.length)];
+					var letter3 = letters[Math.floor(Math.random() * letters.length)];
+					var letter4 = letters[Math.floor(Math.random() * letters.length)];
+					var letter5 = letters[Math.floor(Math.random() * letters.length)];
+					var letter6 = letters[Math.floor(Math.random() * letters.length)];
+					optionsText = { characters: 6, text: `${letter1}${letter2}${letter3}${letter4}${letter5}${letter6}` }
+					optionsTrace = { size: 5, color: 'deeppink' }
+					new canvacord.CaptchaGen().setCaptcha(optionsText).setTrace(optionsTrace).generate().then(buffer => {
+						denz.sendMessage(from, buffer, image, {quoted: mek, caption: `Silahkan Jawab Sebisa Mungkin\nWaktu 15second!\n\n_Note: Gunakan huruf kecil untuk menjawab_`})
+					})
+					console.log('JAWABAN :' + optionsText.text.toLowerCase())
+					jawabCaptcha = optionsText.text.toLowerCase()
+					addCaptcha(from, jawabCaptcha, '15')
+					} else if (anu.action == 'remove') {
 			
 			fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6285732415700-1604595598@g.us' } : {})}, message: { "contactMessage":{"displayName": `${mdata.subject}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;Denz;;;\nFN:Denz\nitem1.TEL;waid=6285732415700:6285732415700\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
 			num = anu.participants[0]
