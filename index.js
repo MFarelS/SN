@@ -106,15 +106,13 @@ exec(`cd /sdcard/download && play *mp3`)
 			if (anu.action == 'add') {
 			const welkom = JSON.parse(fs.readFileSync('./database/welkom.json'))
         	if(!welkom.includes(mdata.id)) return
-
 	var namea = denz.contacts[num] != undefined ? denz.contacts[num].vname || denz.contacts[num].notify : 'unknown'
 num = anu.participants[0]
 			fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6285732415700-1604595598@g.us' } : {})}, message: { "contactMessage":{"displayName": `${mdata.subject}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;Denz;;;\nFN:Denz\nitem1.TEL;waid=6285732415700:6285732415700\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
 			mdata = await denz.groupMetadata(anu.jid)
             member = mdata.participants.length
-        	
-            anu_user = denz.contacts[mem]
-			bbbuuufff = await getBuffer(`http://hadi-api.herokuapp.com/api/card/welcome2?nama=${namea}&descriminator=${member}&memcount=${member}&gcname=${mdata.subject}&gcicon=${pp_grup}&pp=${pp_user}&bg=${pp_grup}`) 
+        	//namea = denz.contacts[mem]
+			bbbuuufff = await getBuffer(`http://hadi-api.herokuapp.com/api/card/welcome2?nama=${namea}&descriminator=${mdata.participants.length}&memcount=${mdata.participants.length}&gcname=${mdata.subject}&gcicon=${pp_grup}&pp=${pp_user}&bg=${pp_grup}`) 
             
 /*		    num = anu.participants[0]
 			try {
