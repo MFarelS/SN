@@ -199,11 +199,11 @@ month: 'long',
 year: 'numeric'
 })
 denz.copyNForward(m.key.remoteJid, m.message)
-denz.sendMessage(m.key.remoteJid, `▷\`\`\`Anti Delete\`\`\`
+denz.sendMessage(m.key.remoteJid, `\`\`\`....: Anti Delete :....\`\`\`
 
-▢ \`\`\`Nama : @${m.participant.split("@")[0]}\`\`\`
-▢ \`\`\`Tipe : ${c3type}\`\`\`
-▢ \`\`\`Tanggal : ${jam} - ${week} ${weton} - ${calender}\`\`\``, MessageType.text, {quoted: m.message, contextInfo: {"mentionedJid": [m.participant]}})
+- \`\`\`Nama : @${m.participant.split("@")[0]}\`\`\`
+- \`\`\`Tipe : ${c3type}\`\`\`
+- \`\`\`Tanggal : ${jam} - ${week} ${weton} - ${calender}\`\`\``, MessageType.text, {quoted: m.message, contextInfo: {"mentionedJid": [m.participant]}})
 }
 })
 }
