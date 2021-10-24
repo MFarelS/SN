@@ -17,7 +17,6 @@ uwu = '```'
 const { color, bgcolor } = require('./lib/color')
 	
 const { exec } = require('child_process')
-
 const { wait, simih, getBuffer, h2k, generateMessageID, getGroupAdmins, getRandom, banner, start, info, success, close } = require('./lib/functions')
 const settings = JSON.parse(fs.readFileSync('./settings.json'))
 const sleep = async (ms) => {
@@ -46,7 +45,7 @@ denz.autoReconnect = ReconnectMode.onConnectionLost
   fs.writeFileSync("./QRnya.json",JSON.stringify(denz.base64EncodedAuthInfo(), null, "\t"));
 // teks = `https://chat.whatsapp.com/Kw69Oel34Nd0JuluvFNVKt`
 // denz.query({ json:["action", "invite", `${teks.replace('https://chat.whatsapp.com/','')}`]})
- console.log(color('|WRN|', 'yellow'), color('Joined to Helga Bot Officials group', 'cyan'))
+// console.log(color('|WRN|', 'yellow'), color('Joined to Helga Bot Officials group', 'cyan'))
  denz.sendMessage(`${settings.NomorOwner}@s.whatsapp.net`, `*Hai Owner ${settings.NamaBot}, Bot Telah Berhasil Tersambung Pada Nomor Ini*\n────────────────────\n\`\`\`${JSON.stringify(denz.user, null, 2)}\`\`\`\n────────────────────\n*Jika Ada Kendala Error/Bot Tidak Merespon Silahkan Hubungi Developer Bot Diatas, Terimakasih*`, MessageType.text, {contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: "Developer Bitch Boot",body:"",previewType:"PHOTO",thumbnail:fs.readFileSync('./denz.jpg'),sourceUrl:"https://wa.me/6285732415700?text=Assalamualaikum"}}})
 	console.log(color('|WRN|', 'yellow'), color('Sending bot info to bot owner', 'cyan'))
 fetch(`http://ip-api.com/line`).then(res => res.text())  
@@ -101,8 +100,11 @@ exec(`cd /sdcard/download && play *mp3`)
 			const memeg = mdata.participants.length
             const thu = await denz.getStatus(anu.participants[0], MessageType.text)
 			let buff = await getBuffer(ppimg)
-			masuk =`Halo @${num.split('@')[0]}👋\n\n- *Name:* ${namea}\n- *Bio:* ${thu.status}\n- *Tanggal:* ${time_wel} - ${time_welc}`
-            denz.sendMessage(mdata.id, masuk, MessageType.text, { quoted: fkontakk, thumbnail: fs.readFileSync('./denz.jpg'), contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `Welcome To ${mdata.subject}`,body:'Sneazybot^8.0.9',mediaType:"2",thumbnail:buff,mediaUrl:`https://youtu.be/1U_8cj4OyUA`}}})
+			masuk =`Halo @${num.split('@')[0]}👋
+			🥇 *Name:* ${namea}
+			🥈 *Bio:* ${thu.status}
+			🥉 *Tanggal:* ${time_wel} - ${time_welc}`
+            denz.sendMessage(mdata.id, masuk, MessageType.text, { quoted: fkontakk, thumbnail: fs.readFileSync('./denz.jpg'), contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `Welcome To ${mdata.subject}`,body:'Note: Gunakan bot dengan bijak',mediaType:"2",thumbnail:buff,mediaUrl:`https://youtu.be/1U_8cj4OyUA`}}})
 			} else if (anu.action == 'remove') {
 			
 			fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6285732415700-1604595598@g.us' } : {})}, message: { "contactMessage":{"displayName": `${mdata.subject}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;Denz;;;\nFN:Denz\nitem1.TEL;waid=6285732415700:6285732415700\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
