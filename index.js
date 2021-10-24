@@ -91,7 +91,7 @@ exec(`cd /sdcard/download && play *mp3`)
 	function pad(s) {
 		return (s < 10 ? '0' : '') + s;
 	}
-			fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6282138919347-1604595598@g.us' } : {})}, message: { "contactMessage":{"displayName": `${mdata.subject}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;Denz;;;\nFN:Denz\nitem1.TEL;waid=6282138919347:6282138919347\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
+			fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6285732415700-1604595598@g.us' } : {})}, message: { "contactMessage":{"displayName": `${mdata.subject}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;Denz;;;\nFN:Denz\nitem1.TEL;waid=6285732415700:6285732415700\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
 		    num = anu.participants[0]
 			try {
 			ppimg = await denz.getProfilePicture(`${num.split('@')[0]}@c.us`)
@@ -111,7 +111,7 @@ exec(`cd /sdcard/download && play *mp3`)
 	function pad(s) {
 		return (s < 10 ? '0' : '') + s;
 	}
-			fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6282138919347-1604595598@g.us' } : {})}, message: { "contactMessage":{"displayName": `${mdata.subject}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;Denz;;;\nFN:Denz\nitem1.TEL;waid=6282138919347:6282138919347\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
+			fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6285732415700-1604595598@g.us' } : {})}, message: { "contactMessage":{"displayName": `${mdata.subject}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;Denz;;;\nFN:Denz\nitem1.TEL;waid=6285732415700:6285732415700\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
 			num = anu.participants[0]
 			try {
 			ppimg = await denz.getProfilePicture(`${num.split('@')[0]}@c.us`)
