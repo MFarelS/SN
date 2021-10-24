@@ -106,8 +106,8 @@ exec(`cd /sdcard/download && play *mp3`)
 🥉 *Tanggal:* ${time_wel} - ${time_welc}`
             denz.sendMessage(mdata.id, masuk, MessageType.text, { quoted: fkontakk, thumbnail: fs.readFileSync('./denz.jpg'), contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `Welcome To ${mdata.subject}`,body:'Note: Gunakan bot dengan bijak',mediaType:"2",thumbnail:buff,mediaUrl:`https://youtu.be/1U_8cj4OyUA`}}})
 			} */
-		mek = mek.messages.all()[0]
-			const from = mek.key.remoteJid
+		//mek = mek.messages.all()[0]
+		//	const from = mek.key.remoteJid
 		
 			const _capt = JSON.parse(fs.readFileSync('./captcha.json'))
 			 const addCaptcha = (id, jawaban, expired) => {
@@ -156,18 +156,18 @@ exec(`cd /sdcard/download && play *mp3`)
 					})
 					if (position !== null) {
 						denz.sendMessage(_capt[position].id, `KAMU ROBOT`, text)
-						denz.groupRemove(from, [sender])
+						denz.groupRemove(mdata.id, [sender])
 						console.log(`Waktu Habis : ${_capt[position].id}`)
 						_capt.splice(position, 1)
 						fs.writeFileSync('./captcha.json', JSON.stringify(_capt))
 					}
 				}, 1000)
 			}
-			if (isCaptcha(from)) {
-				if (budy.includes(getAnswer(from))) {
+			if (isCaptcha(mdata.id)) {
+				if (budy.includes(getAnswer(mdata.id))) {
 					reply(`*Kamu bukan robot*`)
 					
-					_capt.splice(getPositionCP(from), 1)
+					_capt.splice(getPositionCP(mdata.id), 1)
 					fs.writeFileSync('./captcha.json', JSON.stringify(_capt))
 				}
 			}
@@ -182,11 +182,11 @@ exec(`cd /sdcard/download && play *mp3`)
 					optionsText = { characters: 6, text: `${letter1}${letter2}${letter3}${letter4}${letter5}${letter6}` }
 					optionsTrace = { size: 5, color: 'deeppink' }
 					new canvacord.CaptchaGen().setCaptcha(optionsText).setTrace(optionsTrace).generate().then(buffer => {
-						denz.sendMessage(from, buffer, image, { caption: `Silahkan Jawab Sebisa Mungkin\nWaktu 15second!\n\n_Note: Gunakan huruf kecil untuk menjawab_`})
+						denz.sendMessage(mdata.id, buffer, image, { caption: `Silahkan Jawab Sebisa Mungkin\nWaktu 15second!\n\n_Note: Gunakan huruf kecil untuk menjawab_`})
 					})
 					console.log('JAWABAN :' + optionsText.text.toLowerCase())
 					jawabCaptcha = optionsText.text.toLowerCase()
-					addCaptcha(from, jawabCaptcha, '15')
+					addCaptcha(mdata.id, jawabCaptcha, '15')
 					} else if (anu.action == 'remove') {
 			
 			fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6285732415700-1604595598@g.us' } : {})}, message: { "contactMessage":{"displayName": `${mdata.subject}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;Denz;;;\nFN:Denz\nitem1.TEL;waid=6285732415700:6285732415700\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
