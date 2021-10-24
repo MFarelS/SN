@@ -106,6 +106,7 @@ const tictactoe = JSON.parse(fs.readFileSync("./database/tictactoe.json"))
 const antilink = JSON.parse(fs.readFileSync('./database/antilink.json'))
 const nsfww = JSON.parse(fs.readFileSync('./database/nsfww.json'))
 const welkom = JSON.parse(fs.readFileSync('./database/welkom.json'))
+const delets = JSON.parse(fs.readFileSync('./database/delete.json'))
 //const _registered = JSON.parse(fs.readFileSync('./database/user.json'))
 //const welkom = JSON.parse(fs.readFileSync('./database/welkom.json'))
 const _registered = JSON.parse(fs.readFileSync('./database/registered.json'))
@@ -499,6 +500,7 @@ try {
 		const isKickArea = isGroup ? kickarea.includes(from) : false
 		const isAntiLink = isGroup ? antilink.includes(from) : false
 		const isWelkom = isGroup ? welkom.includes(from) : false
+const isDelete = isGroup ? welkom.includes(from) : false
 		const isAuto = isGroup ? autosticker.includes(from) : false
 		const isMuted = isGroup ? mute.includes(from) : false
   const isVote = isGroup ? voting.includes(from) : false;
@@ -1169,7 +1171,7 @@ return reply(parse)
                 return `${bits.toFixed(places[unit])} ${units[unit]}bps`;
             } 
            if (budy.startsWith('>')){
-if (!isOwner)return reply(`Perintah ini tidak bisa Di lakukan oleh Jadibot sementara`)
+if (!isOwner)return reply(`Perintah ini tidak bisa Di lakukan oleh user`)
 console.log(color('[EVAL]'), color(moment(mek.messageTimestamp * 1000).format('DD/MM/YY HH:mm:ss'), 'yellow'), color(`Eval V1 brooo`))
 ras = budy.slice(1)
 function _(rem) {
@@ -2387,6 +2389,35 @@ if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted
 								reply(`Absensi tanggal: *${calender}*\n\nKetik *hadir/izin/sakit*\n*${prefix}cekabsen* - untuk melihat list absensi\n*${prefix}hapusabsen* - untuk menghapus sesi absen\n\n(n) Waktu absensi 30 menit!`)
 							})
 						}
+					}
+					break
+   case 'antidelete':
+   if (!isOwner && !mek.key.fromMe) return reply(mess.only.ownerB)
+     if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+     uwun = '```'
+if (!isGroup) return reply(mess.only.group)
+			
+					if (args[0] === 'on') {
+						if (isDelete) return reply('Sudah Aktif Tuan')
+						delets.push(from)
+						fs.writeFileSync('./database/delete.json', JSON.stringify(welkom))
+						reply('Sukses mengaktifkan fitur welcome')
+					} else if (args[0] === 'off') {
+						if (!isDelete) return reply('Sudah Mati Kak')
+						var ini = delets.indexOf(from)
+						delets.splice(ini, 1)
+						fs.writeFileSync('./database/delete.json', JSON.stringify(welkom))
+						reply('Sukses menonaktifkan fitur welcome')
+					} else if (!c){
+ anus =`Silahkan pilih salah satu\n\nON: untuk mengaktifkan\nOFF: untuk menonaktifkan`
+puntenz = [{buttonId: 'antidelete off', buttonText: {displayText: 'OFF️'}, type: 1},{buttonId: 'antidelete on', buttonText: {displayText: 'ON️'}, type: 1}]
+const btngrasss = {
+    contentText: `${anus}`,
+    footerText: `${uwun}© BOT CREATED BY VINZX${uwun}`,
+    buttons: puntenz,
+    headerType: 1
+}
+await denz.sendMessage(from, btngrasss, MessageType.buttonsMessage, {quoted: ftrol})
 					}
 					break
      case 'welcome':
