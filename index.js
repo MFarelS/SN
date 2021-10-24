@@ -177,7 +177,7 @@ denz.on('CB:action,,call', async json => {
         
 	denz.on('message-delete', async (m) => {
 	const delets = JSON.parse(fs.readFileSync('./database/delete.json'))
-	const isDelete = isGroup ? delets.includes(from) : false
+	const isDelete = delets.includes(from) : false
 	if (!isDelete)return reply(`Perintah ini tidak bisa Di lakukan oleh user`)
 	if (!welkom.includes(anu.jid)) return
 if (m.key.remoteJid == 'status@broadcast') return
