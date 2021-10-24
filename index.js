@@ -113,7 +113,7 @@ num = anu.participants[0]
 			//mdata = await denz.groupMetadata(anu.jid)
             member = mdata.participants.length
         	//namea = denz.contacts[mem]
-			bbbuuufff = await getBuffer(`http://hadi-api.herokuapp.com/api/card/welcome2?nama=${namea}&descriminator=${mdata.participants.length}&memcount=${mdata.participants.length}&gcname=${mdata.subject}&gcicon=${pp_grup}&pp=${pp_user}&bg=${pp_grup}`) 
+			//bbbuuufff = await getBuffer(`http://hadi-api.herokuapp.com/api/card/welcome2?nama=${namea}&descriminator=${mdata.participants.length}&memcount=${mdata.participants.length}&gcname=${mdata.subject}&gcicon=${pp_grup}&pp=${pp_user}&bg=${pp_grup}`) 
             
 /*		    num = anu.participants[0]
 			try {
@@ -157,7 +157,12 @@ num = anu.participants[0]
 					})
 				})
 			} */
-		let buff = await getBuffer(pp_user)
+			try {
+			ppimg = await denz.getProfilePicture(`${num.split('@')[0]}@c.us`)
+			} catch {
+			ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
+			}
+		let buff = await getBuffer(ppimg)
 		masuk =`${uwu}Welcome @${num.split('@')[0]}\n\nWe hope you feel comfortable here!!${uwu}`
 
 			//Welcome @${num.split('@')[0]}* ${enter}${enter}📛 : _${anu_user}_${enter}💌 : _${p3}_${enter}🔣 : _@${num.split('@')[0]}_${enter}🥉 : _${memeg} Member (s)_${enter}⏰ : _${jamnyy} Indonesian time_${enter}${enter}\`\`\`Hope you like it and don't forget to read the group description\`\`\``;
