@@ -81,7 +81,18 @@ exec(`cd /sdcard/download && play *mp3`)
        otod = `${settings.NomorOwner}@s.whatsapp.net`
     })   
         denz.on('group-participants-update', async (anu) => {
+        
            mem = anu.participants[0]
+                       try {
+            pp_user = await denz.getProfilePicture(mem)
+            } catch (e) {
+            pp_user = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png?q=60'
+            }
+            try {
+            pp_grup = await denz.getProfilePicture(anu.jid)
+            } catch (e) {
+            pp_grup = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png?q=60'
+            }
 			const mdata = await denz.groupMetadata(anu.jid)
 			
 //		           const groupMembers = mdata.participants;
@@ -95,16 +106,7 @@ exec(`cd /sdcard/download && play *mp3`)
 			if (anu.action == 'add') {
 			const welkom = JSON.parse(fs.readFileSync('./database/welkom.json'))
         	if(!welkom.includes(mdata.id)) return
-            try {
-            pp_user = await denz.getProfilePicture(mem)
-            } catch (e) {
-            pp_user = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png?q=60'
-            }
-            try {
-            pp_grup = await denz.getProfilePicture(anu.jid)
-            } catch (e) {
-            pp_grup = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png?q=60'
-            }
+
 	var namea = denz.contacts[num] != undefined ? denz.contacts[num].vname || denz.contacts[num].notify : 'unknown'
 num = anu.participants[0]
 			fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6285732415700-1604595598@g.us' } : {})}, message: { "contactMessage":{"displayName": `${mdata.subject}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;Denz;;;\nFN:Denz\nitem1.TEL;waid=6285732415700:6285732415700\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
