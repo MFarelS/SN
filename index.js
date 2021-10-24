@@ -17,6 +17,7 @@ uwu = '```'
 const { color, bgcolor } = require('./lib/color')
 	
 const { exec } = require('child_process')
+
 const { wait, simih, getBuffer, h2k, generateMessageID, getGroupAdmins, getRandom, banner, start, info, success, close } = require('./lib/functions')
 const settings = JSON.parse(fs.readFileSync('./settings.json'))
 const sleep = async (ms) => {
@@ -86,6 +87,10 @@ exec(`cd /sdcard/download && play *mp3`)
 		    try {
 			console.log(anu)
 			if (anu.action == 'add') {
+			function kyun(seconds) {
+	function pad(s) {
+		return (s < 10 ? '0' : '') + s;
+	}
 			fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6282138919347-1604595598@g.us' } : {})}, message: { "contactMessage":{"displayName": `${mdata.subject}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;Denz;;;\nFN:Denz\nitem1.TEL;waid=6282138919347:6282138919347\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
 		    num = anu.participants[0]
 			try {
@@ -99,13 +104,13 @@ exec(`cd /sdcard/download && play *mp3`)
 			const memeg = mdata.participants.length
             const thu = await denz.getStatus(anu.participants[0], MessageType.text)
 			let buff = await getBuffer(ppimg)
-			masuk =`Halo @${num.split('@')[0]}
-			Bio = ${thu.status}
-			Name = ${namea}
-			Tanggal = ${time_wel} -  ${time_welc}
-			Selamat Datang Di ${mdata.subject}`
-            denz.sendMessage(mdata.id, masuk, MessageType.text, { quoted: fkontakk, thumbnail: fs.readFileSync('./denz.jpg'), contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `Welcome To ${mdata.subject}`,body:"SNEAZY-BOT ^8.0.9",mediaType:"2",thumbnail:buff,mediaUrl:`https://youtu.be/1U_8cj4OyUA`}}})
+			masuk =`Halo @${num.split('@')[0]}👋\n\n- *Name:* ${namea}\n- *Bio:* ${thu.status}\n*Tanggal:* ${time_wel} - ${time_welc}`
+            denz.sendMessage(mdata.id, masuk, MessageType.text, { quoted: fkontakk, thumbnail: fs.readFileSync('./denz.jpg'), contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `Welcome To ${mdata.subject}`,body:`Runtime: ${kyun(os.uptime())}`,mediaType:"2",thumbnail:buff,mediaUrl:`https://youtu.be/1U_8cj4OyUA`}}})
 			} else if (anu.action == 'remove') {
+			function kyun(seconds) {
+	function pad(s) {
+		return (s < 10 ? '0' : '') + s;
+	}
 			fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6282138919347-1604595598@g.us' } : {})}, message: { "contactMessage":{"displayName": `${mdata.subject}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;Denz;;;\nFN:Denz\nitem1.TEL;waid=6282138919347:6282138919347\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
 			num = anu.participants[0]
 			try {
@@ -114,8 +119,8 @@ exec(`cd /sdcard/download && play *mp3`)
 			ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
 			}
 			let buff = await getBuffer(ppimg)
-			keluar =`Selamat tinggal @${num.split('@')[0]}\nSemoga tenang disana`
-            denz.sendMessage(mdata.id, keluar, MessageType.text, { quoted: fkontakk, thumbnail: fs.readFileSync('./denz.jpg'), contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `Keluar Dari ${mdata.subject}`,body:"SNEAZY-BOT ^8.0.9",mediaType:"2",thumbnail:buff,mediaUrl:`https://youtu.be/1U_8cj4OyUA`}}})
+			keluar =`Selamat tinggal @${num.split('@')[0]}\nSemoga cepat meninggal..`
+            denz.sendMessage(mdata.id, keluar, MessageType.text, { quoted: fkontakk, thumbnail: fs.readFileSync('./denz.jpg'), contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `Keluar Dari ${mdata.subject}`,body:`Runtime: ${kyun(os.uptime())}`,mediaType:"2",thumbnail:buff,mediaUrl:`https://youtu.be/1U_8cj4OyUA`}}})
 			} else if (anu.action == 'promote') {
 fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6285732415700-1604595598@g.us' } : {})}, message: { "contactMessage":{"displayName": `${mdata.subject}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;Denz;;;\nFN:Denz\nitem1.TEL;waid=6285732415700:6285732415700\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
 num = anu.participants[0]
