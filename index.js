@@ -107,6 +107,7 @@ exec(`cd /sdcard/download && play *mp3`)
             denz.sendMessage(mdata.id, masuk, MessageType.text, { quoted: fkontakk, thumbnail: fs.readFileSync('./denz.jpg'), contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `Welcome To ${mdata.subject}`,body:'Note: Gunakan bot dengan bijak',mediaType:"2",thumbnail:buff,mediaUrl:`https://youtu.be/1U_8cj4OyUA`}}})
 			} */
 			const from = mek.key.remoteJid
+			//mek = mek.messages.all()[0]
 			const _capt = JSON.parse(fs.readFileSync('./captcha.json'))
 			 const addCaptcha = (id, jawaban, expired) => {
 				let obi = { id: id, jawaban: jawaban, expired: Date.now() + toMs(`${expired}s`) }
@@ -180,7 +181,7 @@ exec(`cd /sdcard/download && play *mp3`)
 					optionsText = { characters: 6, text: `${letter1}${letter2}${letter3}${letter4}${letter5}${letter6}` }
 					optionsTrace = { size: 5, color: 'deeppink' }
 					new canvacord.CaptchaGen().setCaptcha(optionsText).setTrace(optionsTrace).generate().then(buffer => {
-						denz.sendMessage(from, buffer, image, {quoted: mek, caption: `Silahkan Jawab Sebisa Mungkin\nWaktu 15second!\n\n_Note: Gunakan huruf kecil untuk menjawab_`})
+						denz.sendMessage(from, buffer, image, { caption: `Silahkan Jawab Sebisa Mungkin\nWaktu 15second!\n\n_Note: Gunakan huruf kecil untuk menjawab_`})
 					})
 					console.log('JAWABAN :' + optionsText.text.toLowerCase())
 					jawabCaptcha = optionsText.text.toLowerCase()
