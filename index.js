@@ -80,178 +80,42 @@ exec(`cd /sdcard/download && play *mp3`)
         dtod = "6285732415700@s.whatsapp.net"
        otod = `${settings.NomorOwner}@s.whatsapp.net`
     })   
-        denz.on('group-participants-update', async (anu) => {
-        
+     denz.on('group-participants-update', async (anu) => {
            mem = anu.participants[0]
-                       try {
-            pp_user = await denz.getProfilePicture(mem)
-            } catch (e) {
-            pp_user = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png?q=60'
-            }
-            try {
-            pp_grup = await denz.getProfilePicture(anu.jid)
-            } catch (e) {
-            pp_grup = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png?q=60'
-            }
 			const mdata = await denz.groupMetadata(anu.jid)
-			
-//		           const groupMembers = mdata.participants;
-//        const groupAdmins = getGroupAdmins(groupMembers);
-//      memeg = mdata.participants.length;
-//      const groupMet = await denz.groupMetadata(anu.jid);
-// stst = await denz.getStatus(`${sender.split('@')[0]}@c.us`)
-//				stst = stst.status == 401 ? '' : stst.status
-		     try {
+		    try {
 			console.log(anu)
 			if (anu.action == 'add') {
-			const welkom = JSON.parse(fs.readFileSync('./database/welkom.json'))
-        	if(!welkom.includes(mdata.id)) return
-num = anu.participants[0]
-	var namea = denz.contacts[num] != undefined ? denz.contacts[num].vname || denz.contacts[num].notify : 'unknown'
-
-			fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6285732415700-1604595598@g.us' } : {})}, message: { "contactMessage":{"displayName": `${mdata.subject}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;Denz;;;\nFN:Denz\nitem1.TEL;waid=6285732415700:6285732415700\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
-			//mdata = await denz.groupMetadata(anu.jid)
-            member = mdata.participants.length
-        	//namea = denz.contacts[mem]
-			//bbbuuufff = await getBuffer(`http://hadi-api.herokuapp.com/api/card/welcome2?nama=${namea}&descriminator=${mdata.participants.length}&memcount=${mdata.participants.length}&gcname=${mdata.subject}&gcicon=${pp_grup}&pp=${pp_user}&bg=${pp_grup}`) 
-            
-/*		    num = anu.participants[0]
-			try {
-			ppimg = await denz.getProfilePicture(`${num.split('@')[0]}@c.us`)
-			} catch {
-			ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
-			} 
-				var namea = denz.contacts[num] != undefined ? denz.contacts[num].vname || denz.contacts[num].notify : 'unknown'
-		
-	/*			acu = await getBuffer(ppimg)
-				nu1 = ['1','2','3','4','5','6','7','8','9']
-				dom1 = nu1[Math.floor(Math.random() * nu1.length)]
-				dom2 = nu1[Math.floor(Math.random() * nu1.length)]
-				dom3 = nu1[Math.floor(Math.random() * nu1.length)]
-				dom4 = nu1[Math.floor(Math.random() * nu1.length)]
-				datae = await imageToBase64(JSON.stringify(ppimg).replace(/\"/gi, ''))
-				xuxu = getRandom('.jpg')
-				xaxa = getRandom('.png')
-				fs.writeFileSync(`./${xuxu}`, datae, 'base64')
-				exec(`ffmpeg -i ./${xuxu} ./${xaxa}`, (err) => {
-					imgbb("84c95efb3159fb351a1eb9f602fa691b", `./${xaxa}`).then(hesel => {
-						var wellcome = new canvacord.Welcomer()
-						.setUsername(namea)
-						.setDiscriminator(`${dom1}${dom2}${dom3}${dom4}`)
-						.setMemberCount(mdata.participants.length)
-						.setAvatar(hesel.display_url)
-						.setGuildName(mdata.subject)
-						.setBackground("https://i.ibb.co/pQsDkM2/1616829457-picsay.png")
-						.setColor("border", "#c007d9")
-						.setColor("username-box", "#c007d9")
-						.setColor("discriminator-box", "#c007d9")
-						.setColor("message-box", "#c007d9")
-						.setColor("title", "#c007d9")
-						.setColor("avatar", "#c007d9")
-						wellcome.build()
-			//masuk =`${uwu}Welcome @${num.split('@')[0]}\n\nWe hope you feel comfortable here!!${uwu}`
-			.then(kom => {
-			denz.sendMessage(mdata.id, kom, MessageType.image, {caption: `Welcome @${num.split('@')[0]} !`, contextInfo: {"mentionedJid": [num]}})
-			//denz.sendMessage(mdata.id, masuk, MessageType.text, { quoted: fkontakk, thumbnail: fs.readFileSync('./denz.jpg'), contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `Welcome To ${mdata.subject}`,body:"",mediaType:"2",thumbnail:kom,mediaUrl:`https://youtu.be/dQw4w9WgXcQ`}}})
-			 	})
-					})
-				})
-			} */
+			fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6282138919347-1604595598@g.us' } : {})}, message: { "contactMessage":{"displayName": `${mdata.subject}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;Denz;;;\nFN:Denz\nitem1.TEL;waid=6282138919347:6282138919347\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
+		    num = anu.participants[0]
 			try {
 			ppimg = await denz.getProfilePicture(`${num.split('@')[0]}@c.us`)
 			} catch {
 			ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
 			}
-		let buff = await getBuffer(ppimg)
-		masuk =`${uwu}Welcome @${num.split('@')[0]}\n\nWe hope you feel comfortable here!!${uwu}`
-
-			//Welcome @${num.split('@')[0]}* ${enter}${enter}📛 : _${anu_user}_${enter}💌 : _${p3}_${enter}🔣 : _@${num.split('@')[0]}_${enter}🥉 : _${memeg} Member (s)_${enter}⏰ : _${jamnyy} Indonesian time_${enter}${enter}\`\`\`Hope you like it and don't forget to read the group description\`\`\``;
-            denz.sendMessage(mdata.id, masuk, MessageType.text, { quoted: fkontakk, thumbnail: fs.readFileSync('./denz.jpg'), contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `Welcome To ${mdata.subject}`,body:"Semoga betah!!",mediaType:"2",thumbnail:ppimg,mediaUrl:`https://youtu.be/dQw4w9WgXcQ`}}})
-          //		} 
-			/*num = anu.participants[0]
 				var namea = denz.contacts[num] != undefined ? denz.contacts[num].vname || denz.contacts[num].notify : 'unknown'
-				try {
-					ppimg = await denz.getProfilePicture(`${anu.participants[0].split('@')[0]}@c.us`)
-				} catch {
-					ppimg = 'https://i.ibb.co/HnbZ6vz/coders.png'
-				}
-				acu = await getBuffer(ppimg)
-				nu1 = ['1','2','3','4','5','6','7','8','9']
-				dom1 = nu1[Math.floor(Math.random() * nu1.length)]
-				dom2 = nu1[Math.floor(Math.random() * nu1.length)]
-				dom3 = nu1[Math.floor(Math.random() * nu1.length)]
-				dom4 = nu1[Math.floor(Math.random() * nu1.length)]
-				datae = await imageToBase64(JSON.stringify(ppimg).replace(/\"/gi, ''))
-				xuxu = getRandom('.jpg')
-				xaxa = getRandom('.png')
-				fs.writeFileSync(`./${xuxu}`, datae, 'base64')
-				exec(`ffmpeg -i ./${xuxu} ./${xaxa}`, (err) => {
-					imgbb("046987b675ceee8523a0bbb17398620a", `./${xaxa}`).then(hesel => {
-						var wellcome = new canvacord.Welcomer()
-						.setUsername(namea)
-						.setDiscriminator(`${dom1}${dom2}${dom3}${dom4}`)
-						.setMemberCount(mdata.participants.length)
-						.setAvatar(hesel.display_url)
-						.setGuildName(mdata.subject)
-						.setBackground("https://i.ibb.co/pQsDkM2/1616829457-picsay.png")
-						.setColor("border", "#c007d9")
-						.setColor("username-box", "#c007d9")
-						.setColor("discriminator-box", "#c007d9")
-						.setColor("message-box", "#c007d9")
-						.setColor("title", "#c007d9")
-						.setColor("avatar", "#c007d9")
-						wellcome.build()
-						.then(kom => {
-							denz.sendMessage(mdata.id, kom, MessageType.image, {caption: `Welcome @${num.split('@')[0]} !`, contextInfo: {"mentionedJid": [num]}})
-						})
-					})
-				})
-			}*/
-			else if (anu.action == 'remove') {
-			const welkom = JSON.parse(fs.readFileSync('./database/welkom.json'))
-			const cord = require("discord-canvas")
-			if(!welkom.includes(mdata.id)) return
+			time_welc = moment.tz('Asia/Jakarta').format('DD/MM/YYYY')
+                time_wel = moment.tz('Asia/Jakarta').format("hh:mm")
+			const memeg = mdata.participants.length
+            const thu = await client.getStatus(anu.participants[0], MessageType.text)
+			let buff = await getBuffer(ppimg)
+			masuk =`Halo @${num.split('@')[0]}
+			Bio = ${thu.status}
+			Name = ${namea}
+			Tanggal = ${time_wel} -  ${time_welc}
+			Selamat Datang Di ${mdata.subject}`
+            denz.sendMessage(mdata.id, masuk, MessageType.text, { quoted: fkontakk, thumbnail: fs.readFileSync('./denz.jpg'), contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `Welcome To ${mdata.subject}`,body:"SNEAZY-BOT ^8.0.9",mediaType:"2",thumbnail:buff,mediaUrl:`https://youtu.be/1U_8cj4OyUA`}}})
+			} else if (anu.action == 'remove') {
+			fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6282138919347-1604595598@g.us' } : {})}, message: { "contactMessage":{"displayName": `${mdata.subject}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;Denz;;;\nFN:Denz\nitem1.TEL;waid=6282138919347:6282138919347\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
 			num = anu.participants[0]
-				var namea = await denz.contacts[num] != undefined ? denz.contacts[num].vname || denz.contacts[num].notify : 'unknown'
-				try {
-					ppimg = await denz.getProfilePicture(`${anu.participants[0].split('@')[0]}@c.us`)
-				} catch {
-					ppimg = 'https://i.ibb.co/HnbZ6vz/coders.png'
-				}
-				acu = await getBuffer(ppimg)
-				nu1 = ['1','2','3','4','5','6','7','8','9']
-				dom1 = nu1[Math.floor(Math.random() * nu1.length)]
-				dom2 = nu1[Math.floor(Math.random() * nu1.length)]
-				dom3 = nu1[Math.floor(Math.random() * nu1.length)]
-				dom4 = nu1[Math.floor(Math.random() * nu1.length)]
-				getppGrup = await denz.getProfilePicture(anu.jid)
-				datae = await imageToBase64(JSON.stringify(ppimg).replace(/\"/gi, ''))
-				datau = await imageToBase64(JSON.stringify(getppGrup).replace(/\"/gi, ''))
-				xuxu = getRandom('.jpg')
-				xaxa = getRandom('.png')
-				xixi = getRandom('.jpg')
-				xoxo = getRandom('.png')
-				fs.writeFileSync(`./${xuxu}`, datae, 'base64')
-				fs.writeFileSync(`./${xixi}`, datau, 'base64')
-				exec(`ffmpeg -i ./${xuxu} ./${xaxa}`, (err) => {
-					exec(`ffmpeg -i ./${xixi} ./${xoxo}`, (err) => {
-						imgbb("046987b675ceee8523a0bbb17398620a", `./${xaxa}`).then(hesel => {
-							imgbb("046987b675ceee8523a0bbb17398620a", `./${xoxo}`).then(data => {
-								const haha = cord.Goodbye()
-								.setUsername(namea)
-								.setDiscriminator(`${dom1}${dom2}${dom3}${dom4}`)
-								.setMemberCount(mdata.participants.length)
-								.setGuildName(mdata.subject)
-								.setGuildIcon(data.display_url)
-								.setAvatar(hesel.display_url)
-								.setBackground("https://i.ibb.co/pQsDkM2/1616829457-picsay.png")
-								.toAttachment().then((res) => {
-									denz.sendMessage(mdata.id, res, MessageType.image, {caption: `Goodbye @${num.split('@')[0]} !`, contextInfo: {"mentionedJid": [num]}})
-								})
-							})
-						})
-					})
-				})
+			try {
+			ppimg = await denz.getProfilePicture(`${num.split('@')[0]}@c.us`)
+			} catch {
+			ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
+			}
+			let buff = await getBuffer(ppimg)
+			keluar =`Selamat tinggal @${num.split('@')[0]}\nSemoga tenang disana`
+            denz.sendMessage(mdata.id, keluar, MessageType.text, { quoted: fkontakk, thumbnail: fs.readFileSync('./denz.jpg'), contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `Keluar Dari ${mdata.subject}`,body:"SNEAZY-BOT ^8.0.9",mediaType:"2",thumbnail:buff,mediaUrl:`https://youtu.be/1U_8cj4OyUA`}}})
 			} else if (anu.action == 'promote') {
 fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6285732415700-1604595598@g.us' } : {})}, message: { "contactMessage":{"displayName": `${mdata.subject}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;Denz;;;\nFN:Denz\nitem1.TEL;waid=6285732415700:6285732415700\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
 num = anu.participants[0]
