@@ -479,7 +479,6 @@ try {
 				Badmin: 'Make the bot a group admin!'
 			}
 		}
-		async function starts() {
 denz.autoReconnect = ReconnectMode.onConnectionLost
     denz.version = [2, 2119, 6]
     denz.logger.level = 'warn'
