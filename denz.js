@@ -63,7 +63,7 @@ const { lirikLagu } = require('./lib/lirik.js')
 const { wikiSearch } = require('./lib/wiki.js')
 const { herolist } = require('./lib/herolist.js')
 const { herodetails } = require('./lib/herodetail.js')
-const { createCanvas, loadImage, registerFont } = require('canvas')
+const { createCanvas, loadImage, registerFont } = require('discord-canvas')
 const canvas = createCanvas(450, 600)
 const ctx = canvas.getContext('2d')
 const { mediafireDl } = require('./lib/mediafire.js')
@@ -1534,10 +1534,10 @@ break
 case 'tebakbendera':
 if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
         if (tebakbendera.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://lolhuman.herokuapp.com/api/tebak/bendera?apikey=511fc49c7ad4edcecf8653cf`)
-              get_result = get_result.result
-              jawaban = get_result.name
-              kisi_kisi = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '_')
+              get_result = await fetchJson(`https://xteam.xyz/game/tebakbendera?APIKEY=kurrxd09`)
+              get_result = get_result.bendera
+              jawaban = get_result.jawaban
+              kisi_kisi = jawaban.replace(/[a|b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/g, ' _ ')
               pertanyaan = get_result.flag
              denz.sendMessage(from, '*+* ```Tebak Bendera```\n\n• *Bendera* :'+pertanyaan+'\n• *kisi²* :'+kisi_kisi, text, { quoted: mek}).then(() => {
               tebakbendera[sender.split('@')[0]] = jawaban.toLowerCase()
