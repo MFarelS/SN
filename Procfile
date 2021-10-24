@@ -1,1 +1,1 @@
-worker :  bash install.sh && node index.js
+worker :  bash install.sh && node denz.js
