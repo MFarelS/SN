@@ -510,7 +510,15 @@ const isDelete = isGroup ? delets.includes(from) : false
 		const isUrl = (url) => {
 		return url.match(new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%.+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%+.~#?&/=]*)/, 'gi'))
 		}
-		const addCaptcha = (id, jawaban, expired) => {
+		
+denz.on('group-participants-update', async (anu) => {
+                 // require('./denz.js')(denz, mek)
+           mem = anu.participants[0]
+			const mdata = await denz.groupMetadata(anu.jid)
+		    try {
+			console.log(anu)
+			if (anu.action == 'add') {
+			const addCaptcha = (id, jawaban, expired) => {
 				let obi = { id: id, jawaban: jawaban, expired: Date.now() + toMs(`${expired}s`) }
 				_capt.push(obi)
 				fs.writeFileSync('./captcha.json', JSON.stringify(_capt))
@@ -556,28 +564,22 @@ const isDelete = isGroup ? delets.includes(from) : false
 					})
 					if (position !== null) {
 						denz.sendMessage(_capt[position].id, `*Waktu habis*\n\n*Jawaban :* ${_capt[position].jawaban}`, text)
-						console.log(`Waktu Habis : ${_capt[position].id}`)
+						console.log(`BOT TERDETEKSI OTW KICK!!`)
+						denz.groupRemove(mdata.id, [`${num.split('@')[0]}@s.whatsapp.net`])
 						_capt.splice(position, 1)
 						fs.writeFileSync('./captcha.json', JSON.stringify(_capt))
 					}
 				}, 1000)
 			}
-			if (isCaptcha(from)) {
+			if (isCaptcha(mdata.id)) {
 				if (budy.includes(getAnswer(from))) {
-					reply(`*Selamat jawaban kamu benar*\n*Jawaban :* ${getAnswer(from)}\n\nIngin bermain lagi? kirim *${prefix}captcha*`)
+					reply(`*Kamu bukan robot.. Selamat join....`)
 					
 					_capt.splice(getPositionCP(from), 1)
 					fs.writeFileSync('./captcha.json', JSON.stringify(_capt))
 				}
 			}
 			waktuCaptcha(_capt)
-denz.on('group-participants-update', async (anu) => {
-                 // require('./denz.js')(denz, mek)
-           mem = anu.participants[0]
-			const mdata = await denz.groupMetadata(anu.jid)
-		    try {
-			console.log(anu)
-			if (anu.action == 'add') {
 				var letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
 					var letter1 = letters[Math.floor(Math.random() * letters.length)];
 					var letter2 = letters[Math.floor(Math.random() * letters.length)];
@@ -588,7 +590,7 @@ denz.on('group-participants-update', async (anu) => {
 					optionsText = { characters: 6, text: `${letter1}${letter2}${letter3}${letter4}${letter5}${letter6}` }
 					optionsTrace = { size: 5, color: 'deeppink' }
 					new canvacord.CaptchaGen().setCaptcha(optionsText).setTrace(optionsTrace).generate().then(buffer => {
-						denz.sendMessage(from, buffer, image, {quoted: mek, caption: `Silahkan Jawab Sebisa Mungkin\nWaktu 60second!\n\n_Note: Gunakan huruf kecil untuk menjawab_`})
+						denz.sendMessage(mdata.id, buffer, image, {quoted: mek, caption: `Silahkan Jawab Sebisa Mungkin\nWaktu 60second!\n\n_Note: Gunakan huruf kecil untuk menjawab_`})
 					})
 					console.log('JAWABAN :' + optionsText.text.toLowerCase())
 					jawabCaptcha = optionsText.text.toLowerCase()
@@ -2598,7 +2600,7 @@ denz.sendMessage(from, sendBtnVeryy, MessageType.buttonsMessage, {quoted:ftrol, 
 	         console.log(color('[REGISTER]'), color(time, 'yellow'), 'Serial:', color(serialUser, 'cyan'), 'in', color(sender || groupName))
 	    // console.log(e)
         break
-case 'captcha':
+/*case 'captcha':
 if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
 					if (isCaptcha(from)) return reply('Masih ada soal yang belum diselesaikan!')
 					var letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
@@ -2627,7 +2629,7 @@ if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted
 					} else {
 						reply('Tidak ada sesi absen yang berlangsung')
 					}
-					break
+					break/*
        /* case 'next':
         case 'leave':
             let room = Object.values(this.anonymous).find(room => room.check(m.sender))
