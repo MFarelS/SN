@@ -126,7 +126,7 @@ autorespon = false
 readPc = true
 playmusic = false
 baterai = {
-battery: "" || "Tidak Terdeteksi",
+battery: "" || "Undefined",
 isCharge: "" || false
 
 }
@@ -538,7 +538,7 @@ let settingstatus = 0;
       let _uptime = process.uptime() * 1000;
       let uptime = clockString(_uptime);
 
-await denz.setStatus(`📨 SNEAZYBOT || Battery: ${baterai.battery}% || Runtime: ${uptime}`).catch((_) => _);
+await denz.setStatus(`📨 SNEAZYBOT || 🔋 Battery: ${baterai.battery}% || 🤖 Runtime: ${uptime} || 🎧 Uptime: ${kyun(os.uptime())} || 📌 Date: ${calender}`).catch((_) => _);
       settingstatus = new Date() * 1;
     }
 		idttt = []
@@ -700,8 +700,8 @@ const ftrol = {
                             itemCount : 8888,
                             status: 1,
                             surface : 1,
-                            message: `Hai kak ${pushname}👋\nRuntime: ${kyun(os.uptime())}`, //Kasih namalu
-                            orderTitle: `Hai kak ${pushname}👋\nRuntime: ${kyun(os.uptime())}`,
+                            message: `Hai kak ${pushname}👋\nUptime: ${kyun(os.uptime())}`, //Kasih namalu
+                            orderTitle: `Hai kak ${pushname}👋\nUptime: ${kyun(os.uptime())}`,
                             thumbnail: dfrply, //Gambarnye
                             sellerJid: '6285732415700@s.whatsapp.net' 
                           }
