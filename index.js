@@ -94,7 +94,7 @@ exec(`cd /sdcard/download && play *mp3`)
 			} catch {
 			ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
 			}
-				/*var namea = denz.contacts[num] != undefined ? denz.contacts[num].vname || denz.contacts[num].notify : 'unknown'
+				var namea = denz.contacts[num] != undefined ? denz.contacts[num].vname || denz.contacts[num].notify : 'unknown'
 			time_welc = moment.tz('Asia/Jakarta').format('DD/MM/YYYY')
                 time_wel = moment.tz('Asia/Jakarta').format("hh:mm")
 			const memeg = mdata.participants.length
@@ -103,10 +103,13 @@ exec(`cd /sdcard/download && play *mp3`)
 			masuk =`Halo @${num.split('@')[0]}👋
 🥇 *Name:* ${namea}
 🥈 *Bio:* ${thu.status}
-🥉 *Tanggal:* ${time_wel} - ${time_welc}`
+🥉 *Tanggal:* ${time_wel} - ${time_welc}
+
+Biasakan baca deskripsi grup
+${mdata.desc}`
             denz.sendMessage(mdata.id, masuk, MessageType.text, { quoted: fkontakk, thumbnail: fs.readFileSync('./denz.jpg'), contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `Welcome To ${mdata.subject}`,body:'Note: Gunakan bot dengan bijak',mediaType:"2",thumbnail:buff,mediaUrl:`https://youtu.be/1U_8cj4OyUA`}}})
-			} */
-		const budy = (type === 'conversation') ? anu.message.conversation : (type === 'extendedTextMessage') ? anu.message.extendedTextMessage.text : ''
+			} 
+	/*	const budy = (type === 'conversation') ? anu.message.conversation : (type === 'extendedTextMessage') ? anu.message.extendedTextMessage.text : ''
 			const _capt = JSON.parse(fs.readFileSync('./captcha.json'))
 			 const addCaptcha = (id, jawaban, expired) => {
 				let obi = { id: id, jawaban: jawaban, expired: Date.now() + toMs(`${expired}s`) }
@@ -197,7 +200,7 @@ exec(`cd /sdcard/download && play *mp3`)
 			let buff = await getBuffer(ppimg)
 			keluar =`Selamat tinggal @${num.split('@')[0]}\nSemoga cepat meninggal..`
             denz.sendMessage(mdata.id, keluar, MessageType.text, { quoted: fkontakk, thumbnail: fs.readFileSync('./denz.jpg'), contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `Keluar Dari ${mdata.subject}`,body:'Sneazybot^8.0.9',mediaType:"2",thumbnail:buff,mediaUrl:`https://youtu.be/1U_8cj4OyUA`}}})
-			} else if (anu.action == 'promote') {
+			} */else if (anu.action == 'promote') {
 fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6285732415700-1604595598@g.us' } : {})}, message: { "contactMessage":{"displayName": `${mdata.subject}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;Denz;;;\nFN:Denz\nitem1.TEL;waid=6285732415700:6285732415700\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
 num = anu.participants[0]
 teks = `*P R O M O T E - D E T E C T E D*\n Username: @${num.split('@')[0]}\n Time : ${moment.tz('Asia/Jakarta').format('DD/MM HH:mm:ss')}\n Group: ${mdata.subject}`
