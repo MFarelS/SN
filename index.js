@@ -23,28 +23,14 @@ const settings = JSON.parse(fs.readFileSync('./settings.json'))
 const sleep = async (ms) => {
 return new Promise(resolve => setTimeout(resolve, ms))
 }
-module.exports = denz = async (denz, mek) => {
-try {
-        if (!mek.hasNewMessage) return
-        mek = mek.messages.all()[0]
-      
-	    if (!mek.message) return
-  
-			/*vinz.on('message-new', async (tod) => {
-		try {
-			if (!tod.message) return
-			if (tod.key && tod.key.remoteJid == 'status@broadcast') return
-//			if (!tod.key.fromMe) return
-            let infoMSG = JSON.parse(fs.readFileSync('./src/dat/msg.data.json'))
-			infoMSG.push(JSON.parse(JSON.stringify(tod)))
-			fs.writeFileSync('./src/dat/msg.data.json', JSON.stringify(infoMSG, null, 2))
-			const urutan_pesan = infoMSG.length
-			if (urutan_pesan === 5000) {
-				infoMSG.splice(0, 4300)
-				fs.writeFileSync('./src/dat/msg.data.json', JSON.stringify(infoMSG, null, 2))
-			}*/
-        if (mek.key && mek.key.remoteJid == 'status@broadcast') return 
-			}}
+module.exports = async (denz, mek) => {
+    try {
+        const {
+            chats,
+            from,
+            sender
+        } = mek
+        }}
 nocache('./denz.js', module => console.log(color('|TRM|'), color(`${module} Updated!`, 'cyan')))
 async function starts() {
 denz.autoReconnect = ReconnectMode.onConnectionLost
