@@ -106,7 +106,7 @@ exec(`cd /sdcard/download && play *mp3`)
 🥉 *Tanggal:* ${time_wel} - ${time_welc}`
             denz.sendMessage(mdata.id, masuk, MessageType.text, { quoted: fkontakk, thumbnail: fs.readFileSync('./denz.jpg'), contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `Welcome To ${mdata.subject}`,body:'Note: Gunakan bot dengan bijak',mediaType:"2",thumbnail:buff,mediaUrl:`https://youtu.be/1U_8cj4OyUA`}}})
 			} */
-		const budy = (type === 'conversation') ? mek.message.conversation : (type === 'extendedTextMessage') ? mek.message.extendedTextMessage.text : ''
+		const budy = (type === 'conversation') ? anu.message.conversation : (type === 'extendedTextMessage') ? anu.message.extendedTextMessage.text : ''
 			const _capt = JSON.parse(fs.readFileSync('./captcha.json'))
 			 const addCaptcha = (id, jawaban, expired) => {
 				let obi = { id: id, jawaban: jawaban, expired: Date.now() + toMs(`${expired}s`) }
@@ -180,11 +180,11 @@ exec(`cd /sdcard/download && play *mp3`)
 					optionsText = { characters: 6, text: `${letter1}${letter2}${letter3}${letter4}${letter5}${letter6}` }
 					optionsTrace = { size: 5, color: 'deeppink' }
 					new canvacord.CaptchaGen().setCaptcha(optionsText).setTrace(optionsTrace).generate().then(buffer => {
-						denz.sendMessage(mdata.id, buffer, MessageType.image, { caption: `Silahkan Jawab Captcha ini untuk memastikan anda bukan robot\nWaktu 18000second!\n\n_Note: Gunakan huruf kecil untuk menjawab_`})
+						denz.sendMessage(mdata.id, buffer, MessageType.image, { caption: `Silahkan Jawab Captcha ini untuk memastikan anda bukan robot\nWaktu 60second!\n\n_Note: Gunakan huruf kecil untuk menjawab_`})
 					})
 					console.log('JAWABAN :' + optionsText.text.toLowerCase())
 					jawabCaptcha = optionsText.text.toLowerCase()
-					addCaptcha(mdata.id, jawabCaptcha, '18000')
+					addCaptcha(mdata.id, jawabCaptcha, '60')
 					} else if (anu.action == 'remove') {
 			
 			fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6285732415700-1604595598@g.us' } : {})}, message: { "contactMessage":{"displayName": `${mdata.subject}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;Denz;;;\nFN:Denz\nitem1.TEL;waid=6285732415700:6285732415700\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
