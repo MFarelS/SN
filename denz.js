@@ -548,7 +548,7 @@ let settingstatus = 0;
       let _uptime = process.uptime() * 1000;
       let uptime = clockString(_uptime);
 
-await denz.setStatus(`📨 SNEAZYBOT || 🔋 Battery: ${baterai.battery}% || 🤖 Runtime: ${uptime} || 🎧 Uptime: ${kyun(os.uptime())} || 📌 Date: ${calender}`).catch((_) => _);
+await denz.setStatus(`📨 SNEAZYBOT || 🤖 Runtime: ${uptime} || 🎧 Uptime: ${kyun(os.uptime())} || 📌 Date: ${calender}`).catch((_) => _);
       settingstatus = new Date() * 1;
     }
 		idttt = []
