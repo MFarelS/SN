@@ -6,7 +6,7 @@ const {
     color
 } = require('../lib/color')
 const fs = require('fs');
-const captchaPath = './database/captcha_group'
+const captchaPath = './database/captcha_group.js'
 
 module.exports = async (denz, mek) => {
     try {
