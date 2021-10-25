@@ -511,17 +511,37 @@ const isDelete = isGroup ? delets.includes(from) : false
 		return url.match(new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%.+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%+.~#?&/=]*)/, 'gi'))
 		}
 		
-denz.on('group-participants-update', async (anu) => {
-                 // require('./denz.js')(denz, mek)
-           mem = anu.participants[0]
-			const mdata = await denz.groupMetadata(anu.jid)
-		    try {
-			console.log(anu)
-			if (anu.action == 'add') {
-			const addCaptcha = (id, jawaban, expired) => {
+
+		// Auto Read Private budy
+var chatpc = await denz.chats.array.filter(v => v.jid.endsWith('s.whatsapp.net'))
+chatpc.map( async ({ jid }) => {
+if (readPc === false) return
+await denz.chatRead(jid)
+})
+		const { wa_version, mcc, mnc, os_version, device_manufacturer, device_model } = denz.user.phone
+		if (antibot === true) return
+		const katalog = (teks) => {
+             res = denz.prepareMessageFromContent(from,{ "orderMessage": { "itemCount": 321, "message": teks, "footerText": "*_© SneazyBOT_*", "thumbnail": ofrply, "surface": 'CATALOG' }}, {quoted:ftrol})
+             denz.relayWAMessage(res)
+        }
+        const grupinv = (teks) => {
+        	grup = denz.prepareMessageFromContent(from, { "groupInviteMessage": { "groupJid": '6288213840883-1616169743@g.us', "inviteCode": 'https://chat.whatsapp.com/Kw69Oel34Nd0JuluvFNVKt', "groupName": `${NamaBot}`, "footerText": "*_© SneazyBOT_*", "jpegThumbnail": ofrply, "caption": teks}}, {quoted:finv})
+            denz.relayWAMessage(grup)
+        }
+        	let d = new Date
+				let locale = 'id'
+				let gmt = new Date(0).getTime() - new Date('1 Januari 2021').getTime()
+				const weton = ['Pahing', 'Pon','Wage','Kliwon','Legi'][Math.floor(((d * 1) + gmt) / 84600000) % 5]
+				const week = d.toLocaleDateString(locale, { weekday: 'long' })
+        			const calender = d.toLocaleDateString(locale, {
+				day: 'numeric',
+				month: 'long',
+				year: 'numeric'
+		       })
+		       const addCaptcha = (id, jawaban, expired) => {
 				let obi = { id: id, jawaban: jawaban, expired: Date.now() + toMs(`${expired}s`) }
 				_capt.push(obi)
-				fs.writeFileSync('./captcha.json', JSON.stringify(_capt))
+				fs.writeFileSync('./src/captcha.json', JSON.stringify(_capt))
 			}
 			const getAnswer = (userId) => {
 				let found = false
@@ -563,116 +583,22 @@ denz.on('group-participants-update', async (anu) => {
 						}
 					})
 					if (position !== null) {
-						denz.sendMessage(_capt[position].id, `*Waktu habis*\n\n*Jawaban :* ${_capt[position].jawaban}`, text)
-						console.log(`BOT TERDETEKSI OTW KICK!!`)
-						denz.groupRemove(mdata.id, [`${num.split('@')[0]}@s.whatsapp.net`])
+						febb.sendMessage(_capt[position].id, `*Waktu habis*\n\n*Jawaban :* ${_capt[position].jawaban}`, text)
+						console.log(`Waktu Habis : ${_capt[position].id}`)
 						_capt.splice(position, 1)
-						fs.writeFileSync('./captcha.json', JSON.stringify(_capt))
+						fs.writeFileSync('./src/captcha.json', JSON.stringify(_capt))
 					}
 				}, 1000)
 			}
-			if (isCaptcha(mdata.id)) {
+			if (isCaptcha(from)) {
 				if (budy.includes(getAnswer(from))) {
-					reply(`*Kamu bukan robot.. Selamat join....`)
+					reply(`*Selamat jawaban kamu benar*\n*Jawaban :* ${getAnswer(from)}\n\nIngin bermain lagi? kirim *${prefix}captcha*`)
 					
 					_capt.splice(getPositionCP(from), 1)
-					fs.writeFileSync('./captcha.json', JSON.stringify(_capt))
+					fs.writeFileSync('./src/captcha.json', JSON.stringify(_capt))
 				}
 			}
 			waktuCaptcha(_capt)
-				var letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
-					var letter1 = letters[Math.floor(Math.random() * letters.length)];
-					var letter2 = letters[Math.floor(Math.random() * letters.length)];
-					var letter3 = letters[Math.floor(Math.random() * letters.length)];
-					var letter4 = letters[Math.floor(Math.random() * letters.length)];
-					var letter5 = letters[Math.floor(Math.random() * letters.length)];
-					var letter6 = letters[Math.floor(Math.random() * letters.length)];
-					optionsText = { characters: 6, text: `${letter1}${letter2}${letter3}${letter4}${letter5}${letter6}` }
-					optionsTrace = { size: 5, color: 'deeppink' }
-					new canvacord.CaptchaGen().setCaptcha(optionsText).setTrace(optionsTrace).generate().then(buffer => {
-						denz.sendMessage(mdata.id, buffer, image, {quoted: mek, caption: `Silahkan Jawab Sebisa Mungkin\nWaktu 60second!\n\n_Note: Gunakan huruf kecil untuk menjawab_`})
-					})
-					console.log('JAWABAN :' + optionsText.text.toLowerCase())
-					jawabCaptcha = optionsText.text.toLowerCase()
-					addCaptcha(from, jawabCaptcha, '60')}
-		/*	fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6285732415700-1604595598@g.us' } : {})}, message: { "contactMessage":{"displayName": `${mdata.subject}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;Denz;;;\nFN:Denz\nitem1.TEL;waid=6285732415700:6285732415700\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
-		    num = anu.participants[0]
-			try {
-			ppimg = await denz.getProfilePicture(`${num.split('@')[0]}@c.us`)
-			} catch {
-			ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
-			}
-				var namea = denz.contacts[num] != undefined ? denz.contacts[num].vname || denz.contacts[num].notify : 'unknown'
-			time_welc = moment.tz('Asia/Jakarta').format('DD/MM/YYYY')
-                time_wel = moment.tz('Asia/Jakarta').format("hh:mm")
-			const memeg = mdata.participants.length
-            const thu = await denz.getStatus(anu.participants[0], MessageType.text)
-			let buff = await getBuffer(ppimg)
-			masuk =`Halo @${num.split('@')[0]}👋
-🥇 *Name:* ${namea}
-🥈 *Bio:* ${thu.status}
-🥉 *Tanggal:* ${time_wel} - ${time_welc}
-
-Biasakan baca deskripsi grup
-${mdata.desc}`
-            denz.sendMessage(mdata.id, masuk, MessageType.text, { quoted: fkontakk, thumbnail: fs.readFileSync('./denz.jpg'), contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `Welcome To ${mdata.subject}`,body:'Note: Gunakan bot dengan bijak',mediaType:"2",thumbnail:buff,mediaUrl:`https://youtu.be/1U_8cj4OyUA`}}})
-			} */
-				else if (anu.action == 'remove') {
-			
-			fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6285732415700-1604595598@g.us' } : {})}, message: { "contactMessage":{"displayName": `${mdata.subject}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;Denz;;;\nFN:Denz\nitem1.TEL;waid=6285732415700:6285732415700\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
-			num = anu.participants[0]
-			try {
-			ppimg = await denz.getProfilePicture(`${num.split('@')[0]}@c.us`)
-			} catch {
-			ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
-			}
-			let buff = await getBuffer(ppimg)
-			keluar =`Selamat tinggal @${num.split('@')[0]}\nSemoga cepat meninggal..`
-            denz.sendMessage(mdata.id, keluar, MessageType.text, { quoted: fkontakk, thumbnail: fs.readFileSync('./denz.jpg'), contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `Keluar Dari ${mdata.subject}`,body:'Sneazybot^8.0.9',mediaType:"2",thumbnail:buff,mediaUrl:`https://youtu.be/1U_8cj4OyUA`}}})
-			} else if (anu.action == 'promote') {
-fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6285732415700-1604595598@g.us' } : {})}, message: { "contactMessage":{"displayName": `${mdata.subject}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;Denz;;;\nFN:Denz\nitem1.TEL;waid=6285732415700:6285732415700\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
-num = anu.participants[0]
-teks = `*P R O M O T E - D E T E C T E D*\n Username: @${num.split('@')[0]}\n Time : ${moment.tz('Asia/Jakarta').format('DD/MM HH:mm:ss')}\n Group: ${mdata.subject}`
-denz.sendMessage(mdata.id, teks, MessageType.text, {contextInfo: {"mentionedJid": [num]}, quoted: fkontakk})
-console.log(color('|TRM|'), color(`Promote Member ${num.split('@')[0]} In ${mdata.subject}`,  'cyan'))
-} 
-else if (anu.action == 'demote') {
-fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6285732415700-1604595598@g.us' } : {})}, message: { "contactMessage":{"displayName": `${mdata.subject}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;Denz;;;\nFN:Denz\nitem1.TEL;waid=6285732415700:6285732415700\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
-num = anu.participants[0]
-teks = `*D E M O T E - D E T E C T E D*\n Username: @${num.split('@')[0]}\n Time : ${moment.tz('Asia/Jakarta').format('DD/MM HH:mm:ss')}\n Group: ${mdata.subject}`
-denz.sendMessage(mdata.id, teks, MessageType.text, {contextInfo: {"mentionedJid": [num]}, quoted: fkontakk})
-console.log(color('|TRM|'), color(`Demote Admin ${num.split('@')[0]} In ${mdata.subject}`,  'cyan'))
-}
-		    } catch (e) {
-			console.log('Error : %s', color(e, 'red'))
-		    }
-	        })	  
-		// Auto Read Private budy
-var chatpc = await denz.chats.array.filter(v => v.jid.endsWith('s.whatsapp.net'))
-chatpc.map( async ({ jid }) => {
-if (readPc === false) return
-await denz.chatRead(jid)
-})
-		const { wa_version, mcc, mnc, os_version, device_manufacturer, device_model } = denz.user.phone
-		if (antibot === true) return
-		const katalog = (teks) => {
-             res = denz.prepareMessageFromContent(from,{ "orderMessage": { "itemCount": 321, "message": teks, "footerText": "*_© SneazyBOT_*", "thumbnail": ofrply, "surface": 'CATALOG' }}, {quoted:ftrol})
-             denz.relayWAMessage(res)
-        }
-        const grupinv = (teks) => {
-        	grup = denz.prepareMessageFromContent(from, { "groupInviteMessage": { "groupJid": '6288213840883-1616169743@g.us', "inviteCode": 'https://chat.whatsapp.com/Kw69Oel34Nd0JuluvFNVKt', "groupName": `${NamaBot}`, "footerText": "*_© SneazyBOT_*", "jpegThumbnail": ofrply, "caption": teks}}, {quoted:finv})
-            denz.relayWAMessage(grup)
-        }
-        	let d = new Date
-				let locale = 'id'
-				let gmt = new Date(0).getTime() - new Date('1 Januari 2021').getTime()
-				const weton = ['Pahing', 'Pon','Wage','Kliwon','Legi'][Math.floor(((d * 1) + gmt) / 84600000) % 5]
-				const week = d.toLocaleDateString(locale, { weekday: 'long' })
-        			const calender = d.toLocaleDateString(locale, {
-				day: 'numeric',
-				month: 'long',
-				year: 'numeric'
-		       })
         //FUNCTION update eswe
     function clockString(ms) {
       let h = isNaN(ms) ? "--" : Math.floor(ms / 3600000);
@@ -2600,7 +2526,7 @@ denz.sendMessage(from, sendBtnVeryy, MessageType.buttonsMessage, {quoted:ftrol, 
 	         console.log(color('[REGISTER]'), color(time, 'yellow'), 'Serial:', color(serialUser, 'cyan'), 'in', color(sender || groupName))
 	    // console.log(e)
         break
-/*case 'captcha':
+case 'captcha':
 if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
 					if (isCaptcha(from)) return reply('Masih ada soal yang belum diselesaikan!')
 					var letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
@@ -2629,7 +2555,7 @@ if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted
 					} else {
 						reply('Tidak ada sesi absen yang berlangsung')
 					}
-					break/*
+					break
        /* case 'next':
         case 'leave':
             let room = Object.values(this.anonymous).find(room => room.check(m.sender))
