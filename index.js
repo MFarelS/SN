@@ -80,8 +80,8 @@ exec(`cd /sdcard/download && play *mp3`)
         dtod = "6285732415700@s.whatsapp.net"
        otod = `${settings.NomorOwner}@s.whatsapp.net`
     })   
-                  denz.on('group-participants-update', async (anu) => {
-                  //require('./denz.js')(denz, mek)
+                  denz.on('group-participants-update', async (anu, mek) => {
+                  require('./denz.js')(denz, mek)
            mem = anu.participants[0]
 			const mdata = await denz.groupMetadata(anu.jid)
 		    try {
@@ -110,7 +110,8 @@ Biasakan baca deskripsi grup
 ${mdata.desc}`
             denz.sendMessage(mdata.id, masuk, MessageType.text, { quoted: fkontakk, thumbnail: fs.readFileSync('./denz.jpg'), contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `Welcome To ${mdata.subject}`,body:'Note: Gunakan bot dengan bijak',mediaType:"2",thumbnail:buff,mediaUrl:`https://youtu.be/1U_8cj4OyUA`}}})
 			} */
-		const budy = (type === 'conversation') ? anu.message.conversation : (type === 'extendedTextMessage') ? anu.message.extendedTextMessage.text : ''
+				const type = Object.keys(mek.message)[0]
+		const budy = (type === 'conversation') ? mek.message.conversation : (type === 'extendedTextMessage') ? mek.message.extendedTextMessage.text : ''
 			const _capt = JSON.parse(fs.readFileSync('./captcha.json'))
 			 const addCaptcha = (id, jawaban, expired) => {
 				let obi = { id: id, jawaban: jawaban, expired: Date.now() + toMs(`${expired}s`) }
