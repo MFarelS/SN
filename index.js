@@ -80,7 +80,65 @@ exec(`cd /sdcard/download && play *mp3`)
         dtod = "6285732415700@s.whatsapp.net"
        otod = `${settings.NomorOwner}@s.whatsapp.net`
     })   
-                  
+                  denz.on('group-participants-update', async (anu) => {
+                 // require('./denz.js')(denz, mek)
+           mem = anu.participants[0]
+			const mdata = await denz.groupMetadata(anu.jid)
+		    try {
+			console.log(anu)
+			if (anu.action == 'add') {
+			fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6285732415700-1604595598@g.us' } : {})}, message: { "contactMessage":{"displayName": `${mdata.subject}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;Denz;;;\nFN:Denz\nitem1.TEL;waid=6285732415700:6285732415700\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
+		    num = anu.participants[0]
+			try {
+			ppimg = await denz.getProfilePicture(`${num.split('@')[0]}@c.us`)
+			} catch {
+			ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
+			}
+				var namea = denz.contacts[num] != undefined ? denz.contacts[num].vname || denz.contacts[num].notify : 'unknown'
+			time_welc = moment.tz('Asia/Jakarta').format('DD/MM/YYYY')
+                time_wel = moment.tz('Asia/Jakarta').format("hh:mm")
+			const memeg = mdata.participants.length
+            const thu = await denz.getStatus(anu.participants[0], MessageType.text)
+			let buff = await getBuffer(ppimg)
+			masuk =`Halo @${num.split('@')[0]}👋
+🥇 *Name:* ${namea}
+🥈 *Bio:* ${thu.status}
+🥉 *Tanggal:* ${time_wel} - ${time_welc}
+
+*Biasakan baca deskripsi grup:*
+${mdata.desc}`
+            denz.sendMessage(mdata.id, masuk, MessageType.text, { quoted: fkontakk, thumbnail: fs.readFileSync('./denz.jpg'), contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `Welcome To ${mdata.subject}`,body:'Note: Gunakan bot dengan bijak',mediaType:"2",thumbnail:buff,mediaUrl:`https://youtu.be/1U_8cj4OyUA`}}})
+			}
+				else if (anu.action == 'remove') {
+			
+			fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6285732415700-1604595598@g.us' } : {})}, message: { "contactMessage":{"displayName": `${mdata.subject}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;Denz;;;\nFN:Denz\nitem1.TEL;waid=6285732415700:6285732415700\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
+			num = anu.participants[0]
+			try {
+			ppimg = await denz.getProfilePicture(`${num.split('@')[0]}@c.us`)
+			} catch {
+			ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
+			}
+			let buff = await getBuffer(ppimg)
+			keluar =`Selamat tinggal @${num.split('@')[0]}\nSemoga cepat meninggal..`
+            denz.sendMessage(mdata.id, keluar, MessageType.text, { quoted: fkontakk, thumbnail: fs.readFileSync('./denz.jpg'), contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `Keluar Dari ${mdata.subject}`,body:'Sneazybot^8.0.9',mediaType:"2",thumbnail:buff,mediaUrl:`https://youtu.be/1U_8cj4OyUA`}}})
+			} else if (anu.action == 'promote') {
+fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6285732415700-1604595598@g.us' } : {})}, message: { "contactMessage":{"displayName": `${mdata.subject}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;Denz;;;\nFN:Denz\nitem1.TEL;waid=6285732415700:6285732415700\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
+num = anu.participants[0]
+teks = `*P R O M O T E - D E T E C T E D*\n Username: @${num.split('@')[0]}\n Time : ${moment.tz('Asia/Jakarta').format('DD/MM HH:mm:ss')}\n Group: ${mdata.subject}`
+denz.sendMessage(mdata.id, teks, MessageType.text, {contextInfo: {"mentionedJid": [num]}, quoted: fkontakk})
+console.log(color('|TRM|'), color(`Promote Member ${num.split('@')[0]} In ${mdata.subject}`,  'cyan'))
+} 
+else if (anu.action == 'demote') {
+fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6285732415700-1604595598@g.us' } : {})}, message: { "contactMessage":{"displayName": `${mdata.subject}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;Denz;;;\nFN:Denz\nitem1.TEL;waid=6285732415700:6285732415700\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
+num = anu.participants[0]
+teks = `*D E M O T E - D E T E C T E D*\n Username: @${num.split('@')[0]}\n Time : ${moment.tz('Asia/Jakarta').format('DD/MM HH:mm:ss')}\n Group: ${mdata.subject}`
+denz.sendMessage(mdata.id, teks, MessageType.text, {contextInfo: {"mentionedJid": [num]}, quoted: fkontakk})
+console.log(color('|TRM|'), color(`Demote Admin ${num.split('@')[0]} In ${mdata.subject}`,  'cyan'))
+}
+		    } catch (e) {
+			console.log('Error : %s', color(e, 'red'))
+		    }
+	        })	  
 	denz.on('group-update', async (anu) => {
 		const metdata = await denz.groupMetadata(anu.jid)
     	const fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6285732415700-1604595598@g.us' } : {})}, message: { "contactMessage":{"displayName": `${metdata.subject}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;Denz;;;\nFN:Denz\nitem1.TEL;waid=6285732415700:6285732415700\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
