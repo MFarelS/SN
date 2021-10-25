@@ -7,9 +7,12 @@ const moment = require("moment-timezone")
 const fs = require("fs")
 const canvacord = require("canvacord")
 const util = require('util')
+const captcha = require('trek-captcha');
+const captchaPath = './database/captcha_group.js'
 const imageToBase64 = require('image-to-base64')
 const imgbb = require('imgbb-uploader')
 const figlet = require('figlet')
+
 const toMs = require('ms')
 //const welkom = JSON.parse(fs.readFileSync('./database/welkom.json'))
 const time = moment().tz('Asia/Jakarta').format("HH:mm:ss")
@@ -81,13 +84,72 @@ exec(`cd /sdcard/download && play *mp3`)
        otod = `${settings.NomorOwner}@s.whatsapp.net`
     })   
                   denz.on('group-participants-update', async (anu) => {
-                 // require('./denz.js')(denz, mek)
+               // require('./denz.js')(denz, mek)
            mem = anu.participants[0]
 			const mdata = await denz.groupMetadata(anu.jid)
 		    try {
 			console.log(anu)
 			if (anu.action == 'add') {
-			fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6285732415700-1604595598@g.us' } : {})}, message: { "contactMessage":{"displayName": `${mdata.subject}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;Denz;;;\nFN:Denz\nitem1.TEL;waid=6285732415700:6285732415700\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
+			if (!fs.existsSync(captchaPath + '/' + anu.participants[0] + '.json')) {
+                    const {
+                        token,
+                        buffer
+                    } = await captcha()
+                    let objCaptcha = {
+                        status: false,
+                        ID: require('crypto').randomBytes(8).toString("hex").toUpperCase(),
+                        session: 'captcha',
+                        name: pushname,
+                        number: anu.participants[0],
+                        token: token
+                    }
+                    let dataID = JSON.parse(fs.readFileSync(captchaPath + '/ids-match.json'))
+                    dataID.push({
+                        SID: objCaptcha['ID'],
+                        data: objCaptcha
+                    })
+                    fs.writeFileSync(captchaPath + '/ids-match.json', JSON.stringify(dataID, null, 3))
+                    fs.writeFile(captchaPath + '/' + anu.participants[0] + '.json', JSON.stringify(objCaptcha, null, 3), () => {
+                        denz.sendMessage(anu.jid, buffer, MessageType.image, {
+                            caption: `Hai @${anu.participants[0].split('@')[0]}, Selamat datang di ${groupName}\n\n_Jangan lupa jawab captcha tersebut, untuk validasi bahwa kamu bukan bot, jika tidak kami kick ^.^_`,
+                            contextInfo: {
+                                'mentionedJid': [anu.participants[0]]
+                            },
+                            thumbnail: buffer
+                        })
+                    })
+                    setTimeout(function() {
+                        if (!fs.existsSync(fs.readFileSync(captchaPath + '/' + anu.participants[0] + '.json'))) return false
+                        let data_captcha = JSON.parse(fs.readFileSync(captchaPath + '/' + anu.participants[0] + '.json'))
+                        denz.sendMessage(anu.jid, `Maaf kak @${data_captcha.number.split('@')[0]} waktu sudah habis, Kamu akan segera dikick...`, MessageType.text, {
+                            contextInfo: {
+                                'mentionedJid': [data_captcha.number]
+                            }
+                        }).then(async (res) => {
+                            try {
+                                denz.groupRemove(anu.jid, [data_captcha.number])
+                                let dataID_captcha = JSON.parse(fs.readFileSync(captchaPath + '/ids-match.json'));
+                                let indexData_captcha = dataID_captcha.findIndex(r => r['number'] == data_captcha.number)
+                                dataID_captcha.splice(indexData_captcha, 1)
+                                fs.writeFileSync(captchaPath + '/ids-match.json', JSON.stringify(dataID_captcha, null, 3))
+                                fs.unlinkSync(captchaPath + '/' + data_captcha.number + '.json')
+                            } catch (emror) {
+                                denz.sendMessage(anu.jid, `Hmmm... saya tidak bisa kick admin atau saya tidak punya akses admin :(...`, MessageType.text, {
+                                    quoted: res
+                                })
+                                let dataID_captcha = JSON.parse(fs.readFileSync(captchaPath + '/ids-match.json'));
+                                let indexData_captcha = dataID_captcha.findIndex(r => r['number'] == data_captcha.number)
+                                dataID_captcha.splice(indexData_captcha, 1)
+                                fs.writeFileSync(captchaPath + '/ids-match.json', JSON.stringify(dataID_captcha, null, 3))
+                                fs.unlinkSync(captchaPath + '/' + data_captcha.number + '.json')
+                                console.log(color('[ERROR]', 'red'), emror)
+                            }
+                        })
+                    }, 180000); // 180000 = 3mnt
+                }
+            }
+        }
+			/*fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6285732415700-1604595598@g.us' } : {})}, message: { "contactMessage":{"displayName": `${mdata.subject}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;Denz;;;\nFN:Denz\nitem1.TEL;waid=6285732415700:6285732415700\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
 		    num = anu.participants[0]
 			try {
 			ppimg = await denz.getProfilePicture(`${num.split('@')[0]}@c.us`)
@@ -109,7 +171,7 @@ exec(`cd /sdcard/download && play *mp3`)
 ${mdata.desc}`
             denz.sendMessage(mdata.id, masuk, MessageType.text, { quoted: fkontakk, thumbnail: fs.readFileSync('./denz.jpg'), contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `Welcome To ${mdata.subject}`,body:'Note: Gunakan bot dengan bijak',mediaType:"2",thumbnail:buff,mediaUrl:`https://youtu.be/1U_8cj4OyUA`}}})
 			}
-				else if (anu.action == 'remove') {
+				*/else if (anu.action == 'remove') {
 			
 			fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6285732415700-1604595598@g.us' } : {})}, message: { "contactMessage":{"displayName": `${mdata.subject}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;Denz;;;\nFN:Denz\nitem1.TEL;waid=6285732415700:6285732415700\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
 			num = anu.participants[0]
