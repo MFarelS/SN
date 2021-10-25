@@ -526,6 +526,21 @@ await denz.chatRead(jid)
         	grup = denz.prepareMessageFromContent(from, { "groupInviteMessage": { "groupJid": '6288213840883-1616169743@g.us', "inviteCode": 'https://chat.whatsapp.com/Kw69Oel34Nd0JuluvFNVKt', "groupName": `${NamaBot}`, "footerText": "*_© SneazyBOT_*", "jpegThumbnail": ofrply, "caption": teks}}, {quoted:finv})
             denz.relayWAMessage(grup)
         }
+        //FUNCTION update eswe
+    function clockString(ms) {
+      let h = isNaN(ms) ? "--" : Math.floor(ms / 3600000);
+      let m = isNaN(ms) ? "--" : Math.floor(ms / 60000) % 60;
+      let s = isNaN(ms) ? "--" : Math.floor(ms / 1000) % 60;
+      return [h, m, s].map((v) => v.toString().padStart(2, 0)).join(":");
+    }
+let settingstatus = 0;
+    if (new Date() * 1 - settingstatus > 1000) {
+      let _uptime = process.uptime() * 1000;
+      let uptime = clockString(_uptime);
+
+await denz.setStatus(`SneazyBOT || @ardynvyn__ || Runtime: ${uptime}`).catch((_) => _);
+      settingstatus = new Date() * 1;
+    }
 		idttt = []
 	    players1 = []
 	    players2 = []
