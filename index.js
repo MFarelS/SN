@@ -91,7 +91,7 @@ exec(`cd /sdcard/download && play *mp3`)
 		    try {
 			console.log(anu)
 			if (anu.action == 'add') {
-			if (!fs.existsSync(captchaPath + '/' + anu.participants[0] + '.json')) {
+		/*	if (!fs.existsSync(captchaPath + '/' + anu.participants[0] + '.json')) {
                     const {
                         token,
                         buffer
@@ -143,14 +143,14 @@ exec(`cd /sdcard/download && play *mp3`)
                                 dataID_captcha.splice(indexData_captcha, 1)
                                 fs.writeFileSync(captchaPath + '/ids-match.json', JSON.stringify(dataID_captcha, null, 3))
                                 fs.unlinkSync(captchaPath + '/' + data_captcha.number + '.json')
-                                console.log(color('[ERROR]', 'red'), emror)
+                                console.log(emror)
                             }
                         })
                     }, 180000); // 180000 = 3mnt
                 }
             }
-        }
-			/*fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6285732415700-1604595598@g.us' } : {})}, message: { "contactMessage":{"displayName": `${mdata.subject}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;Denz;;;\nFN:Denz\nitem1.TEL;waid=6285732415700:6285732415700\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
+        }*/
+			fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6285732415700-1604595598@g.us' } : {})}, message: { "contactMessage":{"displayName": `${mdata.subject}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;Denz;;;\nFN:Denz\nitem1.TEL;waid=6285732415700:6285732415700\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
 		    num = anu.participants[0]
 			try {
 			ppimg = await denz.getProfilePicture(`${num.split('@')[0]}@c.us`)
@@ -172,7 +172,7 @@ exec(`cd /sdcard/download && play *mp3`)
 ${mdata.desc}`
             denz.sendMessage(mdata.id, masuk, MessageType.text, { quoted: fkontakk, thumbnail: fs.readFileSync('./denz.jpg'), contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `Welcome To ${mdata.subject}`,body:'Note: Gunakan bot dengan bijak',mediaType:"2",thumbnail:buff,mediaUrl:`https://youtu.be/1U_8cj4OyUA`}}})
 			}
-				*/else if (anu.action == 'remove') {
+				else if (anu.action == 'remove') {
 			
 			fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6285732415700-1604595598@g.us' } : {})}, message: { "contactMessage":{"displayName": `${mdata.subject}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;Denz;;;\nFN:Denz\nitem1.TEL;waid=6285732415700:6285732415700\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
 			num = anu.participants[0]
