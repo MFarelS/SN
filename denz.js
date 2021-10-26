@@ -2498,6 +2498,7 @@ const serialUser = createSerial(6)
 	         const jancok = `*....: VERIFICATION :....*
 	         
 - Nama : ${pushname}
+- Status : ${isOwner ? 'Owner' : 'User'}
 - Nomor : @${sender.split('@')[0]}
 - Seri: ${serialUser}
 - Pengguna: ${_registered.length}
