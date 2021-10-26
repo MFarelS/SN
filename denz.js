@@ -6208,8 +6208,8 @@ break
 					   case 'toimg':
               if (!isQuotedSticker) return reply('reply stickernya')
               reply(mess.wait)
-              encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
-              media = await denz.downloadAndSaveMediaMessage(encmedia)
+              encmediakuu = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+              media = await denz.downloadAndSaveMediaMessage(encmediakuu)
               ran = getRandom('.png')
               exec(`ffmpeg -i ${media} ${ran}`, (err) => {
               fs.unlinkSync(media)
