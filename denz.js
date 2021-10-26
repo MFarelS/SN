@@ -6215,7 +6215,7 @@ break
               fs.unlinkSync(medial)
               if (err) return reply('Gagal, pada saat mengkonversi sticker ke gambar')
               buffer = fs.readFileSync(ran)
-              denz.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nih'})
+              denz.sendMessage(from, buffer, image, {thumbnail: fs.readFileSync('./sneazy.png'), quoted: mek, caption: 'Nih'})
               fs.unlinkSync(ran)
 })
               break
