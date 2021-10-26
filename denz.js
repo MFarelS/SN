@@ -6178,7 +6178,7 @@ break
 					return denz.sendMessage(from, JSON.stringify(eval(body.slice(8))), text, {quoted: mek})
 					if (err) return denz.sendMessage(from, `root @dcode-denpa:~ ${err}`, text, { quoted: mek })
                  break
-                 case 'toimg':
+                 /*case 'toimg':
 				case 'tomedia':
 				
 				if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
@@ -6204,7 +6204,21 @@ break
 							fs.unlinkSync(ran)
 						})
 					}
-					break
+					break*/
+					   case 'toimg':
+              if (!isQuotedSticker) return reply('reply stickernya')
+              reply(mess.wait)
+              encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+              media = await denz.downloadAndSaveMediaMessage(encmedia)
+              ran = getRandom('.png')
+              exec(`ffmpeg -i ${media} ${ran}`, (err) => {
+              fs.unlinkSync(media)
+              if (err) return reply('Gagal, pada saat mengkonversi sticker ke gambar')
+              buffer = fs.readFileSync(ran)
+              denz.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nih'})
+              fs.unlinkSync(ran)
+})
+              break
 				case 'ss':
 				if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
 					sendMediaURL(from, `https://bx-hunter.herokuapp.com/api/ssweb?url=${args[0]}&apikey=${HunterApi}`)
