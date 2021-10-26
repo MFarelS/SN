@@ -6209,10 +6209,10 @@ break
               if (!isQuotedSticker) return reply('reply stickernya')
               reply(mess.wait)
               encmediakuu = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
-              media = await denz.downloadAndSaveMediaMessage(encmediakuu)
+              medial = await denz.downloadAndSaveMediaMessage(encmediakuu)
               ran = getRandom('.png')
-              exec(`ffmpeg -i ${media} ${ran}`, (err) => {
-              fs.unlinkSync(media)
+              exec(`ffmpeg -i ${medial} ${ran}`, (err) => {
+              fs.unlinkSync(medial)
               if (err) return reply('Gagal, pada saat mengkonversi sticker ke gambar')
               buffer = fs.readFileSync(ran)
               denz.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nih'})
