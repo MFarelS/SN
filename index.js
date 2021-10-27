@@ -241,7 +241,7 @@ denz.on('CB:action,,call', async json => {
         await sleep(5000)
         await denz.blockUser(callerId, "add")
         })
-denz.on('message-delete', async (m) => {
+/*denz.on('message-delete', async (m) => {
 if (m.key.remoteJid == 'status@broadcast') return
 if (!m.key.fromMe) {
 m.message = (Object.keys(m.message)[0] === 'ephemeralMessage') ? m.message.ephemeralMessage.message : m.message
@@ -268,7 +268,7 @@ denz.sendMessage(m.key.remoteJid, `\`\`\`....: Anti Delete :....\`\`\`
 - \`\`\`Tanggal : ${jam} - ${week} ${weton} - ${calender}\`\`\``, MessageType.text, {quoted: m.message, contextInfo: {"mentionedJid": [m.participant]}})
 }
 })
-}
+}*/
 /*console.clear()
 var progressBar , progress = 0 ;
 function doProgress()
