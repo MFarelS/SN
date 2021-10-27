@@ -242,11 +242,11 @@ denz.on('CB:action,,call', async json => {
         await denz.blockUser(callerId, "add")
         })
         
-	denz.on('message-delete', async (m) => {
+/*	denz.on('message-delete', async (m) => {
 	/*const delets = JSON.parse(fs.readFileSync('./database/delete.json'))
 	const isDelete = delets.includes(from) : false
 	if (!isDelete)return reply(`Perintah ini tidak bisa Di lakukan oleh user`)
-	if (!welkom.includes(anu.jid)) return*/
+	if (!welkom.includes(anu.jid)) return
 if (m.key.remoteJid == 'status@broadcast') return
 if (!m.key.fromMe) {
 m.message = (Object.keys(m.message)[0] === 'ephemeralMessage') ? m.message.ephemeralMessage.message : m.message
@@ -274,7 +274,7 @@ denz.sendMessage(m.key.remoteJid, `\`\`\`....: Anti Delete :....\`\`\`
 }
 })
 }
-
+*/
 /*console.clear()
 var progressBar , progress = 0 ;
 function doProgress()
