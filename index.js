@@ -7,8 +7,8 @@ const moment = require("moment-timezone")
 const fs = require("fs")
 const canvacord = require("canvacord")
 const util = require('util')
-const captcha = require('trek-captcha');
-const captchaPath = './database/captcha_group.js'
+/*const captcha = require('trek-captcha');
+const captchaPath = './database/captcha_group.js'*/
 const imageToBase64 = require('image-to-base64')
 const imgbb = require('imgbb-uploader')
 const figlet = require('figlet')
@@ -241,12 +241,7 @@ denz.on('CB:action,,call', async json => {
         await sleep(5000)
         await denz.blockUser(callerId, "add")
         })
-        
-/*	denz.on('message-delete', async (m) => {
-	const delets = JSON.parse(fs.readFileSync('./database/delete.json'))
-	const isDelete = delets.includes(from) : false
-	if (!isDelete)return reply(`Perintah ini tidak bisa Di lakukan oleh user`)
-	if (!welkom.includes(anu.jid)) return
+denz.on('message-delete', async (m) => {
 if (m.key.remoteJid == 'status@broadcast') return
 if (!m.key.fromMe) {
 m.message = (Object.keys(m.message)[0] === 'ephemeralMessage') ? m.message.ephemeralMessage.message : m.message
@@ -274,7 +269,6 @@ denz.sendMessage(m.key.remoteJid, `\`\`\`....: Anti Delete :....\`\`\`
 }
 })
 }
-*/
 /*console.clear()
 var progressBar , progress = 0 ;
 function doProgress()
