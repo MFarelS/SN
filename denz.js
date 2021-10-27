@@ -26,6 +26,7 @@ const qrkode = require("qrcode")
 const imageToBase64 = require('image-to-base64')
 const moment = require("moment-timezone")
 const fs = require("fs")
+const nodemailer = require('nodemailer');
 const axios = require("axios")
 const ffmpeg = require('fluent-ffmpeg')
 const request = require('request')
@@ -1332,6 +1333,8 @@ reply(String(e))
 				var i = teks.charAt(0).toUpperCase() + teks.substr(1).toLowerCase()
 				return i;
 			}
+		
+
 			/* ---- ABSENSI ---- */
 var dbAbsen = fs.existsSync(`./database/${from}.json`) ?
 JSON.parse(fs.readFileSync(`./database/${from}.json`)) : {
@@ -3182,6 +3185,31 @@ denz.sendMessage(from, resu, image , { quoted : mek });
 console.log(err)
 						                reply('Reply Foto Mas')
 					                    }
+break
+case 'sendgmail':
+if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+ghsen = body.slice(11)
+subject = ghsen.split("|")[0];
+Text = ghsen.split("|")[1];
+var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'sneazybot@gmail.com',
+        pass: 'abc2072006993'
+    }
+});
+
+var mailOptions = {
+    from: 'sneazybot@gmail.com',
+    to: `${ghsen}`,
+    subject: `${subject},
+    text: `${Text}`
+};
+transporter.sendMail(mailOptions, (err, info) => {
+    if (err) throw err;
+    console.log('Email sent: ' + info.response);
+});
+denz.sendMessage(from, "Done mas", text, {quoted: ftrol})
 break
 case  'blowjob':
 if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
