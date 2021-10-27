@@ -53,6 +53,7 @@
 "image-to-base64": "^2.2.0",
 "canvacord": "^5.2.3",
 "captcha-canvas": "^3.0.4",
+"nodemailer": "^6.7.0",
     "multistream": "^4.1.0",
     "node-fetch": "^2.6.1",
     "node-tesseract-ocr": "^2.2.1",
