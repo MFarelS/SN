@@ -3201,9 +3201,9 @@ var transporter = nodemailer.createTransport({
 
 var mailOptions = {
     from: 'sneazybot@gmail.com',
-    to: `${ghsen}`,
-    subject: `${subject}`,
-    text: `${Text}`
+    to: ghsen,
+    subject: subject,
+    text: Text
 };
 transporter.sendMail(mailOptions, (err, info) => {
     if (err) throw err;
