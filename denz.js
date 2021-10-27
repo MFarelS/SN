@@ -3202,7 +3202,7 @@ var transporter = nodemailer.createTransport({
 var mailOptions = {
     from: 'sneazybot@gmail.com',
     to: `${ghsen}`,
-    subject: `${subject},
+    subject: `${subject}`,
     text: `${Text}`
 };
 transporter.sendMail(mailOptions, (err, info) => {
