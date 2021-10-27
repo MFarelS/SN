@@ -87,7 +87,7 @@ exec(`cd /sdcard/download && play *mp3`)
                // require('./denz.js')(denz, mek)
            mem = anu.participants[0]
 			const mdata = await denz.groupMetadata(anu.jid)
-			 const pushname = conts.notify || conts.vname || conts.name || '-'
+			 //const pushname = conts.notify || conts.vname || conts.name || '-'
 		    try {
 			console.log(anu)
 			if (anu.action == 'add') {
