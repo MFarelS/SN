@@ -1486,7 +1486,7 @@ denz.updatePresence(from, Presence.recording)
 			num = await fetchJson(`https://api.telnyx.com/anonymous/v2/number_lookup/${senderNumber}`, {method: 'get'})
        menu = `*Halo ${pushname} 👋*
 
-API : https://sneazy-api.herokuapp.com
+API : https://api-sneazy.herokuapp.com/docs
 
 ${uwu}BOT INFO
 - Owner : @${otod.split('@')[0]}
@@ -1585,8 +1585,9 @@ if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted
 				stst = stst.status == 401 ? '' : stst.status
 			num = await fetchJson(`https://api.telnyx.com/anonymous/v2/number_lookup/${senderNumber}`, {method: 'get'})
 menu = `Hallo kak ${pushname} ${tampilUcapan}
-Iam *Sneazy-BOT* And Use Prefix *${prefix}*
+Iam *Sneazy-BOT* And Iam Use Prefix *${prefix}*
 
+Free rest APIs: https://api-sneazy.herokuapp.com/docs
 
 ❏ *....: INFO BOT :....*
 ▷ *Bot Name : Sneazy-BOT*
