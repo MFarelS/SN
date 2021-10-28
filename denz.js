@@ -2478,7 +2478,7 @@ case 'passed':
 					var imgbb = require('imgbb-uploader')
 					if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 					ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek 
-					sticWait(from)
+				//	sticWait(from)
 					console.log(color(time, 'magenta'), color('Downloading sticker...'))
 					owgi = await  denz.downloadAndSaveMediaMessage(ger)
 					anu = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", owgi)
