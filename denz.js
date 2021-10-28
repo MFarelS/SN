@@ -1557,6 +1557,60 @@ case 'bugreport':
               fs.writeFileSync("./database/tebaklagu.json", JSON.stringify(tebaklagu))
 }
 break
+/*case 'musik':
+				
+				    try {
+				        if (args.length < 1) return reply('yang mau di cari apa um?')
+				        q = body.slice(7)
+				        yt = await yts(q)
+				        let berhitung = 1
+				        let xixixi = `*Hasil pencarian from ${q}*\n\n`
+				        for (let i = 0; i < yt.all.length; i++) {
+					        xixixi += `\n*Urutan* : ${berhitung+i}\n*Title* : ${yt.all[i].title}\n*Channel* : ${yt.all[i].author.name}\n*Durasi* : ${yt.all[i].timestamp}\n`
+					    }
+					        xixixi += `\n\n`
+					    for (let ii = 0; ii < yt.all.length; ii++) {
+						    xixixi += `(#)${yt.all[ii].videoId}`
+						}
+						buf = await getBuffer(yt.all[0].image)
+						await vinz.sendMessage(from, buf, image, {caption: xixixi})
+					} catch (e) {
+						console.error(e.message)
+						await reply(`_Kesalahan saat mencari judul lagu ${q}_`)
+					}
+					break
+					case 'getmusik':
+				case 'getmusic':
+				dancok = await body.slice(10)
+                                run = getRandom('jpeg')
+			    const hapisngntd = await tod.message.extendedTextMessage.contextInfo.quotedMessage.imageMessage.caption
+			    const pilur = await hapisngntd.split("(#)")[`${dancok}`]
+                            reply(mess.wait)
+                                        let kkStream = ytdl(pilur, {
+                                                        quality: 'highestaudio',
+                                                          });
+                                        console.log(kkStream)
+				    	    got.stream('https://i.ibb.co/NthF8ds/IMG-20201223-WA0740.jpg').pipe(fs.createWriteStream(run + '.jpg'));
+                                        ffmpeg(kkStream)
+                                                .audioBitrate(320)
+                                                .save('./' + run + '.mp3')
+                                                .on('end', async () => {
+                                        const kkWrite = new ID3Writer(fs.readFileSync('./' + run + '.mp3'));
+                                                kkWrite.setFrame('TIT2', run)
+                                                .setFrame('TPE1', [run])
+                                                .setFrame('APIC', {
+                                                    type: 3,
+				                    data: fs.readFileSync(run + '.jpg'),
+				                    description: run
+                                                });
+                                            kkWrite.addTag();
+//                                            kPlayRes = `*「 NOW PLAYING 」*\n\n❏ *Title* : ${kanna[0].title}\n❏ *By* : ${kanna[0].author.name}\n\n_Sending Audio..._`
+                                            await denz.sendMessage(from, Buffer.from(kkWrite.arrayBuffer), audio, {mimetype: Mimetype.mp4Audio, ptt: false, quoted: mek});
+				        	fs.unlinkSync(run + '.jpg')
+                                                fs.unlinkSync('./' + run + '.mp3')
+                                                });
+                                                //antiSpamPrem(from, parseInt(5))
+                                        break*/
 case 'tebakbendera':
 if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
         if (tebakbendera.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
@@ -3990,7 +4044,7 @@ for (let i of ownerNumberr) {
 const vname = denz.contacts[i] != undefined ? denz.contacts[i].vname || denz.contacts[i].notify : undefined
 ini_list.push({
 "displayName": `Developer ${NamaBot}`,
-"vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Dcode Denpa;;;\nFN:${vname ? `${vname}` : `${denz.user.name}`}\nitem1.TEL;waid=${i.split('@')[0]}:${i.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`
+"vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Owner Sneazy;;;\nFN:${vname ? `${vname}` : `${denz.user.name}`}\nitem1.TEL;waid=${i.split('@')[0]}:${i.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`
 })
 }
 denz.sendMessage(from, {
