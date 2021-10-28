@@ -1856,6 +1856,18 @@ Free rest APIs: https://api-sneazy.herokuapp.com/docs
 │ • ${prefix}trigger
 │ • ${prefix}sticktag
 │ • ${prefix}stickernobg
+│ • ${prefix}jail
+│ • ${prefix}red
+│ • ${prefix}passed
+│ • ${prefix}wanted
+│ • ${prefix}comrade
+│ • ${prefix}hijau
+│ • ${prefix}biru
+│ • ${prefix}greyscale
+│ • ${prefix}invert
+│ • ${prefix}rainbow
+│ • ${prefix}blurple
+│ • ${prefix}blurple2
 ╰────
 
 
@@ -2389,6 +2401,301 @@ break
 }
 denz.sendMessage(from, listMsg, MessageType.listMessage, {contextInfo: { mentionedJid: [stod]},quoted:ftrol})
 break*/
+case 'jail':
+  if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+					var imgbb = require('imgbb-uploader')
+					if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
+					ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek 
+					//sticWait(from)
+					console.log(color(time, 'magenta'), color('Downloading sticker...'))
+					owgi = await  denz.downloadAndSaveMediaMessage(ger)
+					anu = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", owgi)
+					teks = `${anu.display_url}`
+					ranp = getRandom('.gif')
+					rano = getRandom('.webp')
+					anu1 = `https://some-random-api.ml/canvas/jail?avatar=${teks}`
+					exec(`wget ${anu1} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=20 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+					fs.unlinkSync(ranp)
+					if (err) return reply(mess.error.stick)
+					denz.sendMessage(from, fs.readFileSync(rano), sticker, {quoted: mek})
+					console.log(color(time, 'magenta'), color('Succes send sticker...'))
+					fs.unlinkSync(rano)
+					})
+					} else {
+					reply('Gunakan foto!')
+					}
+					break
+		case 'comrade':
+  if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+					var imgbb = require('imgbb-uploader')
+					if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
+					ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek 
+					//sticWait(from)
+					console.log(color(time, 'magenta'), color('Downloading sticker...'))
+					owgi = await  denz.downloadAndSaveMediaMessage(ger)
+					anu = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", owgi)
+					teks = `${anu.display_url}`
+					ranp = getRandom('.gif')
+					rano = getRandom('.webp')
+					anu1 = `https://some-random-api.ml/canvas/comrade?avatar=${teks}`
+					exec(`wget ${anu1} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=20 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+					fs.unlinkSync(ranp)
+					if (err) return reply(mess.error.stick)
+					denz.sendMessage(from, fs.readFileSync(rano), sticker, {quoted: mek})
+					console.log(color(time, 'magenta'), color('Succes send sticker...'))
+					fs.unlinkSync(rano)
+					})
+					} else {
+					reply('Gunakan foto!')
+					}
+					break
+		case 'hijau':
+  if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+					var imgbb = require('imgbb-uploader')
+					if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
+					ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek 
+					//sticWait(from)
+					console.log(color(time, 'magenta'), color('Downloading sticker...'))
+					owgi = await  denz.downloadAndSaveMediaMessage(ger)
+					anu = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", owgi)
+					teks = `${anu.display_url}`
+					ranp = getRandom('.gif')
+					rano = getRandom('.webp')
+					anu6 = `https://some-random-api.ml/canvas/green?avatar=${teks}`
+					exec(`wget ${anu6} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=20 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+					fs.unlinkSync(ranp)
+					if (err) return reply(mess.error.stick)
+					denz.sendMessage(from, fs.readFileSync(rano), sticker, {quoted: mek})
+					console.log(color(time, 'magenta'), color('Succes send sticker...'))
+					fs.unlinkSync(rano)
+					
+					})
+					} else {
+					reply('Gunakan foto!')
+					}
+					break 
+		case 'biru':
+  if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+					var imgbb = require('imgbb-uploader')
+					if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
+					ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek 
+					//sticWait(from)
+					console.log(color(time, 'magenta'), color('Downloading sticker...'))
+					owgi = await  denz.downloadAndSaveMediaMessage(ger)
+					anu = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", owgi)
+					teks = `${anu.display_url}`
+					ranp = getRandom('.gif')
+					rano = getRandom('.webp')
+					anu7 = `https://some-random-api.ml/canvas/blue?avatar=${teks}`
+					exec(`wget ${anu7} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=20 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+					fs.unlinkSync(ranp)
+					if (err) return reply(mess.error.stick)
+					denz.sendMessage(from, fs.readFileSync(rano), sticker, {quoted: mek})
+					console.log(color(time, 'magenta'), color('Succes send sticker...'))
+					fs.unlinkSync(rano)
+					})
+					
+					} else {
+					reply('Gunakan foto!')
+					}
+					 break 
+		case 'greyscale':
+  if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+					var imgbb = require('imgbb-uploader')
+					if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
+					ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek 
+					//sticWait(from)
+					console.log(color(time, 'magenta'), color('Downloading sticker...'))
+					owgi = await  denz.downloadAndSaveMediaMessage(ger)
+					anu = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", owgi)
+					teks = `${anu.display_url}`
+					ranp = getRandom('.gif')
+					rano = getRandom('.webp')
+					anu8 = `https://some-random-api.ml/canvas/greyscale?avatar=${teks}`
+					exec(`wget ${anu8} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=20 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+					fs.unlinkSync(ranp)
+					if (err) return reply(mess.error.stick)
+					denz.sendMessage(from, fs.readFileSync(rano), sticker, {quoted: mek})
+					console.log(color(time, 'magenta'), color('Succes send sticker...'))
+					fs.unlinkSync(rano)
+					})
+					
+					} else {
+					reply('Gunakan foto!')
+					}
+				 break 
+		case 'invert':
+  if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+					var imgbb = require('imgbb-uploader')
+					if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
+					ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek 
+					//sticWait(from)
+					console.log(color(time, 'magenta'), color('Downloading sticker...'))
+					owgi = await  denz.downloadAndSaveMediaMessage(ger)
+					anu = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", owgi)
+					teks = `${anu.display_url}`
+					ranp = getRandom('.gif')
+					rano = getRandom('.webp')
+					anu8 = `https://some-random-api.ml/canvas/invert?avatar=${teks}`
+					exec(`wget ${anu8} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=20 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+					fs.unlinkSync(ranp)
+					if (err) return reply(mess.error.stick)
+					denz.sendMessage(from, fs.readFileSync(rano), sticker, {quoted: mek})
+					console.log(color(time, 'magenta'), color('Succes send sticker...'))
+					fs.unlinkSync(rano)
+					})
+					
+					} else {
+					reply('Gunakan foto!')
+					}
+				 break 
+		case 'invert_greyscale':
+  if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+					var imgbb = require('imgbb-uploader')
+					if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
+					ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek 
+					//sticWait(from)
+					console.log(color(time, 'magenta'), color('Downloading sticker...'))
+					owgi = await  denz.downloadAndSaveMediaMessage(ger)
+					anu = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", owgi)
+					teks = `${anu.display_url}`
+					ranp = getRandom('.gif')
+					rano = getRandom('.webp')
+					anu8 = `https://some-random-api.ml/canvas/invertgreyscale?avatar=${teks}`
+					exec(`wget ${anu8} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=20 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+					fs.unlinkSync(ranp)
+					if (err) return reply(mess.error.stick)
+					denz.sendMessage(from, fs.readFileSync(rano), sticker, {quoted: mek})
+					console.log(color(time, 'magenta'), color('Succes send sticker...'))
+					fs.unlinkSync(rano)
+					})
+					
+					} else {
+					reply('Gunakan foto!')
+					}
+				 break 
+		case 'red':
+  if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+					var imgbb = require('imgbb-uploader')
+					if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
+					ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek 
+					//sticWait(from)
+					console.log(color(time, 'magenta'), color('Downloading sticker...'))
+					owgi = await  denz.downloadAndSaveMediaMessage(ger)
+					anu = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", owgi)
+					teks = `${anu.display_url}`
+					ranp = getRandom('.gif')
+					rano = getRandom('.webp')
+					anu8 = `https://some-random-api.ml/canvas/red?avatar=${teks}`
+					exec(`wget ${anu8} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=20 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+					fs.unlinkSync(ranp)
+					if (err) return reply(mess.error.stick)
+					denz.sendMessage(from, fs.readFileSync(rano), sticker, {quoted: mek})
+					console.log(color(time, 'magenta'), color('Succes send sticker...'))
+					fs.unlinkSync(rano)
+					})
+					
+					} else {
+					reply('Gunakan foto!')
+					}
+				 break
+         case 'blurple':
+  if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+					var imgbb = require('imgbb-uploader')
+					if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
+					ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek 
+					//sticWait(from)
+					console.log(color(time, 'magenta'), color('Downloading sticker...'))
+					owgi = await  denz.downloadAndSaveMediaMessage(ger)
+					anu = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", owgi)
+					teks = `${anu.display_url}`
+					ranp = getRandom('.gif')
+					rano = getRandom('.webp')
+					anu8 = `https://some-random-api.ml/canvas/blurple?avatar=${teks}`
+					exec(`wget ${anu8} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=20 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+					fs.unlinkSync(ranp)
+					if (err) return reply(mess.error.stick)
+					denz.sendMessage(from, fs.readFileSync(rano), sticker, {quoted: mek})
+					console.log(color(time, 'magenta'), color('Succes send sticker...'))
+					fs.unlinkSync(rano)
+					})
+					
+					} else {
+					reply('Gunakan foto!')
+					}
+				 break 
+		case 'blurple2':
+  if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+					var imgbb = require('imgbb-uploader')
+					if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
+					ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek 
+					//sticWait(from)
+					console.log(color(time, 'magenta'), color('Downloading sticker...'))
+					owgi = await  denz.downloadAndSaveMediaMessage(ger)
+					anu = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", owgi)
+					teks = `${anu.display_url}`
+					ranp = getRandom('.gif')
+					rano = getRandom('.webp')
+					anu8 = `https://some-random-api.ml/canvas/blurple2?avatar=${teks}`
+					exec(`wget ${anu8} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=20 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+					fs.unlinkSync(ranp)
+					if (err) return reply(mess.error.stick)
+					denz.sendMessage(from, fs.readFileSync(rano), sticker, {quoted: mek})
+					console.log(color(time, 'magenta'), color('Succes send sticker...'))
+					fs.unlinkSync(rano)
+					})
+					
+					} else {
+					reply('Gunakan foto!')
+					}
+				 break 
+		case 'wasted':
+  if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+					var imgbb = require('imgbb-uploader')
+					if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
+					ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek 
+					//sticWait(from)
+					owgi = await  denz.downloadAndSaveMediaMessage(ger)
+					anu = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", owgi)
+					teks = `${anu.display_url}`
+					ranp = getRandom('.gif')
+					rano = getRandom('.webp')
+					anu2 = `https://some-random-api.ml/canvas/wasted?avatar=${teks}`
+					exec(`wget ${anu2} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=20 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+					fs.unlinkSync(ranp)
+					if (err) return reply(mess.error.stick)
+					denz.sendMessage(from, fs.readFileSync(rano), sticker, {quoted: mek})
+					fs.unlinkSync(rano)
+					})
+					
+					} else {
+					reply('Gunakan foto!')
+					}
+					break 
+		case 'pelangi':
+		case 'rainbow':
+  if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+					var imgbb = require('imgbb-uploader')
+					if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
+					ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek 
+					//sticWait(from)
+					owgi = await  denz.downloadAndSaveMediaMessage(ger)
+					anu = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", owgi)
+					teks = `${anu.display_url}`
+					ranp = getRandom('.gif')
+					rano = getRandom('.webp')
+					anu3 = `https://some-random-api.ml/canvas/gay?avatar=${teks}`
+					exec(`wget ${anu3} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=20 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+					fs.unlinkSync(ranp)
+					if (err) return reply(mess.error.stick)
+					denz.sendMessage(from, fs.readFileSync(rano), sticker, {quoted: mek})
+					fs.unlinkSync(rano)
+					})
+					
+					} else {
+					reply('Gunakan foto!')
+					}
+					break 
 case 'mulaiabsen':
 if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
 					if (!isGroup) return reply(mess.only.group)
