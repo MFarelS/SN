@@ -4038,7 +4038,7 @@ case 'owner':
 	case 'creator':
 case 'developer':
 		case 'author':
-		if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+		//if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
 let ini_list = []
 for (let i of ownerNumberr) {
 const vname = denz.contacts[i] != undefined ? denz.contacts[i].vname || denz.contacts[i].notify : undefined
@@ -4093,7 +4093,7 @@ break
 				case 'script':
 		case 'sc':
 		case 'sourcecode':
-		if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+		//if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
 		denz.sendMessage(from, { text: "https://instagram.com/ardynvyn__", matchedText: 'https://instagram.com/ardynvyn__', description: "", title: "DI FOLLOW YAH KAK", jpegThumbnail: ofrply }, 'extendedTextMessage', { detectLinks: false, contextInfo: { forwardingScore: 508, isForwarded: true}, quoted: finv})
 		break
 /*case 'instagram':
