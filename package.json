@@ -1,7 +1,7 @@
 {
-  "name": "dcode-denpa",
-  "version": "0.0.1",
-  "description": "bitch-boot",
+  "name": "sneazy-bot",
+  "version": "0.8.1",
+  "description": "sneeazy",
   "main": "node index",
   "directories": {
     "lib": "lib"
@@ -17,7 +17,7 @@
     "whatsapp",
     "bot"
   ],
-  "author": "denis-putra",
+  "author": "vin-sneazy",
   "license": "ISC",
   "dependencies": {
     "@adiwajshing/baileys": "^3.5.2",
