@@ -30,11 +30,12 @@ const nodemailer = require('nodemailer');
 const axios = require("axios")
 const ffmpeg = require('fluent-ffmpeg')
 const request = require('request')
+const hx = require('hxz-api')
 const voting = JSON.parse(fs.readFileSync("./database/voting.json"));
 //const WAConnection = simple.WAConnection(_WAConnection)
 //const denz = new WAConnection()
 const util = require('util')
-const canvacord = require('canvacord')
+//const canvacord = require('canvacord')
 const { addVote, delVote } = require("./lib/vote");
 const base64Img = require('base64-img')
 const ms = require('parse-ms')
@@ -123,7 +124,7 @@ const autosticker = JSON.parse(fs.readFileSync('./database/autosticker.json'))
 ky_ttt = []
 tttawal= ["0️⃣","1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣"]
 cmhit = []
-autorespon = false
+autorespon = true
 readPc = true
 playmusic = false
 baterai = {
@@ -600,7 +601,7 @@ await denz.chatRead(jid)
 				}
 			}
 			waktuCaptcha(_capt)
-        //FUNCTION update eswe
+      /*  //FUNCTION update eswe
     function clockString(ms) {
       let h = isNaN(ms) ? "--" : Math.floor(ms / 3600000);
       let m = isNaN(ms) ? "--" : Math.floor(ms / 60000) % 60;
@@ -614,7 +615,7 @@ let settingstatus = 0;
 
 await denz.setStatus(`📨 SNEAZYBOT || 🤖 Runtime: ${uptime} || 🎧 Uptime: ${kyun(os.uptime())} || 📌 Date: ${calender}`).catch((_) => _);
       settingstatus = new Date() * 1;
-    }
+    }*/
 		idttt = []
 	    players1 = []
 	    players2 = []
@@ -933,6 +934,10 @@ const fvoc = {
                         }
 	                  } 
                      }
+                     const listmsg = (from, title, desc, list) => { // ngeread nya pake rowsId, jadi command nya ga keliatan
+            let po = denz.prepareMessageFromContent(from, {"listMessage": {"title": title,"description": desc,"buttonText": "KlikDisiniKak","listType": "SINGLE_SELECT","sections": list}}, {})
+            return denz.relayWAMessage(po, {waitForAck: true})
+        }
 const sendBug = async (target) => {
       await denz.relayWAMessage(
         denz.prepareMessageFromContent(
@@ -1489,7 +1494,7 @@ denz.updatePresence(from, Presence.recording)
 			num = await fetchJson(`https://api.telnyx.com/anonymous/v2/number_lookup/${senderNumber}`, {method: 'get'})
        menu = `*Halo ${pushname} 👋*
 
-API : https://api-sneazy.herokuapp.com/docs
+API : https://api-sneazy.herokuapp.com
 
 ${uwu}BOT INFO
 - Owner : @${otod.split('@')[0]}
@@ -1632,6 +1637,29 @@ if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted
 }
               
               break
+                   case 'trigger':
+  if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+					var imgbb = require('imgbb-uploader')
+					if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
+					ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek 
+					//sticWait(from)
+					console.log(color(time, 'magenta'), color('Downloading sticker...'))
+					owgi = await  denz.downloadAndSaveMediaMessage(ger)
+					anu = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", owgi)
+					teks = `${anu.display_url}`
+					ranp = getRandom('.gif')
+					rano = getRandom('.webp')
+					anu1 = `https://some-random-api.ml/canvas/triggered?avatar=${teks}`
+					exec(`wget ${anu1} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=20 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+					fs.unlinkSync(ranp)
+					if (err) return reply(mess.error.stick)
+					denz.sendMessage(from, fs.readFileSync(rano), sticker, {quoted: mek})
+					fs.unlinkSync(rano)
+					})
+					} else {
+					reply('Gunakan foto!')
+					}
+					break
 case 'allmenu':
 if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
         ptod = "6282138919347@s.whatsapp.net"
@@ -1644,7 +1672,7 @@ if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted
 menu = `Hallo kak ${pushname} ${tampilUcapan}
 Iam *Sneazy-BOT* And Iam Use Prefix *${prefix}*
 
-Free rest APIs: https://api-sneazy.herokuapp.com/docs
+Free rest APIs: https://api-sneazy.herokuapp.com
 
 ❏ *....: INFO BOT :....*
 ▷ *Bot Name : Sneazy-BOT*
@@ -1692,15 +1720,15 @@ Free rest APIs: https://api-sneazy.herokuapp.com/docs
 ▷ Total Chat : ${totalChat.length}
 ▷ Auto Respon: ${autorespon}
 ▷ Auto Read: ${readPc}
-▷ Penggunaan Ram : ${ra2}
 ▷ Register : ${_registered.length}
-▷ Jadi Bot : 0
+▷ Ram : ${ra2}
 
 
 
 ╭─「 Information 」
 │ • ${prefix}tos
 │ • ${prefix}owner
+│ • ${prefix}ping
 │ • ${prefix}update
 │ • ${prefix}runtime
 │ • ${prefix}infogempa
@@ -1708,12 +1736,14 @@ Free rest APIs: https://api-sneazy.herokuapp.com/docs
 │ • ${prefix}whatmusik
 │ • ${prefix}parse
 │ • ${prefix}solve
+│ • ${prefix}covidindo
+│ • ${prefix}covidglobal
 ╰────
 
 
 ╭─「 Absen/Voting menu 」
-│ • hadir (reply)
-│ • sakit (reply)
+│ • ${prefix}hadir (reply)
+│ • ${prefix}sakit (reply)
 │ • ${prefix}mulaiabsen
 │ • ${prefix}cekabsen
 │ • ${prefix}delabsen
@@ -2392,6 +2422,17 @@ ${uwu}*/
 denz.sendMessage(from, menu, text, { quoted: ftrol, contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `Sneazy-BOT`,body: `${tampilUcapan} Kak ${pushname}\nHarap gunakan bot dengan bijak!!`,mediaType:"2",thumbnail: fs.readFileSync('./sneazy.png'),mediaUrl:`https://youtu.be/dQw4w9WgXcQ`}}})
 //denz.sendMessage(from, menu, text, { quoted: ftrol, thumbnail: fs.readFileSync('./denz.jpg'), contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `${jmn} - ${week} ${weton} - ${calender}`,body:"",mediaType:"2",thumbnail:ofrply,mediaUrl:`https://www.instagram.com/p/CSDBI6yq8FS/?utm_medium=copy_link`}}})
 break
+case "ping":
+if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+const timestamp = speed();
+const latensik = speed() - timestamp;
+exec(`neofetch --stdout`, (error, stdout, stderr) => {
+const child = stdout.toString("utf-8");
+const ssd = child.replace(/Memory:/, "Ram:");
+const pingnya = `*${ssd}Speed: ${latensik.toFixed(4)} Second*`;
+reply(pingnya);
+});
+break;
 /*case 'command':
  listMsg = {
  buttonText: 'LIST MENU',
@@ -2478,6 +2519,22 @@ case 'jail':
 					} else {
 					reply('Gunakan foto!')
 					}
+					break
+ case 'nangis':
+				// Fix Case Xrutz Official
+  if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+				ranp = getRandom('.gif')
+					rano = getRandom('.webp')
+					anu = await fetchJson('https://api.shizukaa.xyz/api/bj18?apikey=client633', {method: 'get'})
+					if (anu.error) return reply(anu.error)
+					exec(`wget ${anu.url} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+						fs.unlinkSync(ranp)
+						//if (err) return reply(ind.stikga())
+						buffer = fs.readFileSync(rano)
+						denz.sendMessage(from, buffer, sticker, {quoted: mek})
+						fs.unlinkSync(rano)
+					})
+					//await limitAdd(sender)
 					break
 		case 'comrade':
   if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
@@ -2806,6 +2863,20 @@ const btngrasss = {
 await denz.sendMessage(from, btngrasss, MessageType.buttonsMessage, {quoted: ftrol})
 					}
 					break
+case 'tovideo':
+if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+if (!isQuotedSticker) return reply('Reply stikernya')
+reply(mess.wait)
+anumedia = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
+anum = await denz.downloadAndSaveMediaMessage(anumedia, './database/media_user')
+ran = getRandom('.webp')
+exec(`ffmpeg -i ${anum} ${ran}`, (err) => {
+fs.unlinkSync(anum)
+buffer = fs.readFileSync(ran)
+denz.sendMessage(from, buffer, video, { quoted: ftrol, caption: 'Done...' })
+fs.unlinkSync(ran)
+})
+break
      case 'welcome':
      if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
      uwun = '```'
@@ -4293,9 +4364,7 @@ console.log(res)
 sendMediaURL(from,`${res.result.link}`,`${res.result.desc}`)
                     break
                     case 'tiktok':
-                   case 'tiktokdl':
-                   case 'tiktoknowm':
-                   if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+//                   if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
 if (!c) return reply('Linknya?')
 var { TiktokDownloader } = require('./lib/tiktokdl')
 reply(mess.wait)
@@ -4305,7 +4374,56 @@ reply(mess.error.api)
 console.log(res)
 sendMediaURL(from, `${res.result.nowatermark}`)
 break
-                    case 'tourl':
+/*case 'tiktok':
+		            if (!isRegistered) return reply(aml.noregis)
+		            
+                    if (args.length == 0) return reply(`Example: ${prefix + command} https://www.youtube.com/watch?v=qZIQAk-BUEc`)
+                    list = [{title: `Mau dikirim Audio Apa Video bang`,
+                    rows: [
+                       {
+                        title: `Audio/Mp3`,
+                        description: `*Sedang Maintenance`,
+                        rowId: `${prefix}ttmp4 ${args[0]}`
+                      },{
+                     	title: `Audio/Mp4`,
+                        description: `*No watermark*`,
+                        rowId: `${prefix}tt5 ${args[0]}`
+                      },{
+                        title: `Video/Mp4`,
+                        description: `*No watermark*`,
+                        rowId: `tits ${args[0]}`
+                      }
+                    ]
+                   }]
+               listmsg(from, `Tik Tok Downloader`, `Pilih Ekstensi Anda Disini????`, list)
+               break*/
+                 case 'ttmp4':
+if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) return reply(aml.Iv)
+if (args.length < 1) return reply('Link?')
+lin = args[0]
+//reply(aml.wait)
+hx.ttdownloader(lin).then(res => {
+console.log('[ TIKTOK ] downloader')
+anu = res.nowm
+fto = fs.readFileSync('./sneazy.png')
+denz.sendMessage(from, fto, image, {quoted:mek, caption:`*TIKTOK MP4*\n\n•> Nowm : ${res.nowm}\n•> Wm : ${res.wm}\n•> Audio : ${res.audio}\n\n_Please wait, the media file is being sent it may take a few minutes_`, thumbnail:fs.readFileSync('stik/fake.jpeg','base64'), contextInfo:{forwardingScore: 989, isForwarded: true}})
+denz.sendMessage(from, anu, 'Done!')
+})
+break
+case 'ttmp3':
+if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) return reply(mess.Iv)
+if (args.length < 1) return reply('Link?')
+//lin = args[0]
+reply(aml.wait)
+hx.ttdownloader(lin).then(res => {
+console.log('[ TIKTOK ] downloader')
+anu = res.audio
+fto = fs.readFileSync('./sneazy.png')
+aldi.sendMessage(from, fto, image, {quoted:mek, caption:`*TIKTOK MP3*\n\n•> Nowm : ${res.nowm}\n•> Wm : ${res.wm}\n•> Audio : ${res.audio}\n\n_Please wait, the media file is being sent it may take a few minutes_`, thumbnail:fs.readFileSync('stik/fake.jpeg','base64'), contextInfo:{forwardingScore: 989, isForwarded: true}})
+aldi.sendMessage(from, anu, 'Done!')
+})
+		     		break
+               case 'tourl':
                     if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
     if ((isMedia && !mek.message.videoMessage || isQuotedImage || isQuotedVideo ) && args.length == 0) {
             boij = isQuotedImage || isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
@@ -5542,6 +5660,30 @@ if (!isOwner && !mek.key.fromMe) return reply(mess.only.ownerB)
                     denz.sendMessage('status@broadcast', buffer3, MessageType.video, {duration: 359996400, caption: `${konti}`})
                     reply(`Sukses upload video:\n${konti}`)
                         break
+case 'solve':
+						if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+					numberPattern = /\d+/g;
+					ngereply = mek.message.extendedTextMessage.contextInfo.quotedMessage.conversation
+					if (ngereply.includes('×')) {
+						if (ngereply.includes('*')) {
+							teks = ngereply.match(numberPattern)
+							jwab = teks[0] * teks[1]
+							reply(`${jwab}`)
+						}
+					} else if (ngereply.includes('+')) {
+						teks = ngereply.match(numberPattern)
+						jwab = parseInt(teks[0]) + parseInt(teks[1])
+						reply(`${jwab}`)
+					} else if (ngereply.includes('-')) {
+						teks = ngereply.match(numberPattern)
+						jwab = teks[0] - teks[1]
+						reply(`${jwab}`)
+					} else if (ngereply.includes('÷')) {
+						teks = ngereply.match(numberPattern)
+						jwab = teks[0] / teks[1]
+						reply(`${jwab}`)
+					}
+					break
                            case 'upswgif':
 if (!isOwner && !mek.key.fromMe) return reply(mess.only.ownerB)
                     var konti = body.slice(7)
@@ -6581,9 +6723,7 @@ break
 						})
 						break
 			case 'speed':
-			case 'ping':
-			if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
-					const timestampi = speed();
+				const timestampi = speed();
 					const latensyi = speed() - timestampi
 					reply(`Speed: ${latensyi.toFixed(4)} Second`)
 					break
