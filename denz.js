@@ -35,7 +35,7 @@ const voting = JSON.parse(fs.readFileSync("./database/voting.json"));
 //const WAConnection = simple.WAConnection(_WAConnection)
 //const denz = new WAConnection()
 const util = require('util')
-const canvacord = require('canvacord')
+//const canvacord = require('canvacord')
 const { addVote, delVote } = require("./lib/vote");
 const base64Img = require('base64-img')
 const ms = require('parse-ms')
@@ -51,7 +51,7 @@ const toMs = require('ms')
 const fetch = require('node-fetch')
 const imgbb = require('imgbb-uploader')
 //const anonfile = require('anonfile-lib')
-const proxyChecker = require('proxy-checker')
+//const proxyChecker = require('proxy-checker')
 const Math_js = require('mathjs')
 const { EmojiAPI } = require("emoji-api")
 const emoji = new EmojiAPI()
@@ -4373,6 +4373,17 @@ reply(mess.error.api)
 })
 console.log(res)
 sendMediaURL(from, `${res.result.nowatermark}`)
+break
+case 'tiktokaudio':
+//                   if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+if (!c) return reply('Linknya?')
+var { TiktokDownloader } = require('./lib/tiktokdl')
+reply(mess.wait)
+res = await TiktokDownloader(`${c}`).catch(e => {
+reply(mess.error.api)
+})
+console.log(res)
+sendMediaURL(from, `${res.result.audio}`)
 break
 /*case 'tiktok':
 		            if (!isRegistered) return reply(aml.noregis)
