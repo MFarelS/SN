@@ -44,6 +44,7 @@
     "marker": "^0.1.2",
     "mathjs": "^9.4.3",
     "moment-timezone": "^0.5.33",
+"hxz-api": "^1.0.1",
 "trek-captcha": "^0.4.0",
 "discord-canvas": "^1.4.1",
 "acrcloud": "^1.4.0",
