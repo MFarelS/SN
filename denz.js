@@ -2150,6 +2150,11 @@ Free rest APIs: https://api-sneazy.herokuapp.com
 │ • ${prefix}balik
 │ • ${prefix}robot
 │ • ${prefix}distord
+│ • ${prefix}blown
+│ • ${prefix}vocal
+│ • ${prefix}tempo
+│ • ${prefix}reverb
+│ • ${prefix}slow
 │ • ${prefix}nightmare
 ╰────
 
@@ -4907,6 +4912,45 @@ if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted
 					ran = getRandom('.mp3')
 					exec(`ffmpeg -i ${mediao} -af equalizer=f=94:width_type=o:width=2:g=30 ${ran}`, (err, stderr, stdout) => {
 						fs.unlinkSync(mediao)
+						if (err) return reply('Error!')
+						hah = fs.readFileSync(ran)
+						denz.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt: true, duration: 359996400, quoted:mek})
+						fs.unlinkSync(ran)
+					})
+				break
+case 'vocal':                 
+if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+					encmediacal = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+					mediakal = await denz.downloadAndSaveMediaMessage(encmediakal)
+					ran = getRandom('.mp3')
+					exec(`ffmpeg -i ${mediakal} -af equalizer=f=94:width_type=o:width=2:g=30 ${ran}`, (err, stderr, stdout) => {
+						fs.unlinkSync(mediakal)
+						if (err) return reply('Error!')
+						hah = fs.readFileSync(ran)
+						denz.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt: true, duration: 359996400, quoted:mek})
+						fs.unlinkSync(ran)
+					})
+				break
+case 'slow':                 
+if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+					encmedialo = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+					medialo = await denz.downloadAndSaveMediaMessage(encmedialo)
+					ran = getRandom('.mp3')
+					exec(`ffmpeg -i ${medialo} -af equalizer=f=94:width_type=o:width=2:g=30 ${ran}`, (err, stderr, stdout) => {
+						fs.unlinkSync(medialo)
+						if (err) return reply('Error!')
+						hah = fs.readFileSync(ran)
+						denz.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt: true, duration: 359996400, quoted:mek})
+						fs.unlinkSync(ran)
+					})
+				break
+case 'blown':                 
+if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+					encmedialown = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+					medialown = await denz.downloadAndSaveMediaMessage(encmedialown)
+					ran = getRandom('.mp3')
+				exec(`ffmpeg -i ${medialown} -af acrusher=.1:1:64:0:log ${ran}`, (err, stderr, stdout) => {
+				fs.unlinkSync(medialown)
 						if (err) return reply('Error!')
 						hah = fs.readFileSync(ran)
 						denz.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt: true, duration: 359996400, quoted:mek})
