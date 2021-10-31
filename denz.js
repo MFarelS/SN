@@ -1532,12 +1532,24 @@ TIME INFO
 - Tanggal : ${calender}${uwu}`
 sendButLocation(from, `${menu}`, `${uwu}© BOT CREATED BY VINZX${uwu}`, {jpegThumbnail:ofrply}, [{buttonId:`${prefix}allmenu`,buttonText:{displayText:'LISTMENU'},type:1},{buttonId:`${prefix}owner`,buttonText:{displayText:'OWNER'},type:1},{buttonId:`${prefix}script`,buttonText:{displayText:'INSTAGRAM'},type:1}], {contextInfo: { mentionedJid: [ptod,dtod,otod,stod]}})
 break
-case 'bugreport':
+/*case 'bugreport':
               if (args.length < 1) return reply(`Ketik ${prefix}bugreport [fiturnya] [Error Nya Gimana]`) 
               teks = args.join(' ')
               reply('Terima Kasih Telah Melaporkan Bug Pada Owner, Jika Itu Sekedar Iseng Maka Akan Di Ban Oleh Bot!')
               denz.sendMessage('6285732415700@s.whatsapp.net',`*Bug Report:* ${teks}`, text)
-              break
+              break*/
+              case 'bugreport':
+//if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+const pesan = body.slice(11)
+if (pesan.length > 300) return denz.sendMessage(from, 'Maaf Teks Terlalu Panjang, Maksimal 300 Teks', text, { quoted: ftrol })
+var nomor = mek.participant
+const teks1 = `*[ BUG REPORT ]*\n- Nomor : wa.me/${nomor.split[0]}\n- Pesan : ${pesan}`
+var options = {
+text: teks1
+}
+denz.sendMessage(`6285732415700@s.whatsapp.net`, options, text, { quoted: ftrol })
+reply('Masalah Telah Di Laporkan Ke Owner BOT, Mohon Tunggu Untuk Proses Perbaikan')
+break
  case 'tebaklagu':
  if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
               if (tebaklagu.hasOwnProperty(sender.split('@')[0])) return reply("Selesein yg sebelumnya dulu atuh")
@@ -1659,6 +1671,12 @@ if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted
 					} else {
 					reply('Gunakan foto!')
 					}
+					break
+case 'speedtest':
+					exec(`cd lib && python speedtes.py`, (error, stdout) => {
+						if (error) return reply('Gagal pengetesan jaringan!')
+						reply(stdout.toString('utf-8').split('.').join('').trim())
+					})
 					break
 case 'allmenu':
 if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
