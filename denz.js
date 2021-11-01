@@ -2768,8 +2768,8 @@ case 'jail':
                 })
                 break
             case 'getsms':
-                if (!args[1]) return reply(`Gunakan dengan cara ${command} *nomer*\n\n_Contoh_\n\n${command} 48727842536`)
-                if (args[1].includes('+')) {
+                if (args.length < 1) return reply(`Gunakan dengan cara ${command} *nomer*\n\n_Contoh_\n\n${command} 48727842536`)
+                if (args.length < 1.includes('+')) {
                     getsmsServer1(args[1].replace('+', '')).then(res => {
                         let resultsms = `「 *FREE NUMBER-SMS* 」\n\n`
                         for (let x of res.data) {
