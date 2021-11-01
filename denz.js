@@ -107,6 +107,7 @@ const commandsDB = JSON.parse(fs.readFileSync('./database/commands.json'))
 const tictactoe = JSON.parse(fs.readFileSync("./database/tictactoe.json"))
 const antilink = JSON.parse(fs.readFileSync('./database/antilink.json'))
 const nsfww = JSON.parse(fs.readFileSync('./database/nsfww.json'))
+let _update = JSON.parse(fs.readFileSync('./database/update.json'))
 const welkom = JSON.parse(fs.readFileSync('./database/welkom.json'))
 const delets = JSON.parse(fs.readFileSync('./database/delete.json'))
 //const _registered = JSON.parse(fs.readFileSync('./database/user.json'))
@@ -676,6 +677,7 @@ await denz.setStatus(`📨 SNEAZYBOT || 🤖 Runtime: ${uptime} || 🎧 Uptime: 
             var tampilUcapan = "" + jamss;
             const jmn = moment.tz('Asia/Jakarta').format('HH:mm:ss')
 			
+		const q = args.join(' ')
 		
  // FAKE REPLY BY YOGI PEWE
 // PRODUCT
@@ -776,8 +778,9 @@ const ftrol = {
                         }
                       }
                       
-                      
-                 
+                       const textImg = (teks) => {
+           return denz.sendMessage(from, teks, text, {quoted: ftrol, thumbnail: fs.readFileSync('./sneazy.png')})
+        }
 // LOCATION
 const floc = {
 	key : {
@@ -3381,6 +3384,29 @@ case 'pin':
                     })
                 }, 4000);
                 break*/
+                case 'addupdate':
+             if (!isOwner) return reply(mess.only.owner)
+             if (!q) return reply(`Example: ${command} update fitur`)
+           _update.push(q)
+             fs.writeFileSync('./database/bot/update.json', JSON.stringify(_update))
+             reply(`Update fitur berhasil ditambahkan ke database!`)
+             break
+      case 'update':
+             let updateList = `*── 「 UPDATE BOT 」 ──*\n\n\n`
+             for (let i of _update) {
+             updateList += `࿃ *${i.replace(_update)}*\n\n`
+}
+             textImg(updateList)
+             break
+      case 'reset':
+             if (!isOwner) return reply(mess.only.owner)
+             var reset = []
+             glimit = reset
+           _update = reset
+             console.log('Hang tight, it\'s time to reset')
+             fs.readFileSync('./database/bot/update.json', JSON.stringify(_update))
+             textImg('Oke Desu ~')
+             break
 case 'ownermenu':
 if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
 menu = `❏ 「 \`\`\`MENU OWNER\`\`\` 」
