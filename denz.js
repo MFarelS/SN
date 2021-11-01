@@ -1021,6 +1021,74 @@ denz.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
 				}
 			}
 		}
+		const axios = require('axios');
+const cheerio = require('cheerio');
+const PhoneNumber = require('awesome-phonenumber');
+const {
+    flag
+} = require('country-emoji');
+
+function listNomerServer1 () {
+    return new Promise((resovle, reject) => {
+        axios.get('https://receive-smss.com/', {
+            headers: {
+                'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.81 Safari/537.36'
+            }
+        }).then(res => {
+            const $ = cheerio.load(res.data);
+            const myArrNumber = [];
+            $('div.number-boxes-item.d-flex.flex-column').each((i, el) => {
+                const number = $(el).find('a').attr('href');
+                if (number.startsWith('/sms/')) {
+                    myArrNumber.push({
+                        phone: PhoneNumber('+'+number.split('/')[2]).getNumber('international'),
+                        flag: flag(PhoneNumber('+'+number.split('/')[2]).getRegionCode())
+                    })
+                }
+            })
+            resovle({
+                status: true,
+                data: myArrNumber
+            })
+        }).catch(err => {
+            resolve({
+                status: false,
+                message: err
+            })
+        })
+    })
+}
+
+function getsmsServer1(number) {
+    return new Promise((resolve, reject) => {
+            axios.get(`https://receive-smss.com/sms/${number}`, {
+                headers: {
+                    'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.81 Safari/537.36'
+            }}).then(res => {
+                const $ = cheerio.load(res.data);
+                const smsArr = [];
+                $('tbody > tr').each((i, el) => {
+                    const senderFrom = $(el).find('td:nth-child(2)').text().trim();
+                    const messagenya = $(el).find('td:nth-child(4)').text().trim();
+                    const timestamp = $(el).find('td:nth-child(5) > span:nth-child(1)').text().trim();
+                    smsArr.push({
+                        senderFrom,
+                        messagenya,
+                        timestamp
+                    })
+                })
+                resolve({
+                    status: true,
+                    data: smsArr
+                })
+            }).catch(err => {
+                resovle({
+                    status: false,
+                    message: err
+                })
+            })
+    })
+}
 	function randomNomor(angka){
             return Math.floor(Math.random() * angka) + 1
         }
@@ -1808,7 +1876,6 @@ Free rest APIs: https://api-sneazy.herokuapp.com
 
 
 ╭─「 Baileys menu 」
-│ • ${prefix}inspect *url*
 │ • ${prefix}searchmsg *query*
 │ • ${prefix}tagme
 │ • ${prefix}kontak nomor|nama
@@ -1944,6 +2011,7 @@ Free rest APIs: https://api-sneazy.herokuapp.com
 │ • ${prefix}poke
 │ • ${prefix}slap
 │ • ${prefix}bokep
+│ • ${prefix}nhentaipdf
 ╰────
 
 
@@ -2129,6 +2197,7 @@ Free rest APIs: https://api-sneazy.herokuapp.com
 │ • ${prefix}setbio
 │ • ${prefix}leave
 │ • ${prefix}restart
+│ • ${prefix}inspect
 │ • ${prefix}join
 │ • ${prefix}addrespon [tanya|jawab]
 │ • ${prefix}delrespon [nama]
@@ -2141,6 +2210,7 @@ Free rest APIs: https://api-sneazy.herokuapp.com
 ╭─「 Converter menu 」
 │ • ${prefix}tomp4
 │ • ${prefix}tomp3
+│ • ${prefix}tovirgam
 │ • ${prefix}toptt
 │ • ${prefix}toimg
 │ • ${prefix}togif
@@ -2683,6 +2753,48 @@ case 'jail':
 					reply('Gunakan foto!')
 					}
 				 break 
+				 case 'listnomer':
+                listNomerServer1().then(res => {
+                    if (res.status === false) return reply(mess.error.message)
+                    let resultnomer = `「 *LIST-FREE NUMBER-SMS* 」\n\n`
+                    for (let iya of res.data) {
+                        resultnomer += `➜ ${iya.phone} ${iya.flag}\n`
+                    }
+                    reply(mess.wait)
+                    reply(resultnomer.trim())
+                }).catch(err => {
+                    reply(mess.error.message)
+                    console.log(color('[ERROR]', 'red'), err)
+                })
+                break
+            case 'getsms':
+                if (!args[1]) return reply(`Gunakan dengan cara ${command} *nomer*\n\n_Contoh_\n\n${command} 48727842536`)
+                if (args[1].includes('+')) {
+                    getsmsServer1(args[1].replace('+', '')).then(res => {
+                        let resultsms = `「 *FREE NUMBER-SMS* 」\n\n`
+                        for (let x of res.data) {
+                            resultsms += `${monospace(`From : ${x.senderFrom}\nTime : ${x.timestamp}\nMsg  : ${x.messagenya}\n\n`)}`
+                        }
+                        reply(mess.wait)
+                        reply(resultsms.trim())
+                    }).catch(err => {
+                        reply(`Number ${PhoneNumber(args[1]).getNumber('international')} tidak terdaftar di database server!, jika ingin mengetahui nomer yang tersedia ketik ${prefix}listnomer`)
+                        console.log(color('[ERROR]', 'red'), err)
+                    })
+                } else {
+                    getsmsServer1(args[1]).then(res => {
+                        let resultsms = `「 *FREE NUMBER-SMS* 」\n\n`
+                        for (let x of res.data) {
+                            resultsms += `${monospace(`From : ${x.senderFrom}\nTime : ${x.timestamp}\nMsg  : ${x.messagenya}\n\n`)}`
+                        }
+                        reply(mess.wait)
+                        reply(resultsms.trim())
+                    }).catch(err => {
+                        reply(`Number ${PhoneNumber('+'+args[1]).getNumber('international')} tidak terdaftar di database server!, jika ingin mengetahui nomer yang tersedia ketik ${prefix}listnomer`)
+                        console.log(color('[ERROR]', 'red'), err)
+                    })
+                }
+                break
 		case 'invert_greyscale':
   if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
 					var imgbb = require('imgbb-uploader')
@@ -3645,6 +3757,33 @@ anu = await fetchJson(`https://waifu.pics/api/sfw/awoo`)
 buffer = await getBuffer(anu.url)
 denz.sendMessage(from, buffer, image, { quoted: mek, thumbnail: fs.readFileSync('./denz.jpg')})
 break
+case 'inspect':
+            try {
+            if (!isOwner && !mek.key.fromMe) return reply(mess.only.ownerB)
+            cos = args[0]
+            jids = []
+            let { id, owner, subject, subjectOwner, desc, descId, participants, size, descOwner, descTime, creation} = await xdev.query({ 
+            json: ["query", "invite",net],
+            expect200:true })
+            let par = `*Id* : ${id}
+${owner ? `*Owner* : @${owner.split('@')[0]}` : '*Owner* : -'}
+*Nama Gc* : ${subject}
+*Gc dibuat Tanggal* : ${formatDate(creation * 1000)}
+*Jumlah Member* : ${size}
+${desc ? `*Desc* : ${desc}` : '*Desc* : tidak ada'}
+*Id desc* : ${descId}
+${descOwner ? `*Desc diubah oleh* : @${descOwner.split('@')[0]}` : '*Desc diubah oleh* : -'}\n*Tanggal* : ${descTime ? `${formatDate(descTime * 1000)}` : '-'}\n\n*Kontak yang tersimpan*\n`
+           for ( let y of participants) {
+             par += `> @${y.id.split('@')[0]}\n*Admin* : ${y.isAdmin ? 'Ya' : 'Tidak'}\n`
+             jids.push(`${y.id.replace(/@c.us/g,'@s.whatsapp.net')}`)
+             }
+             jids.push(`${owner ? `${owner.replace(/@c.us/g,'@s.whatsapp.net')}` : '-'}`)
+             jids.push(`${descOwner ? `${descOwner.replace(/@c.us/g,'@s.whatsapp.net')}` : '-'}`)
+             denz.sendMessage(from,par,text,{quoted:ftrol,contextInfo:{mentionedJid:jids}})
+             } catch {
+             reply('Link error')
+             }
+             break
 case 'card':
 if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
                                       try {
