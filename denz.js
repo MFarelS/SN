@@ -2753,24 +2753,10 @@ case 'jail':
 					reply('Gunakan foto!')
 					}
 				 break 
-				 case 'listnomer':
-                listNomerServer1().then(res => {
-                    if (res.status === false) return reply(mess.error.message)
-                    let resultnomer = `「 *LIST-FREE NUMBER-SMS* 」\n\n`
-                    for (let iya of res.data) {
-                        resultnomer += `➜ ${iya.phone} ${iya.flag}\n`
-                    }
-                    reply(mess.wait)
-                    reply(resultnomer.trim())
-                }).catch(err => {
-                    reply(mess.error.message)
-                    console.log(color('[ERROR]', 'red'), err)
-                })
-                break
-            case 'getsms':
-                if (args.length < 1) return reply(`Gunakan dengan cara ${command} *nomer*\n\n_Contoh_\n\n${command} 48727842536`)
-                teksxas = args.join('')
-if (teksxas.includes("+")) {
+				 /*
+            case prefix + 'getsms':
+                if (!args[1]) return reply(`Gunakan dengan cara ${command} *nomer*\n\n_Contoh_\n\n${command} 48727842536`)
+                if (args[1].includes('+')) {
                     getsmsServer1(args[1].replace('+', '')).then(res => {
                         let resultsms = `「 *FREE NUMBER-SMS* 」\n\n`
                         for (let x of res.data) {
@@ -2792,6 +2778,49 @@ if (teksxas.includes("+")) {
                         reply(resultsms.trim())
                     }).catch(err => {
                         reply(`Number ${PhoneNumber('+'+args[1]).getNumber('international')} tidak terdaftar di database server!, jika ingin mengetahui nomer yang tersedia ketik ${prefix}listnomer`)
+                        console.log(color('[ERROR]', 'red'), err)
+                    })
+                }
+                break*/
+				 case 'listnomer':
+                listNomerServer1().then(res => {
+                    if (res.status === false) return reply(mess.error.message)
+                    let resultnomer = `「 *LIST-FREE NUMBER-SMS* 」\n\n`
+                    for (let iya of res.data) {
+                        resultnomer += `➜ ${iya.phone} ${iya.flag}\n`
+                    }
+                    reply(mess.wait)
+                    reply(resultnomer.trim())
+                }).catch(err => {
+                    reply(mess.error.message)
+                    console.log(color('[ERROR]', 'red'), err)
+                })
+                break
+            case 'getsms':
+                if (args.length < 1) return reply(`Gunakan dengan cara ${command} *nomer*\n\n_Contoh_\n\n${command} 48727842536`)
+                teksxas = args.join('')
+if (teksxas.includes("+")) {
+                    getsmsServer1(teksxas.replace('+', '')).then(res => {
+                        let resultsms = `「 *FREE NUMBER-SMS* 」\n\n`
+                        for (let x of res.data) {
+                            resultsms += `${monospace(`From : ${x.senderFrom}\nTime : ${x.timestamp}\nMsg  : ${x.messagenya}\n\n`)}`
+                        }
+                        reply(mess.wait)
+                        reply(resultsms.trim())
+                    }).catch(err => {
+                        reply(`Number ${PhoneNumber(teksxas).getNumber('international')} tidak terdaftar di database server!, jika ingin mengetahui nomer yang tersedia ketik ${prefix}listnomer`)
+                        console.log(color('[ERROR]', 'red'), err)
+                    })
+                } else {
+                    getsmsServer1(teksxas).then(res => {
+                        let resultsms = `「 *FREE NUMBER-SMS* 」\n\n`
+                        for (let x of res.data) {
+                            resultsms += `${monospace(`From : ${x.senderFrom}\nTime : ${x.timestamp}\nMsg  : ${x.messagenya}\n\n`)}`
+                        }
+                        reply(mess.wait)
+                        reply(resultsms.trim())
+                    }).catch(err => {
+                        reply(`Number ${PhoneNumber('+'+teksxas).getNumber('international')} tidak terdaftar di database server!, jika ingin mengetahui nomer yang tersedia ketik ${prefix}listnomer`)
                         console.log(color('[ERROR]', 'red'), err)
                     })
                 }
