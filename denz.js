@@ -1029,7 +1029,7 @@ const {
 } = require('country-emoji');
 
 function listNomerServer1 () {
-    return new Promise((resovle, reject) => {
+    return new Promise((resolve, reject) => {
         axios.get('https://receive-smss.com/', {
             headers: {
                 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.81 Safari/537.36'
