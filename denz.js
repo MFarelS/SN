@@ -1046,7 +1046,7 @@ function listNomerServer1 () {
                     })
                 }
             })
-            resovle({
+            resolve({
                 status: true,
                 data: myArrNumber
             })
@@ -1082,7 +1082,7 @@ function getsmsServer1(number) {
                     data: smsArr
                 })
             }).catch(err => {
-                resovle({
+                resolve({
                     status: false,
                     message: err
                 })
