@@ -44,6 +44,7 @@
     "marker": "^0.1.2",
     "mathjs": "^9.4.3",
     "moment-timezone": "^0.5.33",
+"country-emoji": "^1.5.6",
 "pdfkit": "^0.13.0",
 "hxz-api": "^1.0.1",
 "trek-captcha": "^0.4.0",
