@@ -1877,6 +1877,12 @@ Free rest APIs: https://api-sneazy.herokuapp.com
 ╰────
 
 
+╭─「 Otp menu 」
+│ • ${prefix}listnomer
+│ • ${prefix}getsms
+╰────
+
+
 ╭─「 Baileys menu 」
 │ • ${prefix}searchmsg *query*
 │ • ${prefix}tagme
@@ -1922,6 +1928,7 @@ Free rest APIs: https://api-sneazy.herokuapp.com
 │ • ${prefix}quote
 │ • ${prefix}wooden
 │ • ${prefix}golden
+│ • ${prefix}hornycard
 ╰────
 
 
