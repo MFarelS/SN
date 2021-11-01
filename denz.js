@@ -513,7 +513,9 @@ const isDelete = isGroup ? delets.includes(from) : false
 		return url.match(new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%.+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%+.~#?&/=]*)/, 'gi'))
 		}
 		
-
+function monospace(string) {
+            return '```' + string + '```'
+        }
 		// Auto Read Private budy
 var chatpc = await denz.chats.array.filter(v => v.jid.endsWith('s.whatsapp.net'))
 chatpc.map( async ({ jid }) => {
