@@ -588,7 +588,7 @@ await denz.chatRead(jid)
 						}
 					})
 					if (position !== null) {
-						febb.sendMessage(_capt[position].id, `*Waktu habis*\n\n*Jawaban :* ${_capt[position].jawaban}`, text)
+						denz.sendMessage(_capt[position].id, `*Waktu habis*\n\n*Jawaban :* ${_capt[position].jawaban}`, text)
 						console.log(`Waktu Habis : ${_capt[position].id}`)
 						_capt.splice(position, 1)
 						fs.writeFileSync('./src/captcha.json', JSON.stringify(_capt))
@@ -1964,6 +1964,7 @@ Free rest APIs: https://api-sneazy.herokuapp.com
 │ • ${prefix}sha256hash
 │ • ${prefix}sha512hash
 │ • ${prefix}findhost
+│ • ${prefix}nowa
 ╰────
 
 
@@ -2837,6 +2838,86 @@ if (teksxas.includes("+")) {
                     })
                 }
                 break
+case 'nowa':
+					teks = args[0]
+					numberPattern = /\d+/g;
+					if (!teks.includes('x')) return reply('gunakan x')
+					if (nwa) return reply(`antri bang lagi ada yang make`)
+					nwa = true
+					nomerny = `List Nomer\n\nPunya Bio/status/info\n`
+					no_bio = `\nTanpa Bio/status/info ||\nHey there! I am using WhatsApp.\n`
+					nomer = teks.match(numberPattern)
+					console.log(nomer.length)
+					if (nomer.length == 1) {
+					random_length = teks.length - nomer[0].length
+					if (random_length == 1) {
+						random = 10
+					} else if (random_length == 2) {
+						random = 100
+					} else if (random_length == 3) {
+						random = 1000
+					} else if (random_length == 4) {
+						random = 10000
+					}
+					nwarange = random
+					console.log(random)
+					for (let i = 0; i < random; i++) {
+						if (i.toString().length !== random_length) {
+							nwacount += 1
+							i = `0${i}`
+						}
+						anu = await denz.isOnWhatsApp(`${nomer[0]}${i}@s.whatsapp.net`);
+						try {
+							anu1 = await denz.getStatus(anu.jid)
+							if (anu1.status == 401 || anu1.status == 'Hey there! I am using WhatsApp.' || anu1.status == 'Γεια σας! Χρησιμοποιώ WhatsApp.' || anu.status == 'Всем привет! Я использую WhatsApp.') {
+								no_bio += `wa.me/${anu.jid.split("@")[0]}\n`
+								console.log(`-${i}) ${nomer[0]}${i}`, color(` [REGISTERED]`, 'green'))
+							} else {
+								nomerny += `wa.me/${anu.jid.split("@")[0]}\n`
+								console.log(`-${i}) ${nomer[0]}${i}`, color(` [REGISTERED]`, 'green'))
+							}
+						} catch { }
+					}
+					reply(`${nomerny}${no_bio}`)
+					nwa = false
+					nwarange = 0
+					nwacount = 0
+					} else if (nomer.length == 2) {
+					jum = nomer[0].length + nomer[1].length
+					random_length = teks.length - jum
+					if (random_length == 1) {
+						random = 10
+					} else if (random_length == 2) {
+						random = 100
+					} else if (random_length == 3) {
+						random = 1000
+					} else if (random_length == 4) {
+						random = 10000
+					}
+					nwarange = random
+					for (let i = 0; i < random; i++) {
+						if (i.toString().length !== random_length) {
+							nwacount += i
+							i = `0${i}`
+						}
+						anu = await denz.isOnWhatsApp(`${nomer[0]}${i}${nomer[1]}@s.whatsapp.net`);
+						try {
+							anu1 = await denz.getStatus(anu.jid)
+							if (anu1.status == 401 || anu1.status == 'Hey there! I am using WhatsApp.' || anu1.status == 'Γεια σας! Χρησιμοποιώ WhatsApp.' || anu.status == 'Всем привет! Я использую WhatsApp.') {
+								no_bio += `wa.me/${anu.jid.split("@")[0]}\n`
+								console.log(`-${i}) ${nomer[0]}${i}${nomer[1]}`, color(` [REGISTERED]`, 'green'))
+							} else {
+								nomerny += `wa.me/${anu.jid.split("@")[0]}\n`
+								console.log(`-${i}) ${nomer[0]}${i}${nomer[1]}`, color(` [REGISTERED]`, 'green'))
+							}
+						} catch { }
+					}
+					reply(`${nomerny}${no_bio}`)
+					nwa = false
+					nwarange = 0
+					nwacount = 0
+					}
+					break
 		case 'invert_greyscale':
   if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
 					var imgbb = require('imgbb-uploader')
