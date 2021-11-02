@@ -5,7 +5,7 @@ const denz = new WAConnection()
 const qrcode = require("qrcode-terminal")
 const moment = require("moment-timezone")
 const fs = require("fs")
-const canvacord = require("canvacord")
+//const canvacord = require("canvacord")
 const util = require('util')
 /*const captcha = require('trek-captcha');
 const captchaPath = './database/captcha_group.js'*/
@@ -30,7 +30,7 @@ return new Promise(resolve => setTimeout(resolve, ms))
 nocache('./denz.js', module => console.log(color('|TRM|'), color(`${module} Updated!`, 'cyan')))
 async function starts() {
 denz.autoReconnect = ReconnectMode.onConnectionLost
-    denz.version = [2, 2119, 6]
+    denz.version = [2, 2140, 12]
     denz.logger.level = 'warn'
     denz.browserDescription = ['SNEAZY BOT','Desktop','3.0']
     await sleep(10000)
@@ -49,7 +49,7 @@ denz.autoReconnect = ReconnectMode.onConnectionLost
 // teks = `https://chat.whatsapp.com/Kw69Oel34Nd0JuluvFNVKt`
 // denz.query({ json:["action", "invite", `${teks.replace('https://chat.whatsapp.com/','')}`]})
 // console.log(color('|WRN|', 'yellow'), color('Joined to Helga Bot Officials group', 'cyan'))
- denz.sendMessage(`${settings.NomorOwner}@s.whatsapp.net`, `*Hai Owner ${settings.NamaBot}, Bot Telah Berhasil Tersambung Pada Nomor Ini*\n────────────────────\n\`\`\`${JSON.stringify(denz.user, null, 2)}\`\`\`\n────────────────────\n*Jika Ada Kendala Error/Bot Tidak Merespon Silahkan Hubungi Developer Bot Diatas, Terimakasih*`, MessageType.text, {contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: "Developer Bitch Boot",body:"",previewType:"PHOTO",thumbnail:fs.readFileSync('./denz.jpg'),sourceUrl:"https://wa.me/6285732415700?text=Assalamualaikum"}}})
+ denz.sendMessage(`${settings.NomorOwner}@s.whatsapp.net`, `*Hai Owner ${settings.NamaBot}, Bot Telah Berhasil Tersambung Pada Nomor Ini*\n────────────────────\n\`\`\`${JSON.stringify(denz.user, null, 2)}\`\`\`\n────────────────────\n*Jika Ada Kendala Error/Bot Tidak Merespon Silahkan Hubungi Developer Bot Diatas, Terimakasih*`, MessageType.text, {contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: "Owner Sneazybot",body:"",previewType:"PHOTO",thumbnail:fs.readFileSync('./denz.jpg'),sourceUrl:"https://wa.me/6285732415700?text=Assalamualaikum"}}})
 	console.log(color('|WRN|', 'yellow'), color('Sending bot info to bot owner', 'cyan'))
 fetch(`http://ip-api.com/line`).then(res => res.text())  
         .then(bu =>{
