@@ -1610,7 +1610,7 @@ break
               teks = args.join(' ')
               reply('Terima Kasih Telah Melaporkan Bug Pada Owner, Jika Itu Sekedar Iseng Maka Akan Di Ban Oleh Bot!')
               denz.sendMessage('6285732415700@s.whatsapp.net',`*Bug Report:* ${teks}`, text)
-              break*/
+              break
               case 'bugreport':
 //if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
 const pesan = body.slice(11)
@@ -1619,6 +1619,18 @@ var nomor = mek.participant
 const teks1 = `*[ BUG REPORT ]*\n- Nomor : wa.me/${nomor.split[0]}\n- Pesan : ${pesan}`
 var options = {
 text: teks1
+}
+denz.sendMessage(`6285732415700@s.whatsapp.net`, options, text, { quoted: ftrol })
+reply('Masalah Telah Di Laporkan Ke Owner BOT, Mohon Tunggu Untuk Proses Perbaikan')
+break*/
+case 'bugreport':
+const pesan = body.slice(11)
+if (pesan.length > 300) return pras.sendMessage(from, 'Maaf Teks Terlalu Panjang, Maksimal 300 Teks', text, { quoted: ftrol })
+var nomor = mek.participant
+const teks1 = `*[REPORT]*\nNomor : @${nomor.split("@s.whatsapp.net")[0]}\nPesan : ${pesan}`
+var options = {
+text: teks1,
+contextInfo: { mentionedJid: [nomor] },
 }
 denz.sendMessage(`6285732415700@s.whatsapp.net`, options, text, { quoted: ftrol })
 reply('Masalah Telah Di Laporkan Ke Owner BOT, Mohon Tunggu Untuk Proses Perbaikan')
@@ -3092,6 +3104,7 @@ if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted
 						}
 					}
 					break
+
    case 'antidelete':
    if (!isOwner && !mek.key.fromMe) return reply(mess.only.ownerB)
      if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
