@@ -520,6 +520,9 @@ function monospace(string) {
         const createSerial = (size) => {
 return crypto.randomBytes(size).toString('hex').slice(0, size)
 }
+	const reply = (teks) => {
+			denz.sendMessage(from, teks, text, { quoted: mek })
+		}
 		// Auto Read Private budy
 var chatpc = await denz.chats.array.filter(v => v.jid.endsWith('s.whatsapp.net'))
 chatpc.map( async ({ jid }) => {
@@ -1176,9 +1179,7 @@ function getsmsServer1(number) {
 	        }
 	        denz.sendMessage(from, { displayname: nama, vcard: vcard}, MessageType.contact, {contextInfo: {"mentionedJid": ane}})
             }
-		const reply = (teks) => {
-			denz.sendMessage(from, teks, text, { quoted: mek })
-		}
+	
 		const simir = (teks) => {
 			denz.sendMessage(from, teks, text, { quoted:ftrol })
 		}
