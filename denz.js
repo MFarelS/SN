@@ -616,6 +616,7 @@ await denz.chatRead(jid)
 					if (position !== null) {
 						denz.sendMessage(_capt[position].id, `Waktu Sudah Habis :(, Gagal mendaftar!!`, text)
 						console.log(`Waktu Habis : ${_capt[position].id}`)
+						inijawban = ${_capt[position].id}
 						_capt.splice(position, 1)
 						fs.writeFileSync('./src/captcha.json', JSON.stringify(_capt))
 					}
@@ -3295,7 +3296,7 @@ case 'verifyed':
 					new canvacord.CaptchaGen().setCaptcha(optionsText).setTrace(optionsTrace).generate().then(buffer => {
 					//konz = await getBuffer(image)
 						//denz.sendMessage(from, buffer, image, {quoted: mek, caption: `Selesaikan captcha ini untuk mendaftar ^-^\n\n_Note: Gunakan huruf kecil untuk menjawab_`})
-						sendButLocation(from, `Selesaikan captcha ini untuk mendaftar ^-^\n\n_Note: Gunakan huruf kecil untuk menjawab_`, `SNEAZYBOT`, {jpegThumbnail:image}, [{buttonId:`${_capt[position].jawaban}`,buttonText:{displayText:`${_capt[position].jawaban}`},type:1},{buttonId:`tors`,buttonText:{displayText:'hshsjjs'},type:1},{buttonId:`b7ksh`,buttonText:{displayText:'ygdkw'},type:1}])
+						sendButLocation(from, `Selesaikan captcha ini untuk mendaftar ^-^\n\n_Note: Gunakan huruf kecil untuk menjawab_`, `SNEAZYBOT`, {jpegThumbnail:image}, [{buttonId:`${inijawban}`,buttonText:{displayText:`${inijawban}`},type:1},{buttonId:`tors`,buttonText:{displayText:'hshsjjs'},type:1},{buttonId:`b7ksh`,buttonText:{displayText:'ygdkw'},type:1}])
 					})
 					console.log('JAWABAN :' + optionsText.text.toLowerCase())
 					jawabCaptcha = optionsText.text.toLowerCase()
