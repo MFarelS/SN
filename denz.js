@@ -588,19 +588,40 @@ await denz.chatRead(jid)
 						}
 					})
 					if (position !== null) {
-						denz.sendMessage(_capt[position].id, `*Waktu habis*\n\n*Jawaban :* ${_capt[position].jawaban}`, text)
+						denz.sendMessage(_capt[position].id, `Waktu Sudah Habis :(, Gagal mendaftar!!`, text)
 						console.log(`Waktu Habis : ${_capt[position].id}`)
 						_capt.splice(position, 1)
 						fs.writeFileSync('./src/captcha.json', JSON.stringify(_capt))
 					}
 				}, 1000)
 			}
+			uwu = '```'
+			serialUser = createSerial(6)
 			if (isCaptcha(from)) {
 				if (budy.includes(getAnswer(from))) {
-					reply(`*Selamat jawaban kamu benar*\n*Jawaban :* ${getAnswer(from)}\n\nIngin bermain lagi? kirim *${prefix}captcha*`)
+					reply(`*....: VERIFICATION :....*
+	         
+- Nama : ${pushname}
+- Status : ${isOwner ? 'Owner' : 'User'}
+- Nomor : @${sender.split('@')[0]}
+- Seri: ${serialUser}
+- Pengguna: ${_registered.length}
+- Time: ${timeWib}
+- Date: ${week} || ${calender}
+
+Note:
+- Jika ada bug dalam bot bisa ketik ${prefix}bugreport
+- Mau masukin bot ke group? Izin sama owner ketik ${prefix}owner
+- Sebelum menggunakan bot alangkah lebih baik membaca _termsofservice_ ketik ${prefix}tos
+
+${uwu}Thank you for registering!${uwu}`)
 					
 					_capt.splice(getPositionCP(from), 1)
 					fs.writeFileSync('./src/captcha.json', JSON.stringify(_capt))
+					veri = sender
+	        _registered.push(sender)
+	        fs.writeFileSync('./database/registered.json', JSON.stringify(_registered))
+	        addRegisteredUser(sender, serialUser)
 				}
 			}
 			waktuCaptcha(_capt)
@@ -3220,7 +3241,7 @@ headerType: 4
 }
 denz.sendMessage(from, sendBtnVeryy, MessageType.buttonsMessage, {quoted:ftrol, contextInfo: { mentionedJid: [sender]}})
 break*/
-case 'verifyed':
+/*case 'verifyed':
 const serialUser = createSerial(6)
 	        veri = sender
 	        _registered.push(sender)
@@ -3257,8 +3278,8 @@ headerType: 4
 denz.sendMessage(from, sendBtnVeryy, MessageType.buttonsMessage, {quoted:ftrol, contextInfo: { mentionedJid: [sender]}})
 	         console.log(color('[REGISTER]'), color(time, 'yellow'), 'Serial:', color(serialUser, 'cyan'), 'in', color(sender || groupName))
 	    // console.log(e)
-        break
-case 'captcha':
+        break*/
+case 'verifyed':
 if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
 					if (isCaptcha(from)) return reply('Masih ada soal yang belum diselesaikan!')
 					var letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
@@ -3271,11 +3292,11 @@ if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted
 					optionsText = { characters: 6, text: `${letter1}${letter2}${letter3}${letter4}${letter5}${letter6}` }
 					optionsTrace = { size: 5, color: 'deeppink' }
 					new canvacord.CaptchaGen().setCaptcha(optionsText).setTrace(optionsTrace).generate().then(buffer => {
-						denz.sendMessage(from, buffer, image, {quoted: mek, caption: `Silahkan Jawab Sebisa Mungkin\nWaktu 15second!\n\n_Note: Gunakan huruf kecil untuk menjawab_`})
+						denz.sendMessage(from, buffer, image, {quoted: mek, caption: `Selesaikan captcha ini untuk mendaftar ^-^\n\n_Note: Gunakan huruf kecil untuk menjawab_`})
 					})
 					console.log('JAWABAN :' + optionsText.text.toLowerCase())
 					jawabCaptcha = optionsText.text.toLowerCase()
-					addCaptcha(from, jawabCaptcha, '15')
+					addCaptcha(from, jawabCaptcha, '30')
 					break
 				case 'hapusabsen':
 				if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
