@@ -523,6 +523,26 @@ return crypto.randomBytes(size).toString('hex').slice(0, size)
 	const reply = (teks) => {
 			denz.sendMessage(from, teks, text, { quoted: mek })
 		}
+		//But verify
+const getRegisteredRandomId = () => {
+return _registered[Math.floor(Math.random() * _registered.length)].id
+}
+const addRegisteredUser = (userid, sender, age, time, serials) => {
+const obj = { id: userid, name: sender, age: age, time: time, serial: serials }
+_registered.push(obj)
+fs.writeFileSync('./database/registered.json', JSON.stringify(_registered))
+}
+const checkRegisteredUser = (sender) => {
+let status = false
+Object.keys(_registered).forEach((i) => {
+if (_registered[i].id === sender) {
+status = true
+}
+})
+return status
+}
+
+const isRegistered = checkRegisteredUser(sender)
 		// Auto Read Private budy
 var chatpc = await denz.chats.array.filter(v => v.jid.endsWith('s.whatsapp.net'))
 chatpc.map( async ({ jid }) => {
@@ -624,8 +644,7 @@ ${uwu}Thank you for registering!${uwu}`)
 					
 					_capt.splice(getPositionCP(from), 1)
 					fs.writeFileSync('./src/captcha.json', JSON.stringify(_capt))
-					veri = sender
-	        _registered.push(sender)
+			_registered.push(sender)
 	        fs.writeFileSync('./database/registered.json', JSON.stringify(_registered))
 	        addRegisteredUser(sender, serialUser)
 				}
@@ -744,26 +763,7 @@ ctx.fillText(desk, 60, 461);
 ctx.drawImage(tengah, 71, 123, 310, 293);
 return canvas.toBuffer();
 }
-   //But verify
-const getRegisteredRandomId = () => {
-return _registered[Math.floor(Math.random() * _registered.length)].id
-}
-const addRegisteredUser = (userid, sender, age, time, serials) => {
-const obj = { id: userid, name: sender, age: age, time: time, serial: serials }
-_registered.push(obj)
-fs.writeFileSync('./database/registered.json', JSON.stringify(_registered))
-}
-const checkRegisteredUser = (sender) => {
-let status = false
-Object.keys(_registered).forEach((i) => {
-if (_registered[i].id === sender) {
-status = true
-}
-})
-return status
-}
-
-const isRegistered = checkRegisteredUser(sender)
+   
 
 const sendButRegis = (id, text1, desc1, but = [], options = {}) => {
 const buttonMessage = {
