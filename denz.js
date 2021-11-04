@@ -517,6 +517,9 @@ const isDelete = isGroup ? delets.includes(from) : false
 function monospace(string) {
             return '```' + string + '```'
         }
+        const createSerial = (size) => {
+return crypto.randomBytes(size).toString('hex').slice(0, size)
+}
 		// Auto Read Private budy
 var chatpc = await denz.chats.array.filter(v => v.jid.endsWith('s.whatsapp.net'))
 chatpc.map( async ({ jid }) => {
@@ -778,9 +781,7 @@ const daftar1 = `Hai kak  ${pushname}👋 \n\nSebelum Mengakses Bot Verify Terle
 const daftar2 = '```Tekan Tombol Di Bawah Untuk Verify```'
 const daftar3 = [{buttonId: `verifyed`,buttonText: {displayText: `DAFTAR!!`,},type: 1,},]
 
-const createSerial = (size) => {
-return crypto.randomBytes(size).toString('hex').slice(0, size)
-}
+
 // TROLI
 const ftrol = {
 	key : {
