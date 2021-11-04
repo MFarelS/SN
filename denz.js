@@ -616,7 +616,7 @@ await denz.chatRead(jid)
 					if (position !== null) {
 						denz.sendMessage(_capt[position].id, `Waktu Sudah Habis :(, Gagal mendaftar!!`, text)
 						console.log(`Waktu Habis : ${_capt[position].id}`)
-						inijawban = ${_capt[position].id}
+						//inijawban = ${_capt[position].id}
 						_capt.splice(position, 1)
 						fs.writeFileSync('./src/captcha.json', JSON.stringify(_capt))
 					}
