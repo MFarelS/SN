@@ -3281,7 +3281,6 @@ denz.sendMessage(from, sendBtnVeryy, MessageType.buttonsMessage, {quoted:ftrol, 
 	    // console.log(e)
         break*/
 case 'verifyed':
-if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
 					if (isCaptcha(from)) return reply('Masih ada soal yang belum diselesaikan!')
 					var letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
 					var letter1 = letters[Math.floor(Math.random() * letters.length)];
