@@ -3295,8 +3295,8 @@ case 'verifyed':
 					optionsTrace = { size: 5, color: 'deeppink' }
 					new canvacord.CaptchaGen().setCaptcha(optionsText).setTrace(optionsTrace).generate().then(buffer => {
 					//konz = await getBuffer(image)
-						//denz.sendMessage(from, buffer, image, {quoted: mek, caption: `Selesaikan captcha ini untuk mendaftar ^-^\n\n_Note: Gunakan huruf kecil untuk menjawab_`})
-						sendButLocation(from, `Selesaikan captcha ini untuk mendaftar ^-^\n\n_Note: Gunakan huruf kecil untuk menjawab_`, `SNEAZYBOT`, {jpegThumbnail:image}, [{buttonId:`${inijawban}`,buttonText:{displayText:`${inijawban}`},type:1},{buttonId:`tors`,buttonText:{displayText:'hshsjjs'},type:1},{buttonId:`b7ksh`,buttonText:{displayText:'ygdkw'},type:1}])
+						denz.sendMessage(from, buffer, image, {quoted: mek, caption: `Selesaikan captcha ini untuk mendaftar ^-^\n_Kami beri waktu 1 menit ya :D_\n\n_Note: Gunakan huruf kecil untuk menjawab_`})
+						//sendButLocation(from, `Selesaikan captcha ini untuk mendaftar ^-^\n\n_Note: Gunakan huruf kecil untuk menjawab_`, `SNEAZYBOT`, {jpegThumbnail:image}, [{buttonId:`${inijawban}`,buttonText:{displayText:`${inijawban}`},type:1},{buttonId:`tors`,buttonText:{displayText:'hshsjjs'},type:1},{buttonId:`b7ksh`,buttonText:{displayText:'ygdkw'},type:1}])
 					})
 					console.log('JAWABAN :' + optionsText.text.toLowerCase())
 					jawabCaptcha = optionsText.text.toLowerCase()
