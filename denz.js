@@ -807,6 +807,26 @@ const ftrol = {
                        const textImg = (teks) => {
            return denz.sendMessage(from, teks, text, {quoted: ftrol, thumbnail: fs.readFileSync('./sneazy.png')})
         }
+        const ftrolverif = {
+	key : {
+                          participant : '0@s.whatsapp.net'
+                        },
+       message: {
+                    orderMessage: {
+                            itemCount : 8888,
+                            status: 1,
+                            surface : 1,
+                            message: `Hai kak ${pushname}👋\nJawab captcha ini`, //Kasih namalu
+                            orderTitle: `Hai kak ${pushname}👋\nHai kak ${pushname}👋\nJawab captcha ini`,
+                            thumbnail: dfrply, //Gambarnye
+                            sellerJid: '6285732415700@s.whatsapp.net' 
+                          }
+                        }
+                      }
+                      
+                       const textImg = (teks) => {
+           return denz.sendMessage(from, teks, text, {quoted: ftrol, thumbnail: fs.readFileSync('./sneazy.png')})
+        }
 // LOCATION
 const floc = {
 	key : {
@@ -3295,12 +3315,18 @@ case 'verify':
 					optionsTrace = { size: 5, color: 'deeppink' }
 					new canvacord.CaptchaGen().setCaptcha(optionsText).setTrace(optionsTrace).generate().then(buffer => {
 					//konz = await getBuffer(image)
-						denz.sendMessage(from, buffer, image, {quoted: mek, caption: `Selesaikan captcha ini untuk mendaftar ^-^\n_Kami beri waktu 1 menit ya :D_\n\n_Note: Gunakan huruf kecil untuk menjawab_`})
+						denz.sendMessage(from, buffer, image, {quoted: ftrolverif, caption: `
+Hai kak ${pushname}👋
+
+Harap jawab Captcha ini untuk mendaftar ^_^
+Waktunya 1 menit
+
+_Note: Gunakan huruf kecil untuk menjawab_`})
 						//sendButLocation(from, `Selesaikan captcha ini untuk mendaftar ^-^\n\n_Note: Gunakan huruf kecil untuk menjawab_`, `SNEAZYBOT`, {jpegThumbnail:image}, [{buttonId:`${inijawban}`,buttonText:{displayText:`${inijawban}`},type:1},{buttonId:`tors`,buttonText:{displayText:'hshsjjs'},type:1},{buttonId:`b7ksh`,buttonText:{displayText:'ygdkw'},type:1}])
 					})
 					console.log('JAWABAN :' + optionsText.text.toLowerCase())
 					jawabCaptcha = optionsText.text.toLowerCase()
-					addCaptcha(from, jawabCaptcha, '30')
+					addCaptcha(from, jawabCaptcha, '60')
 					break
 				case 'hapusabsen':
 				if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
