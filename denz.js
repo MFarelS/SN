@@ -4418,7 +4418,7 @@ if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted
 case 'jadibot':
 if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
 if(from.endsWith('@g.us')) return reply('Only With Private Chat/PC')
-client.version = [2, 2119, 6]
+client.version = [2, 2140, 12]
 client.browserDescription = ['SneazyBOT','Desktop','3.0']
 if (args[0] && args[0].length > 200) {
 	let json = Buffer.from(args[0], 'base64').toString('utf-8')
