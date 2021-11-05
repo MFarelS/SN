@@ -804,9 +804,24 @@ const ftrol = {
                         }
                       }
                       
-                       const textImg = (teks) => {
-           return denz.sendMessage(from, teks, text, {quoted: ftrol, thumbnail: fs.readFileSync('./sneazy.png')})
-        }
+                      //BUAT VERIF
+const ftrolverif = {
+	key : {
+                          participant : '0@s.whatsapp.net'
+                        },
+       message: {
+                    orderMessage: {
+                            itemCount : 8888,
+                            status: 1,
+                            surface : 1,
+                            message: `Hai kak ${pushname}👋\nJawab captcha ini`, //Kasih namalu
+                            orderTitle: `Hai kak ${pushname}👋\nHai kak ${pushname}👋\nJawab captcha ini`,
+                            thumbnail: dfrply, //Gambarnye
+                            sellerJid: '6285732415700@s.whatsapp.net' 
+                          }
+                        }
+                      }
+                      
         
                        const textImg = (teks) => {
            return denz.sendMessage(from, teks, text, {quoted: ftrol, thumbnail: fs.readFileSync('./sneazy.png')})
