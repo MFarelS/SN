@@ -30,6 +30,7 @@ const nodemailer = require('nodemailer');
 const axios = require("axios")
 const ffmpeg = require('fluent-ffmpeg')
 const request = require('request')
+const got = require("got")
 const hx = require('hxz-api')
 const voting = JSON.parse(fs.readFileSync("./database/voting.json"));
 //const WAConnection = simple.WAConnection(_WAConnection)
@@ -2109,6 +2110,12 @@ Free rest APIs: https://api-sneazy.herokuapp.com
 │ • ${prefix}rainbow
 │ • ${prefix}blurple
 │ • ${prefix}blurple2
+╰────
+
+
+╭─「 Music menu 」
+│ • ${prefix}music
+│ • ${prefix}getmusic
 ╰────
 
 
