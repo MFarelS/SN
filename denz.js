@@ -807,23 +807,7 @@ const ftrol = {
                        const textImg = (teks) => {
            return denz.sendMessage(from, teks, text, {quoted: ftrol, thumbnail: fs.readFileSync('./sneazy.png')})
         }
-        const ftrolverif = {
-	key : {
-                          participant : '0@s.whatsapp.net'
-                        },
-       message: {
-                    orderMessage: {
-                            itemCount : 8888,
-                            status: 1,
-                            surface : 1,
-                            message: `Hai kak ${pushname}👋\nJawab captcha ini`, //Kasih namalu
-                            orderTitle: `Hai kak ${pushname}👋\nHai kak ${pushname}👋\nJawab captcha ini`,
-                            thumbnail: dfrply, //Gambarnye
-                            sellerJid: '6285732415700@s.whatsapp.net' 
-                          }
-                        }
-                      }
-                      
+        
                        const textImg = (teks) => {
            return denz.sendMessage(from, teks, text, {quoted: ftrol, thumbnail: fs.readFileSync('./sneazy.png')})
         }
@@ -3315,7 +3299,7 @@ case 'verify':
 					optionsTrace = { size: 5, color: 'deeppink' }
 					new canvacord.CaptchaGen().setCaptcha(optionsText).setTrace(optionsTrace).generate().then(buffer => {
 					//konz = await getBuffer(image)
-						denz.sendMessage(from, buffer, image, {quoted: ftrolverif, caption: `
+						denz.sendMessage(from, buffer, image, {quoted: ftrol, caption: `
 Hai kak ${pushname}👋
 
 Harap jawab Captcha ini untuk mendaftar ^_^
