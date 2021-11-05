@@ -157,20 +157,26 @@ exec(`cd /sdcard/download && play *mp3`)
 			} catch {
 			ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
 			}
+			var toTime = j => new Date(parseInt(j) * 1000)
+ppk = `${moment(toTime(groupMetadata.creation)).format('DD/MM/YYYY || HH.mm')}`
 				var namea = denz.contacts[num] != undefined ? denz.contacts[num].vname || denz.contacts[num].notify : 'unknown'
 			time_welc = moment.tz('Asia/Jakarta').format('DD/MM/YYYY')
                 time_wel = moment.tz('Asia/Jakarta').format("hh:mm")
 			const memeg = mdata.participants.length
             const thu = await denz.getStatus(anu.participants[0], MessageType.text)
 			let buff = await getBuffer(ppimg)
-			masuk =`Halo @${num.split('@')[0]}👋
+			masuk =`
+Halo @${num.split('@')[0]}👋
+			
 🥇 *Name:* ${namea}
 🥈 *Bio:* ${thu.status}
 🥉 *Tanggal:* ${time_wel} - ${time_welc}
 
-*Biasakan baca deskripsi grup:*
+_Group ini dibuat pada ${ppk}_
+
+Biasakan baca deskripsi grup:
 ${mdata.desc}`
-            denz.sendMessage(mdata.id, masuk, MessageType.text, { quoted: fkontakk, thumbnail: fs.readFileSync('./denz.jpg'), contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `Welcome To ${mdata.subject}`,body:'Note: Gunakan bot dengan bijak',mediaType:"2",thumbnail:buff,mediaUrl:`https://youtu.be/1U_8cj4OyUA`}}})
+            denz.sendMessage(mdata.id, masuk, MessageType.text, { quoted: fkontakk, thumbnail: fs.readFileSync('./denz.jpg'), contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `Selamat datang ${mdata.subject}`,body:'Note: Gunakan bot dengan bijak',mediaType:"2",thumbnail:buff,mediaUrl:`https://youtu.be/1U_8cj4OyUA`}}})
 			}
 				else if (anu.action == 'remove') {
 			
