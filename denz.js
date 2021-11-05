@@ -84,7 +84,7 @@ const { virtex8 } = require('./virtex/virtex8')
 const { virtex9 } = require('./virtex/virtex9')
 const { ngazap } = require('./virtex/ngazap')
 const { virtag } = require('./virtex/virtag')
-const _sewa = require("./lib/sewa")
+//const _sewa = require("./lib/sewa")
 
 //const voting = JSON.parse(fs.readFileSync('./database/voting.json'))
 const { emoji2 } = require('./virtex/emoji2')
@@ -124,7 +124,7 @@ const kickarea = JSON.parse(fs.readFileSync('./database/kickarea.json'))
 let tebaklagu = JSON.parse(fs.readFileSync('./database/tebaklagu.json'))
 //let sewa = JSON.parse(fs.readFileSync('./database/sewa.json'));
 let tebakbendera = JSON.parse(fs.readFileSync('./database/tebakbendera.json'))
-let sewa = JSON.parse(fs.readFileSync('./database/sewa.json'))
+//let sewa = JSON.parse(fs.readFileSync('./database/sewa.json'))
 const scommand = JSON.parse(fs.readFileSync('./database/scommand.json'))
 //const { addVote, delVote } = JSON.parse(fs.readFileSync('./database/'))
 const autosticker = JSON.parse(fs.readFileSync('./database/autosticker.json'))
@@ -492,7 +492,7 @@ try {
 		}
 
   // Sewa
-             _sewa.expiredCheck(denz, sewa)
+       //      _sewa.expiredCheck(denz, sewa)
 
 		const botNumber = denz.user.jid
 		const ownerNumberr = ["6285732415700@s.whatsapp.net",`${NomorOwner}@s.whatsapp.net`]
@@ -511,7 +511,7 @@ try {
 		const isNsfw = isGroup ? nsfww.includes(from) : false
 		const groupOwner = isGroup ? groupMetadata.owner : ''
 		const isOwner = ownerNumberr.includes(sender)
-		const isSewa = _sewa.checkSewaGroup(from, sewa)
+	//	const isSewa = _sewa.checkSewaGroup(from, sewa)
 		const isGroupAdmins = groupAdmins.includes(sender) || false
 		const isKickArea = isGroup ? kickarea.includes(from) : false
 		const isAntiLink = isGroup ? antilink.includes(from) : false
@@ -2756,7 +2756,7 @@ case 'jail':
 					}
 					break
  case 'nangis':
-				// Fix Case Xrutz Official
+				// Fix Case denz Official
   if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
 				ranp = getRandom('.gif')
 					rano = getRandom('.webp')
@@ -4065,7 +4065,7 @@ ${descOwner ? `*Desc diubah oleh* : @${descOwner.split('@')[0]}` : '*Desc diubah
              reply('Link error')
              }
              break
-       case 'sewa':
+       /*case 'sewa':
               
               if (!isOwner) return reply(mess.only.owner)
               if (args.length < 1) return reply(`Penggunaan :\n*${prefix}sewa* add/del waktu`)
@@ -4098,7 +4098,8 @@ if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted
               let cekvip = ms(_sewa.getSewaExpired(from, sewa) - Date.now())
               let premiumnya = `*「 SEWA EXPIRE 」*\n\n➤ *ID User*: ${from}\n➤ *Expired :* ${cekvip.days} day(s) ${cekvip.hours} hour(s) ${cekvip.minutes} minute(s)`
               reply(premiumnya)
-              break
+              break*/
+              
 case 'card':
 if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
                                       try {
@@ -7101,66 +7102,64 @@ break
 					exif.create(namaPack, authorPack)
 					await reply('Done gan')
 				break
+			       case 'gifstiker':
+				case 's':
+			case 'stickergif':  
 				case 'sticker':
-					case 'stiker':
-					case 's':
-					if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
-						if (isMedia && !mek.message.videoMessage || isQuotedImage) {
-							const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
-							const media = await denz.downloadAndSaveMediaMessage(encmedia, `./sticker/${sender}`)
-							await ffmpeg(`${media}`)
-									.input(media)
-									.on('start', function (cmd) {
-										console.log(`Started : ${cmd}`)
-									})
-									.on('error', function (err) {
-										console.log(`Error : ${err}`)
-										fs.unlinkSync(media)
-										reply(mess.error.api)
-									})
-									.on('end', function () {
-										console.log('Finish')
-										exec(`webpmux -set exif ./sticker/data.exif ./sticker/${sender}.webp -o ./sticker/${sender}.webp`, async (error) => {
-											if (error) return reply(mess.error.api)
-											denz.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), sticker, {quoted: mek})
-											fs.unlinkSync(media)	
-											fs.unlinkSync(`./sticker/${sender}.webp`)	
-										})
-									})
-									.addOutputOptions([`-vcodec`,`libwebp`,`-vf`,`scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
-									.toFormat('webp')
-									.save(`./sticker/${sender}.webp`)
-						} else if ((isMedia && mek.message.videoMessage.fileLength < 10000000 || isQuotedVideo && mek.message.extendedTextMessage.contextInfo.quotedMessage.videoMessage.fileLength < 10000000)) {
-							const encmedia = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
-							const media = await denz.downloadAndSaveMediaMessage(encmedia, `./sticker/${sender}`)
-							reply(mess.wait)
-								await ffmpeg(`${media}`)
-									.inputFormat(media.split('.')[4])
-									.on('start', function (cmd) {
-										console.log(`Started : ${cmd}`)
-									})
-									.on('error', function (err) {
-										console.log(`Error : ${err}`)
-										fs.unlinkSync(media)
-										tipe = media.endsWith('.mp4') ? 'video' : 'gif'
-										reply(mess.error.api)
-									})
-									.on('end', function () {
-										console.log('Finish')
-										exec(`webpmux -set exif ./sticker/data.exif ./sticker/${sender}.webp -o ./sticker/${sender}.webp`, async (error) => {
-											if (error) return reply(mess.error.api)
-											denz.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), sticker, {quoted: mek})
-											fs.unlinkSync(media)
-											fs.unlinkSync(`./sticker/${sender}.webp`)
-										})
-									})
-									.addOutputOptions([`-vcodec`,`libwebp`,`-vf`,`scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
-									.toFormat('webp')
-									.save(`./sticker/${sender}.webp`)
-						} else {
-							reply(`Kirim gambar/video dengan caption ${prefix}sticker atau tag gambar/video yang sudah dikirim\nNote : Durasi video maximal 10 detik`)
-						}
-						break
+				  case 'stiker':
+				  if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+					     if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
+            const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
+            const media = await denz.downloadAndSaveMediaMessage(encmedia)
+                ran = '666.webp'
+                await ffmpeg(`./${media}`)
+                .input(media)
+                .on('start', function (cmd) {
+                     console.log(`Started : ${cmd}`)
+                })
+                .on('error', function (err) {
+                 console.log(`Error : ${err}`)
+                fs.unlinkSync(media)
+                reply('error')
+                })
+                .on('end', function () {
+                console.log('Finish')
+                denz.sendMessage(from, fs.readFileSync(ran), sticker, {quoted: mek})
+                 fs.unlinkSync(media)
+                fs.unlinkSync(ran)
+                })
+                .addOutputOptions([`-vcodec`, `libwebp`, `-vf`, `scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
+                .toFormat('webp')
+                .save(ran)
+                } else if ((isMedia && mek.message.videoMessage.seconds < 11 || isQuotedVideo && mek.message.extendedTextMessage.contextInfo.quotedMessage.videoMessage.seconds < 11) && args.length == 0) {
+                const encmedia = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
+                const media = await denz.downloadAndSaveMediaMessage(encmedia)
+            ran = '999.webp'
+            reply(mess.wait)
+            await ffmpeg(`./${media}`)
+            .inputFormat(media.split('.')[1])
+            .on('start', function (cmd) {
+            console.log(`Started : ${cmd}`)
+            })
+            .on('error', function (err) {
+            console.log(`Error : ${err}`)
+            fs.unlinkSync(media)
+            tipe = media.endsWith('.mp4') ? 'video' : 'gif'
+            reply(`Gagal, pada saat mengkonversi ${tipe} ke stiker`)
+            })
+            .on('end', function () {
+            console.log('Finish')
+            denz.sendMessage(from, fs.readFileSync(ran), sticker, {quoted: mek})
+            fs.unlinkSync(media)
+            fs.unlinkSync(ran)
+                })
+                .addOutputOptions([`-vcodec`, `libwebp`, `-vf`, `scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
+                .toFormat('webp')
+                .save(ran)
+            } else {
+                reply(`Kirim gambar dengan caption ${prefix}sticker\nDurasi Sticker Video 1-9 Detik`)
+            }
+            break    
 					case 'stickerwm':
 					case 'swm':
 					if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
