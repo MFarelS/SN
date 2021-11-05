@@ -814,8 +814,8 @@ const ftrolverif = {
                             itemCount : 8888,
                             status: 1,
                             surface : 1,
-                            message: `Hai kak ${pushname}👋\nJawab captcha ini`, //Kasih namalu
-                            orderTitle: `Hai kak ${pushname}👋\nHai kak ${pushname}👋\nJawab captcha ini`,
+                            message: `Hai kak ${pushname}👋\nJawab Captcha ini dengan cara reply pesan`, //Kasih namalu
+                            orderTitle: `Hai kak ${pushname}👋\nJawab captcha ini`,
                             thumbnail: dfrply, //Gambarnye
                             sellerJid: '6285732415700@s.whatsapp.net' 
                           }
@@ -3314,10 +3314,9 @@ case 'verify':
 					optionsTrace = { size: 5, color: 'deeppink' }
 					new canvacord.CaptchaGen().setCaptcha(optionsText).setTrace(optionsTrace).generate().then(buffer => {
 					//konz = await getBuffer(image)
-						denz.sendMessage(from, buffer, image, {quoted: ftrolverif, caption: `
-Hai kak ${pushname} 👋
+						denz.sendMessage(from, buffer, image, {quoted: ftrolverif, caption: `${uwu}Hai kak ${pushname} 👋
 Harap jawab Captcha ini untuk mendaftar ^_^
-Waktunya 1 menit
+Waktunya 1 menit${uwu}
 
 _Note: Gunakan huruf kecil untuk menjawab_`})
 						//sendButLocation(from, `Selesaikan captcha ini untuk mendaftar ^-^\n\n_Note: Gunakan huruf kecil untuk menjawab_`, `SNEAZYBOT`, {jpegThumbnail:image}, [{buttonId:`${inijawban}`,buttonText:{displayText:`${inijawban}`},type:1},{buttonId:`tors`,buttonText:{displayText:'hshsjjs'},type:1},{buttonId:`b7ksh`,buttonText:{displayText:'ygdkw'},type:1}])
