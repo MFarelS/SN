@@ -84,6 +84,7 @@ const { virtex8 } = require('./virtex/virtex8')
 const { virtex9 } = require('./virtex/virtex9')
 const { ngazap } = require('./virtex/ngazap')
 const { virtag } = require('./virtex/virtag')
+const _sewa = require("./lib/sewa")
 
 //const voting = JSON.parse(fs.readFileSync('./database/voting.json'))
 const { emoji2 } = require('./virtex/emoji2')
@@ -121,7 +122,9 @@ const mute = JSON.parse(fs.readFileSync('./database/mute.json'))
 const settings = JSON.parse(fs.readFileSync('./settings.json'))
 const kickarea = JSON.parse(fs.readFileSync('./database/kickarea.json'))
 let tebaklagu = JSON.parse(fs.readFileSync('./database/tebaklagu.json'))
+let sewa = JSON.parse(fs.readFileSync('./database/sewa.json'));
 let tebakbendera = JSON.parse(fs.readFileSync('./database/tebakbendera.json'))
+let sewa = JSON.parse(fs.readFileSync('./database/sewa.json'))
 const scommand = JSON.parse(fs.readFileSync('./database/scommand.json'))
 //const { addVote, delVote } = JSON.parse(fs.readFileSync('./database/'))
 const autosticker = JSON.parse(fs.readFileSync('./database/autosticker.json'))
@@ -488,6 +491,9 @@ try {
 			}
 		}
 
+  // Sewa
+             _sewa.expiredCheck(denz, sewa)
+
 		const botNumber = denz.user.jid
 		const ownerNumberr = ["6285732415700@s.whatsapp.net",`${NomorOwner}@s.whatsapp.net`]
 		const isGroup = from.endsWith('@g.us')
@@ -505,6 +511,7 @@ try {
 		const isNsfw = isGroup ? nsfww.includes(from) : false
 		const groupOwner = isGroup ? groupMetadata.owner : ''
 		const isOwner = ownerNumberr.includes(sender)
+		const isSewa = _sewa.checkSewaGroup(from, sewa)
 		const isGroupAdmins = groupAdmins.includes(sender) || false
 		const isKickArea = isGroup ? kickarea.includes(from) : false
 		const isAntiLink = isGroup ? antilink.includes(from) : false
@@ -4058,6 +4065,40 @@ ${descOwner ? `*Desc diubah oleh* : @${descOwner.split('@')[0]}` : '*Desc diubah
              reply('Link error')
              }
              break
+       case 'sewa':
+              
+              if (!isOwner) return reply(mess.only.owner)
+              if (args.length < 1) return reply(`Penggunaan :\n*${prefix}sewa* add/del waktu`)
+              if (args[0].toLowerCase() === 'add'){
+            _sewa.addSewaGroup(from, args[1], sewa)
+              reply(`Success`)
+              } else if (args[0].toLowerCase() === 'del'){
+              sewa.splice(_sewa.getSewaPosition(from, sewa), 1)
+              fs.writeFileSync('./database/group/sewa.json', JSON.stringify(sewa))
+              reply(mess.success)
+              } else {
+              reply(`Penggunaan :\n*${prefix}sewa* add/del waktu`)
+}
+              break
+       case 'sewalist': 
+       case 'listsewa':
+       if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+              let txtnyee = `List Sewa\nJumlah : ${sewa.length}\n\n`
+              for (let i of sewa){
+              let cekvipp = ms(i.expired - Date.now())
+              txtnyee += `*➤ ID User :* ${i.id} \n*➤ Expire :* ${cekvipp.days} day(s) ${cekvipp.hours} hour(s) ${cekvipp.minutes} minute(s) ${cekvipp.seconds} second(s)\n\n`
+}
+              reply(txtnyee)
+              break
+       case 'sewacheck':
+       case 'ceksewa': 
+if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+
+              if (!isSewa) return reply(`Group ini tidak terdaftar dalam list sewabot. Ketik ${prefix}sewabot untuk info lebih lanjut`)
+              let cekvip = ms(_sewa.getSewaExpired(from, sewa) - Date.now())
+              let premiumnya = `*「 SEWA EXPIRE 」*\n\n➤ *ID User*: ${from}\n➤ *Expired :* ${cekvip.days} day(s) ${cekvip.hours} hour(s) ${cekvip.minutes} minute(s)`
+              reply(premiumnya)
+              break
 case 'card':
 if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
                                       try {
