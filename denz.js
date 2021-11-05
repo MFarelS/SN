@@ -7251,7 +7251,7 @@ break
 						  case 'take':
        case 'colong':
               if (!isQuotedSticker) return reply('Stiker aja om')
-              encmedia = JSON.parse(JSON.strngify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+              encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
               media = await denz.downloadAndSaveMediaMessage(encmedia)
               anu = args.join(' ').split('|')
               satu = anu[0] !== '' ? anu[0] : `${pushname}`
