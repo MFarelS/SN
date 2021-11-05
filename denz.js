@@ -7232,7 +7232,7 @@ break
 						}
 						break
 					case 'takestick':
-					case 'take':
+				/*	case 'take':
 					if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
 						if (!isQuotedSticker) return reply(`Reply sticker dengan caption *${prefix}takestick nama|author*`)
 						ppp = `${args.join(' ')}`
@@ -7247,7 +7247,18 @@ break
 							fs.unlinkSync(media)
 							fs.unlinkSync(`./sticker/takestick_${sender}.exif`)
 						})
-						break
+						break*/
+						  case 'take':
+       case 'colong':
+              if (!isQuotedSticker) return reply('Stiker aja om')
+              encmedia = JSON.parse(JSON.strngify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+              media = await denz.downloadAndSaveMediaMessage(encmedia)
+              anu = args.join(' ').split('|')
+              satu = anu[0] !== '' ? anu[0] : `${pushname}`
+              dua = typeof anu[1] !== 'undefined' ? anu[1] : `UwU`
+              require('./lib/fetch.js').createExif(satu, dua)
+              require('./lib/fetch.js').modStick(media, denz, mek, from)
+              break
 			case 'speed':
 				const timestampi = speed();
 					const latensyi = speed() - timestampi
