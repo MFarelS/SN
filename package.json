@@ -44,6 +44,7 @@
     "marker": "^0.1.2",
     "mathjs": "^9.4.3",
     "moment-timezone": "^0.5.33",
+"fs-extra": "^10.0.0",
 "got": "^11.8.2",
 "browser-id3-writer": "^4.4.0",
 "ytdl-core": "^4.9.1",
