@@ -3300,8 +3300,6 @@ case 'verify':
 					new canvacord.CaptchaGen().setCaptcha(optionsText).setTrace(optionsTrace).generate().then(buffer => {
 					//konz = await getBuffer(image)
 						denz.sendMessage(from, buffer, image, {quoted: ftrol, caption: `
-Hai kak ${pushname}👋
-
 Harap jawab Captcha ini untuk mendaftar ^_^
 Waktunya 1 menit
 
