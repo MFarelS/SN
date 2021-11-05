@@ -158,7 +158,7 @@ exec(`cd /sdcard/download && play *mp3`)
 			ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
 			}
 			var toTime = j => new Date(parseInt(j) * 1000)
-ppk = `${moment(toTime(groupMetadata.creation)).format('DD/MM/YYYY || HH.mm')}`
+ppk = `${moment(toTime(mdata.creation)).format('DD/MM/YYYY || HH.mm')}`
 				var namea = denz.contacts[num] != undefined ? denz.contacts[num].vname || denz.contacts[num].notify : 'unknown'
 			time_welc = moment.tz('Asia/Jakarta').format('DD/MM/YYYY')
                 time_wel = moment.tz('Asia/Jakarta').format("hh:mm")
