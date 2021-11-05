@@ -783,7 +783,7 @@ options
 
 const daftar1 = `Hai kak  ${pushname}👋 \n\nSebelum Mengakses Bot Verify Terlebih Dahulu Ya`
 const daftar2 = '```Tekan Tombol Di Bawah Untuk Verify```'
-const daftar3 = [{buttonId: `verifyed`,buttonText: {displayText: `DAFTAR!!`,},type: 1,},]
+const daftar3 = [{buttonId: `verify`,buttonText: {displayText: `DAFTAR!!`,},type: 1,},]
 
 
 // TROLI
@@ -3282,8 +3282,8 @@ denz.sendMessage(from, sendBtnVeryy, MessageType.buttonsMessage, {quoted:ftrol, 
 	         console.log(color('[REGISTER]'), color(time, 'yellow'), 'Serial:', color(serialUser, 'cyan'), 'in', color(sender || groupName))
 	    // console.log(e)
         break*/
-case 'verifyed':
-					if (isCaptcha(from)) return reply('Masih ada soal yang belum diselesaikan!')
+case 'verify':
+					//if (isCaptcha(from)) return reply('Masih ada soal yang belum diselesaikan!')
 					var letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
 					var letter1 = letters[Math.floor(Math.random() * letters.length)];
 					var letter2 = letters[Math.floor(Math.random() * letters.length)];
