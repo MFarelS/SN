@@ -2679,7 +2679,7 @@ case 'music':
 						buf = await getBuffer(yt.all[0].image)
 						await denz.sendMessage(from, buf, image, {caption: xixixi})
 					} catch (e) {
-					console.log(err)
+					console.log(e)
 						await reply(`_Kesalahan saat mencari judul lagu ${q}_`)
 					}
 					break
