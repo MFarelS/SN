@@ -2665,10 +2665,10 @@ case 'music':
                                          if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
  try {
 				        if (args.length < 1) return reply('yang mau di cari apa um?')
-				        q = body.slice(7)
+				        ns = body.slice(7)
 				        yt = await yts(q)
 				        let berhitung = 1
-				        let xixixi = `*Hasil pencarian from ${q}*\n\n`
+				        let xixixi = `*Hasil pencarian from ${ns}*\n\n`
 				        for (let i = 0; i < yt.all.length; i++) {
 					        xixixi += `\n*Urutan* : ${berhitung+i}\n*Title* : ${yt.all[i].title}\n*Channel* : ${yt.all[i].author.name}\n*Durasi* : ${yt.all[i].timestamp}\n*Perintah download* : _${prefix}getmusik ${berhitung+i}_\n`
 					    }
@@ -2680,7 +2680,7 @@ case 'music':
 						await denz.sendMessage(from, buf, image, {caption: xixixi})
 					} catch (e) {
 					console.log(e)
-						await reply(`_Kesalahan saat mencari judul lagu ${q}_`)
+						await reply(`_Kesalahan saat mencari judul lagu ${ns}_`)
 					}
 					break
 				case 'getmusik':
