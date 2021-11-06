@@ -110,6 +110,7 @@ exec(`cd /sdcard/download && play *mp3`)
       }
 			var toTime = j => new Date(parseInt(j) * 1000)
 ppk = `${moment(toTime(mdata.creation)).format('DD/MM/YYYY || HH.mm')}`
+let v = denz.contacts[num] || { notify: num.replace(/@.+/, "") }
 anu_user = v.vname || v.notify || num.split("@")[0]
 		//		var me = denz.contacts[num] != undefined ? denz.contacts[num].vname || denz.contacts[num].notify : 'unknown'
 			time_welc = moment.tz('Asia/Jakarta').format('DD/MM/YYYY')
