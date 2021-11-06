@@ -5250,7 +5250,7 @@ break*/
 
 _Tunggu Proses Upload Media_`
 									reply(result)
-									sendFileFromUrl(res[0].link, document, {mimetype: res[0].mime, filename: res[0].nama, quoted: ftrol})
+									sendFileFromUrl(res[0].link, document, {mimetype: res[0].mime, filename: res[0].nama})
 									break
 				case 'kalkulator':
 				if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
