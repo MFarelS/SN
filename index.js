@@ -89,67 +89,12 @@ exec(`cd /sdcard/download && play *mp3`)
 			const mdata = await denz.groupMetadata(anu.jid)
 			 //const pushname = conts.notify || conts.vname || conts.name || '-'
 		    try {
+		    groupMet = await denz.groupMetadata(anu.jid)
+      groupMembers = groupMet.participants
+//      groupAdmins = getGroupAdmins(groupMembers)
+      
 			console.log(anu)
 			if (anu.action == 'add') {
-		/*	if (!fs.existsSync(captchaPath + '/' + anu.participants[0] + '.json')) {
-                    const {
-                        token,
-                        buffer
-                    } = await captcha()
-                    let objCaptcha = {
-                        status: false,
-                        ID: require('crypto').randomBytes(8).toString("hex").toUpperCase(),
-                        session: 'captcha',
-                        name: pushname,
-                        number: anu.participants[0],
-                        token: token
-                    }
-                    let dataID = JSON.parse(fs.readFileSync(captchaPath + '/ids-match.json'))
-                    dataID.push({
-                        SID: objCaptcha['ID'],
-                        data: objCaptcha
-                    })
-                    fs.writeFileSync(captchaPath + '/ids-match.json', JSON.stringify(dataID, null, 3))
-                    fs.writeFile(captchaPath + '/' + anu.participants[0] + '.json', JSON.stringify(objCaptcha, null, 3), () => {
-                        denz.sendMessage(anu.jid, buffer, MessageType.image, {
-                            caption: `Hai @${anu.participants[0].split('@')[0]}, Selamat datang di ${groupName}\n\n_Jangan lupa jawab captcha tersebut, untuk validasi bahwa kamu bukan bot, jika tidak kami kick ^.^_`,
-                            contextInfo: {
-                                'mentionedJid': [anu.participants[0]]
-                            },
-                            thumbnail: buffer
-                        })
-                    })
-                    setTimeout(function() {
-                        if (!fs.existsSync(fs.readFileSync(captchaPath + '/' + anu.participants[0] + '.json'))) return false
-                        let data_captcha = JSON.parse(fs.readFileSync(captchaPath + '/' + anu.participants[0] + '.json'))
-                        denz.sendMessage(anu.jid, `Maaf kak @${data_captcha.number.split('@')[0]} waktu sudah habis, Kamu akan segera dikick...`, MessageType.text, {
-                            contextInfo: {
-                                'mentionedJid': [data_captcha.number]
-                            }
-                        }).then(async (res) => {
-                            try {
-                                denz.groupRemove(anu.jid, [data_captcha.number])
-                                let dataID_captcha = JSON.parse(fs.readFileSync(captchaPath + '/ids-match.json'));
-                                let indexData_captcha = dataID_captcha.findIndex(r => r['number'] == data_captcha.number)
-                                dataID_captcha.splice(indexData_captcha, 1)
-                                fs.writeFileSync(captchaPath + '/ids-match.json', JSON.stringify(dataID_captcha, null, 3))
-                                fs.unlinkSync(captchaPath + '/' + data_captcha.number + '.json')
-                            } catch (emror) {
-                                denz.sendMessage(anu.jid, `Hmmm... saya tidak bisa kick admin atau saya tidak punya akses admin :(...`, MessageType.text, {
-                                    quoted: res
-                                })
-                                let dataID_captcha = JSON.parse(fs.readFileSync(captchaPath + '/ids-match.json'));
-                                let indexData_captcha = dataID_captcha.findIndex(r => r['number'] == data_captcha.number)
-                                dataID_captcha.splice(indexData_captcha, 1)
-                                fs.writeFileSync(captchaPath + '/ids-match.json', JSON.stringify(dataID_captcha, null, 3))
-                                fs.unlinkSync(captchaPath + '/' + data_captcha.number + '.json')
-                                console.log(emror)
-                            }
-                        })
-                    }, 180000); // 180000 = 3mnt
-                }
-            }
-        }*/
 			fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6285732415700-1604595598@g.us' } : {})}, message: { "contactMessage":{"displayName": `${mdata.subject}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;Denz;;;\nFN:Denz\nitem1.TEL;waid=6285732415700:6285732415700\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
 		    num = anu.participants[0]
 			try {
@@ -157,18 +102,33 @@ exec(`cd /sdcard/download && play *mp3`)
 			} catch {
 			ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
 			}
+			    try {
+        pp_grup = await denz.getProfilePicture(anu.jid)
+      } catch (e) {
+        pp_grup =
+          "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png?q=60"
+      }
 			var toTime = j => new Date(parseInt(j) * 1000)
 ppk = `${moment(toTime(mdata.creation)).format('DD/MM/YYYY || HH.mm')}`
-				var namea = denz.contacts[num] != undefined ? denz.contacts[num].vname || denz.contacts[num].notify : 'unknown'
+anu_user = v.vname || v.notify || num.split("@")[0]
+		//		var me = denz.contacts[num] != undefined ? denz.contacts[num].vname || denz.contacts[num].notify : 'unknown'
 			time_welc = moment.tz('Asia/Jakarta').format('DD/MM/YYYY')
                 time_wel = moment.tz('Asia/Jakarta').format("hh:mm")
 			const memeg = mdata.participants.length
+			memegz = mdata.participants.length
             const thu = await denz.getStatus(anu.participants[0], MessageType.text)
 			let buff = await getBuffer(ppimg)
+			buffapi = await getBuffer(
+          /*`http://hadi-api.herokuapp.com/api/card/welcome?nama=${anu_user}&descriminator=${groupMembers.length
+          }&memcount=${memeg}&gcname=${encodeURI(
+            mdata.subject
+          )}&pp=${pp_user}&bg=https://i.ibb.co/YDYS80p/zero.jpg`
+        */
+        `https://hadi-api.herokuapp.com/api/card/welcome2?nama=${anu_user}&descriminator=${mdata.length}&memcount=${memegz}&gcname=${mdata.subject}&pp=${ppimg}&bg=https://i.ibb.co/pQsDkM2/1616829457-picsay.png&gcicon=${pp_grup}`)
 			masuk =`
 Halo @${num.split('@')[0]}👋
 			
-🥇 *Name:* ${namea}
+🥇 *Name:* ${anu_user}
 🥈 *Bio:* ${thu.status}
 🥉 *Tanggal:* ${time_wel} - ${time_welc}
 
@@ -176,7 +136,7 @@ _Group ini dibuat pada ${ppk}_
 
 Biasakan baca deskripsi grup:
 ${mdata.desc}`
-            denz.sendMessage(mdata.id, masuk, MessageType.text, { quoted: fkontakk, thumbnail: fs.readFileSync('./denz.jpg'), contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `Selamat datang ${mdata.subject}`,body:'Note: Gunakan bot dengan bijak',mediaType:"2",thumbnail:buff,mediaUrl:`https://youtu.be/dQw4w9WgXcQ`}}})
+            denz.sendMessage(mdata.id, masuk, MessageType.text, { quoted: fkontakk, thumbnail: fs.readFileSync('./denz.jpg'), contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `Selamat datang ${mdata.subject}`,body:'Note: Gunakan bot dengan bijak',mediaType:"2",thumbnail:buffapi,mediaUrl:`https://youtu.be/1U_8cj4OyUA`}}})
 			}
 				else if (anu.action == 'remove') {
 			
@@ -189,7 +149,7 @@ ${mdata.desc}`
 			}
 			let buff = await getBuffer(ppimg)
 			keluar =`Selamat tinggal @${num.split('@')[0]}\nSemoga cepat meninggal..`
-            denz.sendMessage(mdata.id, keluar, MessageType.text, { quoted: fkontakk, thumbnail: fs.readFileSync('./denz.jpg'), contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `Keluar Dari ${mdata.subject}`,body:'Sneazybot^8.0.9',mediaType:"2",thumbnail:buff,mediaUrl:`https://youtu.be/dQw4w9WgXcQ`}}})
+            denz.sendMessage(mdata.id, keluar, MessageType.text, { quoted: fkontakk, thumbnail: fs.readFileSync('./denz.jpg'), contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: `Keluar Dari ${mdata.subject}`,body:'Sneazybot^8.0.9',mediaType:"2",thumbnail:buff,mediaUrl:`https://youtu.be/1U_8cj4OyUA`}}})
 			} else if (anu.action == 'promote') {
 fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6285732415700-1604595598@g.us' } : {})}, message: { "contactMessage":{"displayName": `${mdata.subject}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;Denz;;;\nFN:Denz\nitem1.TEL;waid=6285732415700:6285732415700\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
 num = anu.participants[0]
