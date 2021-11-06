@@ -5213,7 +5213,7 @@ sendFileFromUrl(res[0].thumb, image, {quoted: mek, caption: result}).catch(e => 
   reply(result)
 })
 break
-case 'mediafire':
+/*case 'mediafire':
 if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
 if (args.length < 1) return reply('Link Nya Mana? ')
 if(!isUrl(args[0]) && !args[0].includes('mediafire')) return reply(mess.error.api)
@@ -5231,7 +5231,26 @@ result = `*Nama :* ${res[0].nama}
 _File sedang dikirim, Silahkan tunggu beberapa menit_`
 reply(result)
 sendFileFromUrl(res[0].link, document, {mimetype: res[0].mime, filename: res[0].nama, quoted: mek})
-break
+break*/
+	case 'mediafire':
+									if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+									if (args.length < 1) return reply('Masukkan link mediafire')
+									if(!isUrl(args[0]) && !args[0].includes('mediafire')) return reply('Linknya Error')
+									reply(mess.wait)
+									teks = args.join(' ')
+									res = await mediafireDl(teks)
+									result = ` *MEDIAFIRE DOWNLOAD*
+
+*Data Berhasil Didapatkan!*
+
+🆔 Nama : ${res[0].nama}
+📊 Ukuran : ${res[0].size}
+💬 Link : ${res[0].link}
+
+_Tunggu Proses Upload Media_`
+									reply(result)
+									sendFileFromUrl(res[0].link, document, {mimetype: res[0].mime, filename: res[0].nama, quoted: ftrol})
+									break
 				case 'kalkulator':
 				if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
 				 var mtk = body.slice(12)
