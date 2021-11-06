@@ -6390,14 +6390,23 @@ break
 				    tagu = `@${nomqm.split('@s.whatsapp.net')[0]}`
 					denz.sendMessage(from, tagu, text, { quoted: ftrol, contextInfo: { forwardingScore: 508, isForwarded: true, mentionedJid: [nomqm]}})
 					break
-				case 'join':
+	/*			case 'join':
 				if (!isOwner && !mek.key.fromMe) return reply(mess.only.ownerB)
 				 if (args.length < 1) return ephe('Link nya mana?')
 					denz.query({
 json:["action", "invite", `${args[0].replace('https://chat.whatsapp.com/','')}`]
 })
 reply('Sukses bergabung dalam group')
-break
+break*/
+case 'join': 
+             if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+             	if (!isOwner && !mek.key.fromMe) return reply(mess.only.ownerB)
+             if (!isUrl(args[0]) && !args[0].includes('https://chat.whatsapp.com/')) return reply('Linknya Invalid Tod')
+             link = args[0].replace('https://chat.whatsapp.com/','')
+             fak = denz.query({ json: ['action', 'invite', link],
+             expect200: true })
+             reply('Berhasil Masuk Grup')
+             break
 				case 'totag':
 				if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
 			if (!isGroup) return reply(mess.only.group)
