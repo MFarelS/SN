@@ -1819,6 +1819,13 @@ case 'speedtest':
 					break
 case 'allmenu':
 if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+countDownDate = new Date("Jan 01, 2022 00:00:00").getTime();
+                now = new Date().getTime();
+                distance = countDownDate - now;
+                days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                seconds = Math.floor((distance % (1000 * 60)) / 1000);
         ptod = "6282138919347@s.whatsapp.net"
         stod = `${sender}`
         uwu = '```'
@@ -1830,6 +1837,8 @@ menu = `Hallo kak ${pushname} ${tampilUcapan}
 Iam *Sneazy-BOT* And Iam Use Prefix *${prefix}*
 
 Free rest APIs: https://api-sneazy.herokuapp.com
+
+Menuju Tahun Baru 🎉 : ${days} Hari ${hours} Jam ${minutes} Menit ${seconds} Detik
 
 ❏ *....: INFO BOT :....*
 ▷ *Bot Name : Sneazy-BOT*
