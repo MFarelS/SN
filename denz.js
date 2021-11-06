@@ -2611,7 +2611,7 @@ const pingnya = `*${ssd}Speed: ${latensik.toFixed(4)} Second*`;
 reply(pingnya);
 });
 break;
-/*case 'command':
+case 'testing':
  listMsg = {
  buttonText: 'LIST MENU',
  footerText: '*_© SneazyBOT_*',
@@ -2620,60 +2620,22 @@ break;
                      {
                       "title": `${jmn} - ${week} ${weton} - ${calender}`,
  rows: [
-                          {
-                              "title": "Script",
-                              "rowId": ""
-                           },
+                          
                            {
                               "title": "Speed",
-                              "rowId": ""
+                              "rowId": "ping"
                            },
                            {
-                              "title": "Status",
-                              "rowId": ""
-                           },
-                           {
-                              "title": "Creator",
-                              "rowId": ""
-                           },
-                           {
-                              "title": "Jadibot",
-                              "rowId": ""
-                           },
-                           {
-                              "title": "Runtime",
-                              "rowId": ""
-                           },
-                           {
-                              "title": "OwnerMenu",
-                              "rowId": ""
-                           },
-                           {
-                              "title": "MakerMenu",
-                              "rowId": ""
-                           },
-                           {
-                              "title": "GroupMenu",
-                              "rowId": ""
-                           },
-                           {
-                              "title": "NsfwMenu",
-                              "rowId": ""
-                           },
-                           {
-                              "title": "OtherMenu",
-                              "rowId": ""
-                           },
-                           {
-                              "title": "DownloadMenu",
-                              "rowId": ""
+                              "title": "Owner",
+                              "rowId": "owner"
                            }
+                           
                         ]
                      }],
  listType: 1
 }
 denz.sendMessage(from, listMsg, MessageType.listMessage, {contextInfo: { mentionedJid: [stod]},quoted:ftrol})
-break*/
+break
 case 'music':
 				case 'musik':
                                          if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
