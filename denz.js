@@ -485,7 +485,7 @@ try {
 			only: {
 				group: 'Only for within the group!',
 				ownerG: 'Only for group owners!',
-				ownerB: 'Only for bot owners!',
+				ownerB: 'Fitur ini khusus owner bot :3',
 				admin: 'Only for group admins!',
 				Badmin: 'Make the bot a group admin!'
 			}
@@ -4525,7 +4525,8 @@ if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted
 					break
 //Done
 case 'jadibot':
-if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+if (!isOwner && !mek.key.fromMe) return reply(mess.only.ownerB)
+//if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
 if(from.endsWith('@g.us')) return reply('Only With Private Chat/PC')
 client.version = [2, 2140, 12]
 client.browserDescription = ['SneazyBOT','Desktop','3.0']
