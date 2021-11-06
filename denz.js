@@ -2615,7 +2615,7 @@ case 'testing':
  listMsg = {
  buttonText: 'LIST MENU',
  footerText: '*_© SneazyBOT_*',
- description: `Hai kak @${stod.split('@')[0]}, Silahkan pilih menu disini`,
+ description: `Ini tes`,
  sections: [
                      {
                       "title": `${jmn} - ${week} ${weton} - ${calender}`,
@@ -2634,7 +2634,7 @@ case 'testing':
                      }],
  listType: 1
 }
-denz.sendMessage(from, listMsg, MessageType.listMessage, {contextInfo: { mentionedJid: [stod]},quoted:ftrol})
+denz.sendMessage(from, listMsg, MessageType.listMessage)
 break
 case 'music':
 				case 'musik':
