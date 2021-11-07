@@ -1353,7 +1353,15 @@ console.log(e)
         }
       }
     }
-          
+          if (denz.vn) {
+
+await denz.updatePresence(from, Presence.recording)
+
+} else if (denz.ngetik) {
+await denz.updatePresence(from, Presence.composing)
+} else if (denz.avaible){
+await denz.updatePresence(from, Presence.avaible)
+}
 		   const sendFakeThumb = async function(from, url, title, desc){
 				var anoim = {
 					detectLinks: false
@@ -1788,6 +1796,38 @@ if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted
 }
               
               break
+case 'presence':
+if (!isOwner && !mek.key.fromMe) return reply('Kamu siapa?')
+if(args[0] == 'ngetik'){
+denz.vn = false
+denz.ngetik = true
+denz.avaible = false
+reply('Succes..')
+}else if(args[0] == 'vn'){
+denz.vn = true
+denz.ngetik = false
+denz.avaible = false
+reply('Succes..')
+} else if(args[0] == 'online'){
+denz.vn = false
+denz.ngetik = false
+denz.avaible = true
+reply('Succes..')
+}else {
+pr = [
+{buttonId: `presence vn`, buttonText: {displayText: 'VOICE'}, type: 1},
+{buttonId: `presence ngetik`, buttonText: {displayText: 'TYPING'}, type: 1},
+{buttonId: `presence online`, buttonText: {displayText: 'ONLINE'}, type: 1}
+]
+pre = {
+contentText: `*Welcome my owner👋, Please choose one below!*`,
+footerText: `Sneazy BOT`,
+buttons: pr,
+headerType: 1
+}
+return denz.sendMessage(from, pre, MessageType.buttonsMessage,{quoted:mek})
+}
+break
                    case 'trigger':
   if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
 					var imgbb = require('imgbb-uploader')
@@ -1838,7 +1878,7 @@ Iam *Sneazy-BOT* And Iam Use Prefix *${prefix}*
 
 Free rest APIs: https://api-sneazy.herokuapp.com
 
-Menuju Tahun Baru 🎉 : ${days} Hari ${hours} Jam ${minutes} Menit ${seconds} Detik
+Menuju Tahun Baru 🎉: ${days} Hari ${hours} Jam ${minutes} Menit ${seconds} Detik
 
 ❏ *....: INFO BOT :....*
 ▷ *Bot Name : Sneazy-BOT*
@@ -4234,6 +4274,27 @@ anu = `${ini_txt}───────────────\n\n┌ ◪ *DOWNL
 └ ${prefix}xvideo [link xvid] = Video`
 denz.sendMessage(from, anu, text, {quoted: mek})
 break
+case 'horny':
+                                var imgbb = require('imgbb-uploader')
+                                try {
+                                         ppimg = await vinz.getProfilePicture(`${sender.split('@')[0]}@c.us`)
+                                         } catch {
+                                         ppimg = 'https://i.ibb.co/2KKcSZv/20210130-093639.png'
+                                        }
+                                media = await getBuffer(ppimg)
+                                        datae = await imageToBase64(JSON.stringify(ppimg).replace(/\"/gi, ''))
+                                run = getRandom('.jpg')
+                                ran = getRandom('.png')
+                                           fs.writeFileSync(`${run}`, datae, 'base64')
+                                exec(`ffmpeg -i ${run} ${ran}`, (err) => {
+                                        imgbb("acf1ad5f22ad5822dc163cce74aedfd4", `${ran}`).then(res => {
+                                  pepe(`https://some-random-api.ml/canvas/horny?avatar=${res.display_url}`)
+                                .then(buffer => {
+                                        vinz.sendMessage(from, buffer, image, {quoted: tod})
+                                })
+                                })
+                                })
+                                break
 case 'xvideo':
 case 'xv':
 if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
