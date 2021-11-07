@@ -2297,6 +2297,7 @@ Menuju Tahun Baru 🎉: ${days} Hari ${hours} Jam ${minutes} Menit ${seconds} De
 │ • ${prefix}bc
 │ • ${prefix}tobc
 │ • > [eval]
+│ • $ [exec]
 │ • ${prefix}return
 │ • ${prefix}clearall
 │ • ${prefix}pin
@@ -2306,6 +2307,7 @@ Menuju Tahun Baru 🎉: ${days} Hari ${hours} Jam ${minutes} Menit ${seconds} De
 │ • ${prefix}unmute
 │ • ${prefix}public
 │ • ${prefix}self
+│ • ${prefix}presence
 │ • ${prefix}ban
 │ • ${prefix}promoteall
 │ • ${prefix}demoteall
