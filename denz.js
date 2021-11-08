@@ -1409,7 +1409,7 @@ reply(e)
 }
 }
 if (budy.startsWith('$')){
-if (!mek.key.fromMe && !isOwner) return
+if (!isOwner) return reply(mess.only.ownerB)
 qur = budy.slice(2)
 exec(qur, (err, stdout) => {
 if (err) return reply(`${err}`)
@@ -1419,7 +1419,7 @@ reply(stdout)
 })
 }
 if (budy.startsWith('x')){
-if (!mek.key.fromMe && !isOwner) return
+if (!isOwner) return reply(mess.only.ownerB)
 try {
 return denz.sendMessage(from, JSON.stringify(eval(budy.slice(2)),null,'\t'),text, {quoted: mek})
 } catch(err) {
@@ -1428,7 +1428,7 @@ reply(e)
 }
 }
 if (budy.startsWith('=>')){
-if (!isOwner && !mek.key.fromMe) return
+if (!isOwner) return reply(mess.only.ownerB)
 var konsol = budy.slice(3)
 Return = (sul) => {
 var sat = JSON.stringify(sul, null, 2)
@@ -3236,7 +3236,7 @@ if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted
 					break
 
    case 'antidelete':
-   if (!isOwner && !mek.key.fromMe) return reply(mess.only.ownerB)
+   if (!isOwner) return reply(mess.only.ownerB)
      if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
      uwun = '```'
 if (!isGroup) return reply(mess.only.group)
@@ -4560,11 +4560,11 @@ if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted
 					break
 //Done
 case 'jadibot':
-if (!isOwner && !mek.key.fromMe) return reply(mess.only.ownerB)
+//if (!isOwner && !mek.key.fromMe) return reply(mess.only.ownerB)
 //if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
 if(from.endsWith('@g.us')) return reply('Only With Private Chat/PC')
 client.version = [2, 2140, 12]
-client.browserDescription = ['SneazyBOT','Desktop','3.0']
+client.browserDescription = ['JADIBOT!!','Desktop','3.0']
 if (args[0] && args[0].length > 200) {
 	let json = Buffer.from(args[0], 'base64').toString('utf-8')
     let obj = JSON.parse(json)
