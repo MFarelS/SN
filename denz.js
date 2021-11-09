@@ -2009,6 +2009,8 @@ Menuju Tahun Baru 🎉: ${days} Hari ${hours} Jam ${minutes} Menit ${seconds} De
 │ • ${prefix}kontak nomor|nama
 │ • ${prefix}kontag nomor|nama
 │ • ${prefix}hidetag
+│ • ${prefix}viewonce
+│ • ${prefix}size [teks]
 │ • ${prefix}getpp @tag atau 'group'
 ╰────
 
