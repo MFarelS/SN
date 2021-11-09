@@ -5919,6 +5919,28 @@ if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted
 				if (!arg) return reply(from, `Penggunaan ${prefix}matrix teks`, mek)
 				sendMediaURL(from, `https://bx-hunter.herokuapp.com/api/flamingtext/matrix?text=${arg}&apikey=${HunterApi}`)
 				break
+case 'size':
+//if (isBan) return reply(mess.ban)
+if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+if (args.length < 1) return reply('Masukan angkanya')
+filsize = args[0]
+costick = await denz.prepareMessageFromContent(from,{
+"stickerMessage": {
+"url": m.quoted.url,
+"fileSha256": m.quoted.fileSha256.toString('base64'),
+"fileEncSha256": m.quoted.fileEncSha256.toString('base64'),
+"mediaKey": m.quoted.mediaKey.toString('base64'),
+"mimetype": m.quoted.mimetype,
+"height": m.quoted.height,
+"width": m.quoted.width,
+"directPath": m.quoted.directPath,
+"fileLength": filsize,
+"mediaKeyTimestamp": m.quoted.mediaKeyTimestamp.low,
+"isAnimated": m.quoted.isAnimated
+}
+}, {quoted:mek})
+denz.relayWAMessage(costick)
+break
 				case 'googletxt':
 				if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
 				if (!arg) return reply(from, `Penggunaan ${prefix}googletxt teks`, mek)
