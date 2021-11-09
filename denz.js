@@ -1684,6 +1684,7 @@ pepe = `「 *INFORMATION* 」
 • And All creator bot
 _Since © 2020_`
 denz.sendMessage(from, `pepe`, teks, {quoted: ftrol})
+break
 /*case 'bugreport':
               if (args.length < 1) return reply(`Ketik ${prefix}bugreport [fiturnya] [Error Nya Gimana]`) 
               teks = args.join(' ')
