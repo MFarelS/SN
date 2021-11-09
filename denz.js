@@ -1150,6 +1150,35 @@ function getsmsServer1(number) {
             })
     })
 }
+ const sendMediaURL = async(to, url, text="", mids=[]) =>{
+                if(mids.length > 0){
+                    text = normalizeMention(to, text, mids)
+                }
+                const fn = Date.now() / 10000;
+                const filename = fn.toString()
+                let mime = ""
+                var download = function (uri, filename, callback) {
+                    request.head(uri, function (err, res, body) {
+                        mime = res.headers['content-type']
+                        request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
+                    });
+                };
+                download(url, filename, async function () {
+                    console.log('done');
+                    let media = fs.readFileSync(filename)
+                    let type = mime.split("/")[0]+"Message"
+                    if(mime === "image/gif"){
+                        type = MessageType.video
+                        mime = Mimetype.gif
+                    }
+                    if(mime.split("/")[0] === "audio"){
+                        mime = Mimetype.mp4Audio
+                    }
+                    denz.sendMessage(to, media, type, { quoted: ftrol, mimetype: mime, caption: text,contextInfo: {"mentionedJid": mids}})
+                    
+                    fs.unlinkSync(filename)
+                });
+            }
 	function randomNomor(angka){
             return Math.floor(Math.random() * angka) + 1
         }
@@ -3265,6 +3294,27 @@ const btngrasss = {
 await denz.sendMessage(from, btngrasss, MessageType.buttonsMessage, {quoted: ftrol})
 					}
 					break
+case 'size':
+if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+if (args.length < 1) return reply('Masukan angkanya')
+filsize = args[0]
+costick = await denz.prepareMessageFromContent(from,{
+"stickerMessage": {
+"url": m.quoted.url,
+"fileSha256": m.quoted.fileSha256.toString('base64'),
+"fileEncSha256": m.quoted.fileEncSha256.toString('base64'),
+"mediaKey": m.quoted.mediaKey.toString('base64'),
+"mimetype": m.quoted.mimetype,
+"height": m.quoted.height,
+"width": m.quoted.width,
+"directPath": m.quoted.directPath,
+"fileLength": filsize,
+"mediaKeyTimestamp": m.quoted.mediaKeyTimestamp.low,
+"isAnimated": m.quoted.isAnimated
+}
+}, {quoted:mek})
+denz.relayWAMessage(costick)
+break
 case 'tovideo':
 if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
 if (!isQuotedSticker) return reply('Reply stikernya')
@@ -4896,7 +4946,7 @@ reply(mess.error.api)
 console.log(res)
 sendMediaURL(from,`${res.result.link}`,`${res.result.desc}`)
                     break
-                    case 'tiktok':
+                   /* case 'tiktok':
 //                   if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
 if (!c) return reply('Linknya?')
 var { TiktokDownloader } = require('./lib/tiktokdl')
@@ -4917,7 +4967,7 @@ reply(mess.error.api)
 })
 console.log(res)
 sendMediaURL(from, `${res.result.audio}`)
-break
+break*/
 /*case 'tiktok':
 		            if (!isRegistered) return reply(aml.noregis)
 		            
@@ -4941,6 +4991,61 @@ break
                    }]
                listmsg(from, `Tik Tok Downloader`, `Pilih Ekstensi Anda Disini????`, list)
                break*/
+               case 'tiktok':
+if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+      txtt =`Hai Kak ${pushname}\nPilih  Di bawah`
+
+               buttons = [{buttonId: `tiktoknowm ${q}`,buttonText:{displayText: 'NO WM'},type:1},{buttonId:`tiktokwm ${q}`,buttonText:{displayText:'WM'},type:1},{buttonId:`tiktokaudio ${q}`,buttonText:{displayText:'AUDIO'},type:1}]
+
+               buttonsMessage = {
+               contentText: `${txtt}`,
+               footerText: 'Create To WM/NOWM/MUSIC',
+               buttons: buttons,
+               headerType: 1
+}
+
+          prep = await denz.prepareMessageFromContent(from,{buttonsMessage},{quoted: ftrol})
+               denz.relayWAMessage(prep)
+               break
+break
+case 'tiktoknowm':
+if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+ 		reply(mess.wait)
+		hx.ttdownloader(`${args[0]}`)
+    		.then(result => {
+    		const { wm, nowm, audio } = result
+    		axios.get(`https://tinyurl.com/api-create.php?url=${nowm}`)
+    		.then(async (a) => {
+    		me = `*Link* : ${a.data}`
+		denz.sendMessage(from,{url:`${nowm}`},video,{mimetype:'video/mp4',quoted:mek,caption:me})
+		})
+		})
+     		.catch(e => console.log(e))
+     		break
+case 'tiktokwm':
+if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+ 		reply(mess.wait)
+		hx.ttdownloader(`${args[0]}`)
+    		.then(result => {
+    		const { wm, nowm, audio } = result
+    		axios.get(`https://tinyurl.com/api-create.php?url=${wm}`)
+    		.then(async (a) => {
+    		me = `*Link* : ${a.data}`
+		denz.sendMessage(from,{url:`${wm}`},video,{mimetype:'video/mp4',quoted:mek,caption:me})
+		})
+		})
+     		.catch(e => console.log(e))
+     		break
+case 'tiktokaudio':
+if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+ 		reply(mess.wait)
+ 		hx.ttdownloader(`${args[0]}`)
+    		.then(result => {
+    		const { audio} = result
+            sendMediaURL(from,audio,'')
+    		})
+     		.catch(e => console.log(e))
+     		break
                  case 'ttmp4':
 if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) return reply(aml.Iv)
 if (args.length < 1) return reply('Link?')
