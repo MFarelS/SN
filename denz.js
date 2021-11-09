@@ -1665,8 +1665,25 @@ TIME INFO
 - Wit : ${timeWit}  
 - Hari : ${week} ${weton}
 - Tanggal : ${calender}${uwu}`
-sendButLocation(from, `${menu}`, `${uwu}© BOT CREATED BY VINZX${uwu}`, {jpegThumbnail:ofrply}, [{buttonId:`${prefix}allmenu`,buttonText:{displayText:'LISTMENU'},type:1},{buttonId:`${prefix}owner`,buttonText:{displayText:'OWNER'},type:1},{buttonId:`${prefix}script`,buttonText:{displayText:'INSTAGRAM'},type:1}], {contextInfo: { mentionedJid: [ptod,dtod,otod,stod]}})
+sendButLocation(from, `${menu}`, `${uwu}© BOT CREATED BY VINZX${uwu}`, {jpegThumbnail:ofrply}, [{buttonId:`${prefix}allmenu`,buttonText:{displayText:'ALLMENU'},type:1},{buttonId:`${prefix}owner`,buttonText:{displayText:'OWNER'},type:1},{buttonId:`${prefix}about`,buttonText:{displayText:'ABOUT'},type:1}], {contextInfo: { mentionedJid: [ptod,dtod,otod,stod]}})
 break
+case 'about':
+pepe = `「 *INFORMATION* 」
+
+• BOT Type: NodeJS v14.x.x
+• Name: SneazyBOT
+• Lib: Baileys
+• Version: 8.0.9
+• Instagram: @ardynvyn__
+
+*THANKS TO*
+• X -MRG3P5
+• </ LeysCoders >
+• Tekajeh TEAM
+• Mhankbarbar
+• And All creator bot
+_Since © 2020_`
+denz.sendMessage(from, `pepe`, teks, {quoted: ftrol})
 /*case 'bugreport':
               if (args.length < 1) return reply(`Ketik ${prefix}bugreport [fiturnya] [Error Nya Gimana]`) 
               teks = args.join(' ')
