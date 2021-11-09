@@ -1667,24 +1667,7 @@ TIME INFO
 - Tanggal : ${calender}${uwu}`
 sendButLocation(from, `${menu}`, `${uwu}© BOT CREATED BY VINZX${uwu}`, {jpegThumbnail:ofrply}, [{buttonId:`${prefix}allmenu`,buttonText:{displayText:'ALLMENU'},type:1},{buttonId:`${prefix}owner`,buttonText:{displayText:'OWNER'},type:1},{buttonId:`${prefix}about`,buttonText:{displayText:'ABOUT'},type:1}], {contextInfo: { mentionedJid: [ptod,dtod,otod,stod]}})
 break
-case 'about':
-pepe = `「 *INFORMATION* 」
 
-• BOT Type: NodeJS v14.x.x
-• Name: SneazyBOT
-• Lib: Baileys
-• Version: 8.0.9
-• Instagram: @ardynvyn__
-
-*THANKS TO*
-• X -MRG3P5
-• </ LeysCoders >
-• Tekajeh TEAM
-• Mhankbarbar
-• And All creator bot
-_Since © 2020_`
-denz.sendMessage(from, `pepe`, teks, {quoted: ftrol})
-break
 /*case 'bugreport':
               if (args.length < 1) return reply(`Ketik ${prefix}bugreport [fiturnya] [Error Nya Gimana]`) 
               teks = args.join(' ')
@@ -4699,6 +4682,24 @@ break
 		//if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
 		denz.sendMessage(from, { text: "https://instagram.com/ardynvyn__", matchedText: 'https://instagram.com/ardynvyn__', description: "", title: "DI FOLLOW YAH KAK", jpegThumbnail: ofrply }, 'extendedTextMessage', { detectLinks: false, contextInfo: { forwardingScore: 508, isForwarded: true}, quoted: finv})
 		break
+case 'about':
+pepe = `「 *INFORMATION* 」
+
+• BOT Type: NodeJS v14.x.x
+• Name: SneazyBOT
+• Lib: Baileys
+• Version: 8.0.9
+• Instagram: @ardynvyn__
+
+*THANKS TO*
+• X -MRG3P5
+• </ LeysCoders >
+• Tekajeh TEAM
+• Mhankbarbar
+• And All creator bot
+_Since © 2020_`
+denz.sendMessage(from, `pepe`, text, {quoted: ftrol})
+break
 /*case 'instagram':
 denz.sendMessage(from, { text: "https://instagram.com/ardynvyn__", matchedText: 'https://instagram.com/ardynvyn__', description: "", title: "DI FOLLOW YAH KAK", jpegThumbnail: ofrply }, 'extendedTextMessage', { detectLinks: false, contextInfo: { forwardingScore: 508, isForwarded: true}, quoted: finv})
 break*/
