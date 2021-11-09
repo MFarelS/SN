@@ -4698,7 +4698,7 @@ pepe = `「 *INFORMATION* 」
 • Mhankbarbar
 • And All creator bot
 _Since © 2020_`
-denz.sendMessage(from, `pepe`, text, {quoted: ftrol})
+denz.sendMessage(from, pepe, text, {quoted: ftrol})
 break
 /*case 'instagram':
 denz.sendMessage(from, { text: "https://instagram.com/ardynvyn__", matchedText: 'https://instagram.com/ardynvyn__', description: "", title: "DI FOLLOW YAH KAK", jpegThumbnail: ofrply }, 'extendedTextMessage', { detectLinks: false, contextInfo: { forwardingScore: 508, isForwarded: true}, quoted: finv})
