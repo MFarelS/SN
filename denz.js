@@ -4626,7 +4626,7 @@ client.close()
 }
 break*/
 case 'jadibot':
-if (!isGroup) return reply(mess.only.group)
+if(from.endsWith('@g.us')) return reply('Only With Private Chat/PC')
 //   if (isGroup) return reply('TIDAK BISA JADIBOT DIDALAM GRUP HARAP PC NOMER SAJA')
     if(mek.key.fromMe) return reply('Tidak bisa jadibot di dalam bot')
     jadibot(reply,denz,from)
@@ -4636,7 +4636,7 @@ if (!isGroup) return reply(mess.only.group)
     if(mek.key.fromMe)return reply('tidak bisa stopjadibot kecuali owner')
     stopjadibot(reply)
     break
-    case 'listbot':
+    case 'listjadibot':
     if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
     let tekss = '「 *LIST JADIBOT* 」\n'
     for(let i of listjadibot) {
