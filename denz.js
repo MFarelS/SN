@@ -695,7 +695,7 @@ await denz.setStatus(`📨 SNEAZYBOT || 🤖 Runtime: ${uptime} || 🎧 Uptime: 
 		      } catch {
 		pporang = 'https://l.top4top.io/p_2140ei0pm0.jpg'
 		      }
-		const ofrply = await getBuffer("https://l.top4top.io/p_2140ei0pm0.jpg")
+		const ofrply = await getBuffer(pporang)
 		const thubb = fs.readFileSync('./thub.jpg')
 		const sekarang = new Date().getTime();
 			//-
@@ -1649,8 +1649,7 @@ TIME INFO:
 INFO USER:
 - Status : ${isOwner ? 'Owner' : 'User'}
 - Nama : ${pushname}
-- Bio : ${stst}
-- Api : https://wa.me/${sender.split("@")[0]}
+- Bio : ${stst}${uwu}
 
 
 Join Group Official Bot:
