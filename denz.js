@@ -697,6 +697,8 @@ await denz.setStatus(`📨 SNEAZYBOT || 🤖 Runtime: ${uptime} || 🎧 Uptime: 
 		pporang = 'https://l.top4top.io/p_2140ei0pm0.jpg'
 		      }
 		const ofrply = await getBuffer(pporang)
+		asukbh = 'https://f.top4top.io/p_2140lu6ip0.jpg'
+		const inihrm = await getBuffer(asukbh)
 		const thubb = fs.readFileSync('./thub.jpg')
 		const sekarang = new Date().getTime();
 			//-
@@ -1655,7 +1657,7 @@ INFO USER:
 
 Join Group Official Bot:
 chat.whatsapp.com/Ko79Xyt4OJzBV1oyTgCaYF`
-sendButLocation(from, `${menu}`, `${uwu}© BOT CREATED BY VINZX${uwu}`, {jpegThumbnail:ofrply}, [{buttonId:`${prefix}allmenu`,buttonText:{displayText:'LISTMENU'},type:1},{buttonId:`${prefix}owner`,buttonText:{displayText:'OWNER'},type:1},{buttonId:`${prefix}about`,buttonText:{displayText:'ABOUT'},type:1}], {contextInfo: { mentionedJid: [ptod,dtod,otod,stod]}})
+sendButLocation(from, `${menu}`, `${uwu}© BOT CREATED BY VINZX${uwu}`, {jpegThumbnail:inihrm}, [{buttonId:`${prefix}allmenu`,buttonText:{displayText:'LISTMENU'},type:1},{buttonId:`${prefix}owner`,buttonText:{displayText:'OWNER'},type:1},{buttonId:`${prefix}about`,buttonText:{displayText:'ABOUT'},type:1}], {contextInfo: { mentionedJid: [ptod,dtod,otod,stod]}})
 break
 
 /*case 'bugreport':
@@ -1971,6 +1973,11 @@ Menuju Tahun Baru 🎉: ${days} Hari ${hours} Jam ${minutes} Menit ${seconds} De
 │ • ${prefix}captcha
 │ • ${prefix}dadu
 │ • ${prefix}math
+│ • ${prefix}truth
+│ • ${prefix}dare
+│ • ${prefix}cekmati
+│ • ${prefix}cekcantik
+│ • ${prefix}cekganteng
 ╰────
 
 
@@ -3130,6 +3137,22 @@ case 'nowa':
 					reply('Gunakan foto!')
 					}
 				 break 
+				 case 'gantengcek':
+       case 'cekganteng':
+              if (!isGroup) return reply(mess.only.group)
+              ganteng = body.slice(1)
+              const gan =['10','30','20','40','50','60','70','62','74','83','97','100','29','94','75','82','41','39']
+              const teng = gan[Math.floor(Math.random() * gan.length)]
+              denz.sendMessage(from, '*Pertanyaan :* '+ganteng+'\n*Jawaban :* '+ teng+'%', text, { quoted: mek })
+              break
+case 'cantikcek':
+       case 'cekcantik':
+              if (!isGroup) return reply(mess.only.group)
+              cantik = body.slice(1)
+              const can =['10','30','20','40','50','60','70','62','74','83','97','100','29','94','75','82','41','39']
+              const tik = can[Math.floor(Math.random() * can.length)]
+              denz.sendMessage(from, '*Pertanyaan :* '+cantik+'\n*Jawaban :* '+ tik+'%', text, { quoted: mek })
+              break
 		case 'blurple2':
   if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
 					var imgbb = require('imgbb-uploader')
@@ -4742,6 +4765,31 @@ break
 /*case 'instagram':
 denz.sendMessage(from, { text: "https://instagram.com/ardynvyn__", matchedText: 'https://instagram.com/ardynvyn__', description: "", title: "DI FOLLOW YAH KAK", jpegThumbnail: ofrply }, 'extendedTextMessage', { detectLinks: false, contextInfo: { forwardingScore: 508, isForwarded: true}, quoted: finv})
 break*/
+    case 'truth':
+              if (!isGroup) return reply(mess.only.group)
+              const trut =['Pernah suka sama siapa aja? bedenz lama?','Kalau boleh atau kalau mau, di gc/luar gc siapa yang akan kamu jadikan sahabat?(boleh beda/sma jenis)','apa ketakutan terbesar kamu?','pernah suka sama orang dan merasa orang itu suka sama kamu juga?','Siapa nama mantan pacar teman mu yang pernah kamu sukai diam diam?','pernah gak nyuri uang nyokap atau bokap? Alesanya?','hal yang bikin seneng pas lu lagi sedih apa','pernah cinta bertepuk sebelah tangan? kalo pernah sama siapa? rasanya gimana brou?','pernah jadi selingkuhan orang?','hal yang paling ditakutin','siapa orang yang paling berpengaruh kepada kehidupanmu','hal membanggakan apa yang kamu dapatkan di tahun ini','siapa orang yang bisa membuatmu sange','siapa orang yang pernah buatmu sange','(bgi yg muslim) pernah ga solat seharian?','Siapa yang paling mendekati tipe pasangan idealmu di sini','suka mabar(main bareng)sama siapa?','pernah nolak orang? alasannya kenapa?','Sebutkan kejadian yang bikin kamu sakit hati yang masih di inget','pencapaian yang udah didapet apa aja ditahun ini?','kebiasaan terburuk lo pas di sekolah apa?']
+              const ttrth = trut[Math.floor(Math.random() * trut.length)]
+              truteh = await getBuffer(`https://i.ibb.co/305yt26/bf84f20635dedd5dde31e7e5b6983ae9.jpg`)
+              denz.sendMessage(from, truteh, image, { caption: '*Truth*\n\n'+ ttrth, quoted: mek })
+              break
+       case 'dare':
+              if (!isGroup) return reply(mess.only.group)
+              const dare =['Kirim pesan ke mantan kamu dan bilang "aku masih suka sama kamu','telfon crush/pacar sekarang dan ss ke pemain','pap ke salah satu anggota grup','Bilang "KAMU CANTIK BANGET NGGAK BOHONG" ke cowo','ss recent call whatsapp','drop emot "??💨" setiap ngetik di gc/pc selama 1 hari','kirim voice note bilang can i call u baby?','drop kutipan lagu/quote, terus tag member yang cocok buat kutipan itu','pake foto sule sampe 3 hari','ketik pake bahasa daerah 24 jam','ganti nama menjadi "gue anak lucinta luna" selama 5 jam','chat ke kontak wa urutan sesuai %batre kamu, terus bilang ke dia "i lucky to hv you','prank chat mantan dan bilang " i love u, pgn balikan','record voice baca surah al-kautsar','bilang "i hv crush on you, mau jadi pacarku gak?" ke lawan jenis yang terakhir bgt kamu chat (serah di wa/tele), tunggu dia bales, kalo udah ss drop ke sini','sebutkan tipe pacar mu!','snap/post foto pacar/crush','teriak gajelas lalu kirim pake vn kesini','pap mukamu lalu kirim ke salah satu temanmu','kirim fotomu dengan caption, aku anak pungut','teriak pake kata kasar sambil vn trus kirim kesini','teriak " anjimm gabutt anjimmm " di depan rumah mu','ganti nama jadi " BOWO " selama 24 jam','Pura pura kerasukan, contoh : kerasukan maung, kerasukan belalang, kerasukan kulkas, dll']
+              const der = dare[Math.floor(Math.random() * dare.length)]
+              buffer = await getBuffer(`https://i.ibb.co/305yt26/bf84f20635dedd5dde31e7e5b6983ae9.jpg`)
+              denz.sendMessage(from, buffer, image, { quoted: mek, caption: '*Dare*\n\n'+ der })
+              break
+case 'listonline':
+             if (!isGroup) return reply(`*Only group*`)
+             try {
+             let ido = args && /\d+\-\d+@g.us/.test(args[0]) ? args[0] : from
+             let online = [...Object.keys(denz.chats.get(ido).presences), denz.user.jid]
+             denz.sendMessage(from, '*List Online:*\n' + online.map(v => '- @' + v.replace(/@.+/, '')).join `\n`, text, { quoted: mek, contextInfo: { mentionedJid: online }})
+             } catch (e) {
+             reply(`${e}`)
+}
+             break
+
        case 'debug':
        if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
 			 res = await denz.prepareMessageFromContent(from,{
