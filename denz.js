@@ -693,9 +693,9 @@ await denz.setStatus(`📨 SNEAZYBOT || 🤖 Runtime: ${uptime} || 🎧 Uptime: 
 		try {
 		pporang = await denz.getProfilePicture(`${sender.split('@')[0]}@s.whatsapp.net`)
 		      } catch {
-		pporang = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
+		pporang = 'https://l.top4top.io/p_2140ei0pm0.jpg'
 		      }
-		const ofrply = await getBuffer(pporang)
+		const ofrply = await getBuffer("https://l.top4top.io/p_2140ei0pm0.jpg")
 		const thubb = fs.readFileSync('./thub.jpg')
 		const sekarang = new Date().getTime();
 			//-
@@ -1632,40 +1632,30 @@ denz.updatePresence(from, Presence.recording)
 
 API : https://api-sneazy.herokuapp.com
 
-${uwu}BOT INFO
-- Owner : @${otod.split('@')[0]}
-- Battery : ${baterai.battery}
-- Mode : ${publik ? 'Public' : 'Self'}
-- Prefix : ${multi ? 'Multi Prefix' : 'No Prefix'}
-- Total Hit : ${cmhit.length}
-- Mode : ${publik ? 'public' : 'self'}
-- Prefix : ${multi ? 'Multi Prefix' : 'No Prefix'}
-- Penggunaan Ram : ${ram2}
-- Hostname : ${os.hostname()}
-- Platform : ${os.platform()}
-- Uptime : ${kyun(os.uptime())}
-- MNC : ${mnc}
-- MCC : ${mcc}
-- Device Model: ${denz.user.phone.device_model}
-- Device Manufactur : ${device_manufacturer}
-- Wa Version: ${denz.user.phone.wa_version}
-- Os Version: ${denz.user.phone.os_version}
-
-STATS
-
+{uwu}STATS:
 - Private Chat : ${privat.length}
 - Group Chat : ${groups.length}
 - Total Chat : ${totalChat.length}
 - Auto Respon: ${autorespon}
 - Auto Read: ${readPc}
 
-TIME INFO
+TIME INFO:
 - ${tampilUcapan} ${pushname}
 - Wib : ${timeWib}
 - Wita : ${timeWita}
 - Wit : ${timeWit}  
 - Hari : ${week} ${weton}
-- Tanggal : ${calender}${uwu}`
+- Tanggal : ${calender}
+
+INFO USER:
+- Status : ${isOwner ? 'Owner' : 'User'}
+- Nama : ${pushname}
+- Bio : ${stst}
+- Api : https://wa.me/${sender.split("@")[0]}
+- Network provider : undefined${uwu}
+
+Join Group Official Bot:
+https://chat.whatsapp.com/Ko79Xyt4OJzBV1oyTgCaYF`
 sendButLocation(from, `${menu}`, `${uwu}© BOT CREATED BY VINZX${uwu}`, {jpegThumbnail:ofrply}, [{buttonId:`${prefix}allmenu`,buttonText:{displayText:'ALLMENU'},type:1},{buttonId:`${prefix}owner`,buttonText:{displayText:'OWNER'},type:1},{buttonId:`${prefix}about`,buttonText:{displayText:'ABOUT'},type:1}], {contextInfo: { mentionedJid: [ptod,dtod,otod,stod]}})
 break
 
