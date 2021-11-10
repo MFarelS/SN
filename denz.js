@@ -1730,7 +1730,7 @@ break
 						    xixixi += `(#)${yt.all[ii].videoId}`
 						}
 						buf = await getBuffer(yt.all[0].image)
-						await vinz.sendMessage(from, buf, image, {caption: xixixi})
+						await denz.sendMessage(from, buf, image, {caption: xixixi})
 					} catch (e) {
 						console.error(e.message)
 						await reply(`_Kesalahan saat mencari judul lagu ${q}_`)
@@ -1850,6 +1850,62 @@ case 'speedtest':
 						reply(stdout.toString('utf-8').split('.').join('').trim())
 					})
 					break
+		case 'dorking':
+					reply(mess.wait)
+				dork = `${body.slice(9)}`
+					anu = await fetchJson(`https://api-anoncybfakeplayer.herokuapp.com/dorking?dork=${dork}`, {method: 'get'})
+					hasil = `${anu.result}`
+					denz.sendMessage(from, hasil, text, {quoted: mek})
+					  
+					break  
+				case 'encode64':
+				encode64 = `${body.slice(10)}`
+				anu = await fetchJson(`https://api.i-tech.id/hash/bs64?key=${TechApi}&type=encode&string=${encode64}`, {method: 'get'})
+				denz.sendMessage(from, `${anu.result}`, text, {quoted: mek})
+					  
+					break 
+				case 'decode64':
+			decode64 = `${body.slice(10)}`
+					anu = await fetchJson(`https://api.i-tech.id/hash/bs64?key=${TechApi}&type=decode&string=${decode64}`, {method: 'get'})
+					denz.sendMessage(from, `${anu.result}`, text, {quoted: mek})
+					  
+					break  
+				case 'decode32':
+				decode32 = `${body.slice(10)}`
+					anu = await fetchJson(`https://api.i-tech.id/hash/bs32?key=${TechApi}&type=decode&string=${decode32}`, {method: 'get'})
+					denz.sendMessage(from, `${anu.result}`, text, {quoted: mek})
+					  
+					break  
+				case 'encode32':
+				encode32 = `${body.slice(10)}`
+					anu = await fetchJson(`https://api.i-tech.id/hash/bs32?key=${TechApi}&type=encode&string=${encode32}`, {method: 'get'})
+					denz.sendMessage(from, `${anu.result}`, text, {quoted: mek})
+					  
+					break  
+				case 'encbinary':
+					encbinary = `${body.slice(11)}`
+					anu = await fetchJson(`https://api.anoncybfakeplayer.com/api/binary/?encode=${encbinary}`, {method: 'get'})
+					denz.sendMessage(from, `${anu.result}`, text, {quoted: mek})
+					  
+					break  
+				case 'decbinary':
+			decbin = `${body.slice(11)}`
+					anu = await fetchJson(`https://api.anoncybfakeplayer.com/api/binary/?decode=${decbin}`, {method: 'get'})
+					denz.sendMessage(from, `${anu.result}`, text, {quoted: mek})
+					  
+					break  
+				case 'encoctal':
+		encoc = `${body.slice(10)}`
+					anu = await fetchJson(`https://api.anoncybfakeplayer.com/api/octal/?encode=${encoc}`, {method: 'get'})
+					denz.sendMessage(from, `${anu.result}`, text, {quoted: mek})
+					 
+					break  
+				case 'decoctal':
+			decoc = `${body.slice(10)}`
+					anu = await fetchJson(`https://api.anoncybfakeplayer.com/api/octal/?decode=${decoc}`, {method: 'get'})
+					denz.sendMessage(from, `${anu.result}`, text, {quoted: mek})
+					  
+					break  
 case 'allmenu':
 if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
 countDownDate = new Date("Jan 01, 2022 00:00:00").getTime();
@@ -4332,7 +4388,7 @@ case 'horny':
                                         imgbb("acf1ad5f22ad5822dc163cce74aedfd4", `${ran}`).then(res => {
                                   pepe(`https://some-random-api.ml/canvas/horny?avatar=${res.display_url}`)
                                 .then(buffer => {
-                                        vinz.sendMessage(from, buffer, image, {quoted: tod})
+                                        denz.sendMessage(from, buffer, image, {quoted: tod})
                                 })
                                 })
                                 })
