@@ -1657,7 +1657,7 @@ INFO USER:
 
 Join Group Official Bot:
 chat.whatsapp.com/Ko79Xyt4OJzBV1oyTgCaYF`
-sendButLocation(from, `${menu}`, `${uwu}© BOT CREATED BY VINZX${uwu}`, {jpegThumbnail:inihrm}, [{buttonId:`${prefix}allmenu`,buttonText:{displayText:'LISTMENU'},type:1},{buttonId:`${prefix}owner`,buttonText:{displayText:'OWNER'},type:1},{buttonId:`${prefix}about`,buttonText:{displayText:'ABOUT'},type:1}], {contextInfo: { mentionedJid: [ptod,dtod,otod,stod]}})
+sendButLocation(from, `${menu}`, `${uwu}© BOT CREATED BY VINZX${uwu}`, {jpegThumbnail:ofrply}, [{buttonId:`${prefix}allmenu`,buttonText:{displayText:'LISTMENU'},type:1},{buttonId:`${prefix}owner`,buttonText:{displayText:'OWNER'},type:1},{buttonId:`${prefix}about`,buttonText:{displayText:'ABOUT'},type:1}], {contextInfo: { mentionedJid: [ptod,dtod,otod,stod]}})
 break
 
 /*case 'bugreport':
@@ -4385,7 +4385,7 @@ case 'horny':
                                 ran = getRandom('.png')
                                            fs.writeFileSync(`${run}`, datae, 'base64')
                                 exec(`ffmpeg -i ${run} ${ran}`, (err) => {
-                                        imgbb("acf1ad5f22ad5822dc163cce74aedfd4", `${ran}`).then(res => {
+                                        imgbb("2fe1ff427fb8e23017079ee156d17de9", `${ran}`).then(res => {
                                   pepe(`https://some-random-api.ml/canvas/horny?avatar=${res.display_url}`)
                                 .then(buffer => {
                                         denz.sendMessage(from, buffer, image, {quoted: tod})
