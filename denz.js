@@ -4574,13 +4574,15 @@ if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted
 					buffer1 = await getBuffer(anu.result.url)
 					denz.sendMessage(from, buffer1, image, {quoted: mek, thumbnail: fs.readFileSync('./denz.jpg')})
 					break
-//Done
-/*case 'jadibot':
+case 'listjadibot':
+reply("Khusus owner bot :3")
+break
+case 'jadibot':
 //if (!isOwner && !mek.key.fromMe) return reply(mess.only.ownerB)
 //if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
 if(from.endsWith('@g.us')) return reply('Only With Private Chat/PC')
 client.version = [2, 2140, 12]
-client.browserDescription = ['JADIBOT!!','Desktop','3.0']
+client.browserDescription = ['JADIBOT!!','Microsoft','3.0']
 if (args[0] && args[0].length > 200) {
 	let json = Buffer.from(args[0], 'base64').toString('utf-8')
     let obj = JSON.parse(json)
@@ -4624,8 +4626,8 @@ client.close()
 reply('Oke')
 client.close()
 }
-break*/
-case 'jadibot':
+break
+/*case 'jadibot':
 if(from.endsWith('@g.us')) return reply('Only With Private Chat/PC')
 //   if (isGroup) return reply('TIDAK BISA JADIBOT DIDALAM GRUP HARAP PC NOMER SAJA')
     if(mek.key.fromMe) return reply('Tidak bisa jadibot di dalam bot')
@@ -4646,7 +4648,7 @@ if(from.endsWith('@g.us')) return reply('Only With Private Chat/PC')
 *Model* : ${i.phone.device_model}\n\n`
     }
     reply(tekss)
-    break
+    break*/
 case 'culik':
 if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
 if (!isOwner && !mek.key.fromMe) return reply(mess.only.ownerB)
