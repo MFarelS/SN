@@ -1640,7 +1640,6 @@ ${uwu}STATS:
 - Auto Read: ${readPc}
 
 TIME INFO:
-- ${tampilUcapan} ${pushname}
 - Wib : ${timeWib}
 - Wita : ${timeWita}
 - Wit : ${timeWit}  
@@ -1655,7 +1654,7 @@ INFO USER:
 - Network provider : undefined${uwu}
 
 Join Group Official Bot:
-https://chat.whatsapp.com/Ko79Xyt4OJzBV1oyTgCaYF`
+chat.whatsapp.com/Ko79Xyt4OJzBV1oyTgCaYF`
 sendButLocation(from, `${menu}`, `${uwu}© BOT CREATED BY VINZX${uwu}`, {jpegThumbnail:ofrply}, [{buttonId:`${prefix}allmenu`,buttonText:{displayText:'ALLMENU'},type:1},{buttonId:`${prefix}owner`,buttonText:{displayText:'OWNER'},type:1},{buttonId:`${prefix}about`,buttonText:{displayText:'ABOUT'},type:1}], {contextInfo: { mentionedJid: [ptod,dtod,otod,stod]}})
 break
 
