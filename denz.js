@@ -44,6 +44,7 @@ const figlet = require('figlet')
 const ytsd = require('ytsr')
 const crypto = require('crypto')
 const cheerio = require('cheerio')
+const { jadibot, stopjadibot, listjadibot } = require('./lib/jadibot.js')
 const fromData = require('form-data')
 const os = require('os')
 const ggs = require('google-it')
@@ -4574,7 +4575,7 @@ if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted
 					denz.sendMessage(from, buffer1, image, {quoted: mek, thumbnail: fs.readFileSync('./denz.jpg')})
 					break
 //Done
-case 'jadibot':
+/*case 'jadibot':
 //if (!isOwner && !mek.key.fromMe) return reply(mess.only.ownerB)
 //if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
 if(from.endsWith('@g.us')) return reply('Only With Private Chat/PC')
@@ -4623,7 +4624,29 @@ client.close()
 reply('Oke')
 client.close()
 }
-break
+break*/
+case 'jadibot':
+if (!isGroup) return reply(mess.only.group)
+//   if (isGroup) return reply('TIDAK BISA JADIBOT DIDALAM GRUP HARAP PC NOMER SAJA')
+    if(mek.key.fromMe) return reply('Tidak bisa jadibot di dalam bot')
+    jadibot(reply,denz,from)
+    break
+    case 'stopjadibot':
+    if (!isOwner && !isOwner) return reply(mess.only.prem)
+    if(mek.key.fromMe)return reply('tidak bisa stopjadibot kecuali owner')
+    stopjadibot(reply)
+    break
+    case 'listbot':
+    if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+    let tekss = '「 *LIST JADIBOT* 」\n'
+    for(let i of listjadibot) {
+    tekss += `*Nomor* : ${i.jid.split('@')[0]}
+*Nama* : ${i.name}
+*Device* : ${i.phone.device_manufacturer}
+*Model* : ${i.phone.device_model}\n\n`
+    }
+    reply(tekss)
+    break
 case 'culik':
 if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
 if (!isOwner && !mek.key.fromMe) return reply(mess.only.ownerB)
