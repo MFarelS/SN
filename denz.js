@@ -1627,7 +1627,7 @@ denz.updatePresence(from, Presence.recording)
 				stst = stst.status == 401 ? '' : stst.status
 				var ram2 = `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB`
 				//const { wa_version, mcc, mnc, os_version, device_manufacturer, device_model } = denz.user.device
-			num = await fetchJson(`https://api.telnyx.com/anonymous/v2/number_lookup/${senderNumber}`, {method: 'get'})
+		//	num = await fetchJson(`https://api.telnyx.com/anonymous/v2/number_lookup/${senderNumber}`, {method: 'get'})
        menu = `*Halo ${pushname} 👋*
 
 API : https://api-sneazy.herokuapp.com
@@ -1874,7 +1874,7 @@ countDownDate = new Date("Jan 01, 2022 00:00:00").getTime();
         		var ra2 = `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB`
 			 stst = await denz.getStatus(`${sender.split('@')[0]}@c.us`)
 				stst = stst.status == 401 ? '' : stst.status
-			num = await fetchJson(`https://api.telnyx.com/anonymous/v2/number_lookup/${senderNumber}`, {method: 'get'})
+			//num = await fetchJson(`https://api.telnyx.com/anonymous/v2/number_lookup/${senderNumber}`, {method: 'get'})
 menu = `Hallo kak ${pushname} ${tampilUcapan}
 Iam *Sneazy-BOT* And Iam Use Prefix *${prefix}*
 
@@ -1908,7 +1908,8 @@ Menuju Tahun Baru 🎉: ${days} Hari ${hours} Jam ${minutes} Menit ${seconds} De
 ▷ Nama : ${pushname}
 ▷ Bio : ${stst}
 ▷ Nomor : @${stod.split('@')[0]}
-▷ Network provider : ${num.data.carrier.type} - ${num.data.carrier.name}
+▷ APi : https://wa.me/${sender.split("@")[0]}
+▷ Network provider : undefined
 
 
 ❏ *....: TIME AND DATE :....*
@@ -2275,6 +2276,7 @@ Menuju Tahun Baru 🎉: ${days} Hari ${hours} Jam ${minutes} Menit ${seconds} De
 │ • ${prefix}add
 │ • ${prefix}getdeskgc
 │ • ${prefix}resetlink
+│ • ${prefix}listonline
 │ • ${prefix}sider
 │ • ${prefix}hacked
 │ • ${prefix}setnamegc
@@ -4996,6 +4998,27 @@ if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted
 		})
      		.catch(e => console.log(e))
      		break
+/*case "listonline": 
+        let id = args && /\d+\-\d+@g.us/.test(args[0]) ? args[0] : m.chat;
+        try {
+          let online = [
+            ...Object.keys(denz.chats.get(id).presences),
+            denz.user.jid,
+          ];
+          denz.reply(
+            m.chat,
+            "「 L I S T   O N L I N E  」\n" +
+              online.map((v) => "├ @" + v.replace(/@.+/, "")).join`\n` +
+              "\n",
+            m,
+            {
+              contextInfo: { mentionedJid: online },
+            }
+          );
+        } catch (e) {
+          m.reply("");
+        }
+        break*/
 case 'tiktokwm':
 if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
  		reply(mess.wait)
