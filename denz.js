@@ -1632,7 +1632,7 @@ denz.updatePresence(from, Presence.recording)
 
 API : https://api-sneazy.herokuapp.com
 
-{uwu}STATS:
+${uwu}STATS:
 - Private Chat : ${privat.length}
 - Group Chat : ${groups.length}
 - Total Chat : ${totalChat.length}
@@ -1681,7 +1681,7 @@ case 'bugreport':
 const pesan = body.slice(11)
 if (pesan.length > 300) return pras.sendMessage(from, 'Maaf Teks Terlalu Panjang, Maksimal 300 Teks', text, { quoted: ftrol })
 var nomor = mek.participant
-const teks1 = `*[REPORT]*\nNomor : @${nomor.split("@s.whatsapp.net")[0]}\nPesan : ${pesan}`
+const teks1 = `*[REPORT]*\nNomor : https://wa.me/${sender.split("@")[0]}\nPesan : ${pesan}`
 var options = {
 text: teks1,
 contextInfo: { mentionedJid: [nomor] },
