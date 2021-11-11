@@ -1659,7 +1659,7 @@ TIME INFO:
 
 Join Group Official Bot:
 chat.whatsapp.com/Ko79Xyt4OJzBV1oyTgCaYF`
-sendButLocation(from, `${menu}`, `${uwu}Instagram: @ardynvyn__\nGithub: VynG85\nUser:${_registered.length}\nRuntime: ${waktu(runtime)}\n\nSINCE ©2020${uwu}`, {jpegThumbnail:ofrply}, [{buttonId:`${prefix}allmenu`,buttonText:{displayText:'📊 ALLMENU'},type:1},{buttonId:`${prefix}owner`,buttonText:{displayText:'🗣 ️OWNER'},type:1},{buttonId:`${prefix}about`,buttonText:{displayText:'ℹ️ ABOUT'},type:1}], {contextInfo: { mentionedJid: [ptod,dtod,otod,stod]}})
+sendButLocation(from, `${menu}`, `${uwu}Instagram: @ardynvyn__\nGithub: VynG85\nUser:${_registered.length}\nRuntime: ${waktu(runtimen)}\n\nSINCE ©2020${uwu}`, {jpegThumbnail:ofrply}, [{buttonId:`${prefix}allmenu`,buttonText:{displayText:'📊 ALLMENU'},type:1},{buttonId:`${prefix}owner`,buttonText:{displayText:'🗣 ️OWNER'},type:1},{buttonId:`${prefix}about`,buttonText:{displayText:'ℹ️ ABOUT'},type:1}], {contextInfo: { mentionedJid: [ptod,dtod,otod,stod]}})
 break
 
 /*case 'bugreport':
