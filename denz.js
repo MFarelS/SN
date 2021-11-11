@@ -1628,6 +1628,8 @@ denz.updatePresence(from, Presence.recording)
         petik = '```'
        stst = await denz.getStatus(`${sender.split('@')[0]}@c.us`)
 				stst = stst.status == 401 ? '' : stst.status
+				runtimen = process.uptime()
+				
 				var ram2 = `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB`
 				//const { wa_version, mcc, mnc, os_version, device_manufacturer, device_model } = denz.user.device
 		//	num = await fetchJson(`https://api.telnyx.com/anonymous/v2/number_lookup/${senderNumber}`, {method: 'get'})
@@ -1635,7 +1637,12 @@ denz.updatePresence(from, Presence.recording)
 
 API : https://api-sneazy.herokuapp.com
 
-${uwu}STATS:
+${uwu}INFO USER:
+- Status : ${isOwner ? 'Owner' : 'User'}
+- Nama : ${pushname}
+- Bio : ${stst}${uwu}
+
+STATS:
 - Private Chat : ${privat.length}
 - Group Chat : ${groups.length}
 - Total Chat : ${totalChat.length}
@@ -1649,15 +1656,10 @@ TIME INFO:
 - Hari : ${week} ${weton}
 - Tanggal : ${calender}
 
-INFO USER:
-- Status : ${isOwner ? 'Owner' : 'User'}
-- Nama : ${pushname}
-- Bio : ${stst}${uwu}
-
 
 Join Group Official Bot:
 chat.whatsapp.com/Ko79Xyt4OJzBV1oyTgCaYF`
-sendButLocation(from, `${menu}`, `${uwu}© BOT CREATED BY VINZX${uwu}`, {jpegThumbnail:ofrply}, [{buttonId:`${prefix}allmenu`,buttonText:{displayText:'LISTMENU'},type:1},{buttonId:`${prefix}owner`,buttonText:{displayText:'OWNER'},type:1},{buttonId:`${prefix}about`,buttonText:{displayText:'ABOUT'},type:1}], {contextInfo: { mentionedJid: [ptod,dtod,otod,stod]}})
+sendButLocation(from, `${menu}`, `${uwu}Instagram: @ardynvyn__\nGithub: VynG85\nUser:${_registered.length}\nRuntime: ${waktu(runtime)}\n\nSINCE ©2020${uwu}`, {jpegThumbnail:ofrply}, [{buttonId:`${prefix}allmenu`,buttonText:{displayText:'📊 ALLMENU'},type:1},{buttonId:`${prefix}owner`,buttonText:{displayText:'🗣 ️OWNER'},type:1},{buttonId:`${prefix}about`,buttonText:{displayText:'ℹ️ ABOUT'},type:1}], {contextInfo: { mentionedJid: [ptod,dtod,otod,stod]}})
 break
 
 /*case 'bugreport':
@@ -4375,7 +4377,7 @@ break
 case 'horny':
                                 var imgbb = require('imgbb-uploader')
                                 try {
-                                         ppimg = await vinz.getProfilePicture(`${sender.split('@')[0]}@c.us`)
+                                         ppimg = await denz.getProfilePicture(`${sender.split('@')[0]}@c.us`)
                                          } catch {
                                          ppimg = 'https://i.ibb.co/2KKcSZv/20210130-093639.png'
                                         }
