@@ -1636,6 +1636,7 @@ denz.updatePresence(from, Presence.recording)
        menu = `*Halo ${pushname} 👋*
 
 API : https://api-sneazy.herokuapp.com
+DDOS : https://api-sneazy.herokuapp.com/ddos
 
 ${uwu}INFO USER:
 - Status : ${isOwner ? 'Owner' : 'User'}
