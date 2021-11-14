@@ -3448,7 +3448,7 @@ headerType: 4
 }
 denz.sendMessage(from, sendBtnVeryy, MessageType.buttonsMessage, {quoted:ftrol, contextInfo: { mentionedJid: [sender]}})
 break*/
-/*case 'verifyed':
+case 'verify':
 const serialUser = createSerial(6)
 	        veri = sender
 	        _registered.push(sender)
@@ -3485,8 +3485,8 @@ headerType: 4
 denz.sendMessage(from, sendBtnVeryy, MessageType.buttonsMessage, {quoted:ftrol, contextInfo: { mentionedJid: [sender]}})
 	         console.log(color('[REGISTER]'), color(time, 'yellow'), 'Serial:', color(serialUser, 'cyan'), 'in', color(sender || groupName))
 	    // console.log(e)
-        break*/
-case 'verify':
+        break
+/*case 'verify':
 					//if (isCaptcha(from)) return reply('Masih ada soal yang belum diselesaikan!')
 					var letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
 					var letter1 = letters[Math.floor(Math.random() * letters.length)];
@@ -3521,7 +3521,7 @@ _Note: Gunakan huruf kecil untuk menjawab_`})
 					} else {
 						reply('Tidak ada sesi absen yang berlangsung')
 					}
-					break
+					break*/
        /* case 'next':
         case 'leave':
             let room = Object.values(this.anonymous).find(room => room.check(m.sender))
