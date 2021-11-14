@@ -1635,8 +1635,9 @@ denz.updatePresence(from, Presence.recording)
 		//	num = await fetchJson(`https://api.telnyx.com/anonymous/v2/number_lookup/${senderNumber}`, {method: 'get'})
        menu = `*Halo ${pushname} 👋*
 
-API : https://api-sneazy.herokuapp.com
-DDOS : https://api-sneazy.herokuapp.com/ddos
+- API : https://api-sneazy.herokuapp.com
+
+- DDOS : https://bit.ly/3HjUToo
 
 ${uwu}INFO USER:
 - Status : ${isOwner ? 'Owner' : 'User'}
