@@ -1662,7 +1662,7 @@ TIME INFO:
 
 Join Group Official Bot:
 chat.whatsapp.com/Ko79Xyt4OJzBV1oyTgCaYF`
-sendButLocation(from, `${menu}`, `${uwu}Instagram: @ardynvyn__\nGithub: VynG85\nUser:${_registered.length}\nRuntime: ${waktu(runtimen)}\n\nSINCE ©2020${uwu}`, {jpegThumbnail:ofrply}, [{buttonId:`${prefix}allmenu`,buttonText:{displayText:'📊 ALLMENU'},type:1},{buttonId:`${prefix}owner`,buttonText:{displayText:'🗣 ️OWNER'},type:1},{buttonId:`${prefix}about`,buttonText:{displayText:'ℹ️ ABOUT'},type:1}], {contextInfo: { mentionedJid: [ptod,dtod,otod,stod]}})
+sendButLocation(from, `${menu}`, `${uwu}Instagram: @ardynvyn__\nGithub: VynG85\nUser:${_registered.length}\nRuntime: ${waktu(runtimen)}\n\nSINCE ©2020${uwu}`, {jpegThumbnail:ofrply}, [{buttonId:`allmenu`,buttonText:{displayText:'📊 ALLMENU'},type:1},{buttonId:`${prefix}owner`,buttonText:{displayText:'🗣 ️OWNER'},type:1},{buttonId:`${prefix}about`,buttonText:{displayText:'ℹ️ ABOUT'},type:1}], {contextInfo: { mentionedJid: [ptod,dtod,otod,stod]}})
 break
 
 /*case 'bugreport':
@@ -2077,7 +2077,7 @@ Menuju Tahun Baru 🎉: ${days} Hari ${hours} Jam ${minutes} Menit ${seconds} De
 │ • ${prefix}delabsen
 │ • vote (reply)
 │ • devote (reply)
-│ • ${prefix}voting @tag|text|1 (1=1 menit)
+│ • ${prefix}voting @tag|text|1
 │ • ${prefix}delvote
 ╰────
 
