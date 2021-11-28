@@ -695,7 +695,7 @@ await denz.setStatus(`📨 SNEAZYBOT || 🤖 Runtime: ${uptime} || 🎧 Uptime: 
 		try {
 		pporang = await denz.getProfilePicture(`${sender.split('@')[0]}@s.whatsapp.net`)
 		      } catch {
-		pporang = 'https://l.top4top.io/p_2140ei0pm0.jpg'
+		pporang = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
 		      }
 		const ofrply = await getBuffer(pporang)
 		asukbh = 'https://f.top4top.io/p_2140lu6ip0.jpg'
@@ -1662,7 +1662,7 @@ TIME INFO:
 
 Join Group Official Bot:
 chat.whatsapp.com/Ko79Xyt4OJzBV1oyTgCaYF`
-sendButLocation(from, `${menu}`, `${uwu}Instagram: @ardynvyn__\nGithub: VynG85\nUser:${_registered.length}\nRuntime: ${waktu(runtimen)}\n\nSINCE ©2020${uwu}`, {jpegThumbnail:ofrply}, [{buttonId:`allmenu`,buttonText:{displayText:'📊 ALLMENU'},type:1},{buttonId:`${prefix}owner`,buttonText:{displayText:'🗣 ️OWNER'},type:1},{buttonId:`${prefix}about`,buttonText:{displayText:'ℹ️ ABOUT'},type:1}], {contextInfo: { mentionedJid: [ptod,dtod,otod,stod]}})
+sendButLocation(from, `${menu}`, `${uwu}Instagram: @ardynvyn__\nGithub: VynG85\nUser:${_registered.length}\nRuntime: ${waktu(runtimen)}\n\nSINCE ©2020${uwu}`, {jpegThumbnail:ofrply}, [{buttonId:`${prefix}allmenu`,buttonText:{displayText:'📊 ALLMENU'},type:1},{buttonId:`${prefix}owner`,buttonText:{displayText:'🗣 ️OWNER'},type:1},{buttonId:`${prefix}about`,buttonText:{displayText:'ℹ️ ABOUT'},type:1}], {contextInfo: { mentionedJid: [ptod,dtod,otod,stod]}})
 break
 
 /*case 'bugreport':
