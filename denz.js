@@ -1910,6 +1910,73 @@ case 'speedtest':
 					denz.sendMessage(from, `${anu.result}`, text, {quoted: mek})
 					  
 					break  
+					case 'citacita':
+              const cita =['http://piyobot.000webhostapp.com/citacita1.mp3','http://piyobot.000webhostapp.com/citacita2.mp3','http://piyobot.000webhostapp.com/citacita3.mp3','http://piyobot.000webhostapp.com/citacita4.mp3','http://piyobot.000webhostapp.com/citacita5.mp3','http://piyobot.000webhostapp.com/citacita6.mp3','http://piyobot.000webhostapp.com/citacita7.mp3','http://piyobot.000webhostapp.com/citacita8.mp3','http://piyobot.000webhostapp.com/citacita9.mp3','http://piyobot.000webhostapp.com/citacita10.mp3','http://piyobot.000webhostapp.com/citacita11.mp3','http://piyobot.000webhostapp.com/citacita12.mp3','http://piyobot.000webhostapp.com/citacita13.mp3','http://piyobot.000webhostapp.com/citacita14.mp3','http://piyobot.000webhostapp.com/citacita15.mp3','http://piyobot.000webhostapp.com/citacita16.mp3','http://piyobot.000webhostapp.com/citacita17.mp3','http://piyobot.000webhostapp.com/citacita18.mp3','http://piyobot.000webhostapp.com/citacita19.mp3','http://piyobot.000webhostapp.com/citacita20.mp3','http://piyobot.000webhostapp.com/citacita21.mp3','http://piyobot.000webhostapp.com/citacita22.mp3','http://piyobot.000webhostapp.com/citacita23.mp3','http://piyobot.000webhostapp.com/citacita24.mp3','http://piyobot.000webhostapp.com/citacita25.mp3','http://piyobot.000webhostapp.com/citacita26.mp3','http://piyobot.000webhostapp.com/citacita27.mp3','http://piyobot.000webhostapp.com/citacita28.mp3','http://piyobot.000webhostapp.com/citacita29.mp3','http://piyobot.000webhostapp.com/citacita30.mp3','http://piyobot.000webhostapp.com/citacita31.mp3','http://piyobot.000webhostapp.com/citacita32.mp3','http://piyobot.000webhostapp.com/citacita33.mp3','http://piyobot.000webhostapp.com/citacita34.mp3','http://piyobot.000webhostapp.com/citacita35.mp3']
+              const cita3 = cita[Math.floor(Math.random() * cita.length)]
+              cita2 = await getBuffer(cita3)
+              denz.sendMessage(from, cita2, audio,{mimetype: 'audio/mp4', ptt:true, quoted: mek})
+              break
+       case 'apakah':
+              apakah = body.slice(1)
+              const apa =['Iya','Tidak','Bisa Jadi','Coba Ulangi']
+              const kah = apa[Math.floor(Math.random() * apa.length)]
+              denz.sendMessage(from, '*Pertanyaan :* '+apakah+'\n*Jawaban :* '+ kah, text, { quoted: mek })
+              break
+       case 'rate':
+       case 'nilai':
+              rate = body.slice(1)
+              const ra =['0','4','9','17','28','34','48','59','62','74','83','97','100','29','94','75','82','41','39']
+              const te = ra[Math.floor(Math.random() * ra.length)]
+              denz.sendMessage(from, '*Pertanyaan :* '+rate+'\n*Jawaban :* '+ te+'%', text, { quoted: mek })
+              break
+
+       case 'cekwatak':
+              var namao = pushname
+              var prfx = await denz.getProfilePicture(sender)
+              const watak = ['top deh pokoknya','penyayang','pemurah','Pemarah','Pemaaf','Penurut','Baik','baperan','Baik-Hati','penyabar','UwU','Suka Membantu']
+              const wtk = watak[Math.floor(Math.random() * (watak.length))]
+              const ratenyaasu = ['100%','95%','90%','85%','80%','75%','70%','65%','60%','55%','50%','45%','40%','35%','30%','25%','20%','15%','10%','5%']
+              const akhlak = ratenyaasu[Math.floor(Math.random() * (ratenyaasu.length))]
+              const sifat = ['Penolong','Suka Membantu','Saling Menolong','Perhatian','Ngak Cuek','Romantis','Dermawan','Cool','Peduli Kepada Sesama','Suka Berkata Kasar']
+              const sft = sifat[Math.floor(Math.random() * (sifat.length))]
+              const hobby = ['Memasak','Membantu Atok','Mabar','Nobar','Coli','Colmek','Sosmedtan','Membantu Orang lain','Nonton Anime','Nonton Drakor','Naik Motor','Nyanyi','Menari','Bertumbuk','Menggambar','Foto fotoan Ga jelas','Maen Game','Berbicara Sendiri']
+              const hby = hobby[Math.floor(Math.random() * (hobby.length))]
+              const kelebihan = ['Soleh dan Soleha','Pintar','Rajin','Teladan']
+              const klbh = kelebihan[Math.floor(Math.random() * (kelebihan.length))]
+              const tipe = ['cool','idaman','Alami','Keren','Ideal','Dia Bamget','normal','elite','epic','Legend']
+              const typo = tipe[Math.floor(Math.random() * (tipe.length))]
+              await reply(`[ INTROGASI SUKSES ]\n\n[Nama]:${namao}\n\n[Watak]:${wtk}\n\n[Akhlak✨]:${akhlak}\n\n[Sifat]:${sft}\n\n[Hobby]:${hby}\n\n[Tipe]:${typo}\n\n[Kelebihan]:${klbh}\n\nNote\n\n_ini hanya main main_`)
+              break
+       case 'hobby':
+              hobby = body.slice(1)
+              const by = hobby[Math.floor(Math.random() * hobby.length)]
+              denz.sendMessage(from, 'Pertanyaan : *'+hobby+'*\n\nJawaban : '+ by, text, { quoted: mek })
+              break
+       case 'bisakah':
+              bisakah = body.slice(1)
+              const bisa =['Bisa','Tidak Bisa','Coba Ulangi','MANA GW TAU']
+              const keh = bisa[Math.floor(Math.random() * bisa.length)]
+              denz.sendMessage(from, '*Pertanyaan :* '+bisakah+'\n*Jawaban :* '+ keh, text, { quoted: mek })
+              break
+       case 'kapankah':
+              kapankah = body.slice(1)
+              const kapan =['Besok','Lusa','Tadi','4 Hari Lagi','5 Hari Lagi','6 Hari Lagi','1 Minggu Lagi','2 Minggu Lagi','3 Minggu Lagi','1 Bulan Lagi','2 Bulan Lagi','3 Bulan Lagi','4 Bulan Lagi','5 Bulan Lagi','6 Bulan Lagi','1 Tahun Lagi','2 Tahun Lagi','3 Tahun Lagi','4 Tahun Lagi','5 Tahun Lagi','6 Tahun Lagi','1 Abad lagi','3 Hari Lagi']
+              const koh = kapan[Math.floor(Math.random() * kapan.length)]
+              denz.sendMessage(from, '*Pertanyaan :* '+kapankah+'\n*Jawaban :* '+ koh, text, { quoted: mek })
+              break
+       
+       
+       case 'jadian':
+              jds = []
+              jdii = groupMembers
+              koss = groupMembers
+              akuu = jdii[Math.floor(Math.random() * jdii.length)]
+              diaa = koss[Math.floor(Math.random() * koss.length)]
+              teks = `Ciee.. yang lagi jadian @${akuu.jid.split('@')[0]}  (♥️ ) @${diaa.jid.split('@')[0]} `
+              jds.push(akuu.jid)
+              jds.push(diaa.jid)
+              mentions(teks, jds, true)
+              break
 case 'allmenu':
 if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
 countDownDate = new Date("Jan 01, 2022 00:00:00").getTime();
@@ -2038,6 +2105,13 @@ Menuju Tahun Baru 🎉: ${days} Hari ${hours} Jam ${minutes} Menit ${seconds} De
 │ • ${prefix}cekmati
 │ • ${prefix}cekcantik
 │ • ${prefix}cekganteng
+│ • ${prefix}jadian
+│ • ${prefix}watak
+│ • ${prefix}rate
+│ • ${prefix}kapankah
+│ • ${prefix}bisakah
+│ • ${prefix}hobby
+│ • ${prefix}citacita
 ╰────
 
 
@@ -2060,6 +2134,30 @@ Menuju Tahun Baru 🎉: ${days} Hari ${hours} Jam ${minutes} Menit ${seconds} De
 ╰────
 
 
+╭─「 Wibu menu 」
+│ • ${prefix}loli
+│ • ${prefix}manga
+│ • ${prefix}anime 
+│ • ${prefix}lolivideo
+│ • ${prefix}husbu
+│ • ${prefix}waifu
+│ • ${prefix}milf
+│ • ${prefix}neko
+│ • ${prefix}kanna
+│ • ${prefix}sagiri
+│ • ${prefix}hentai
+│ • ${prefix}wallnime
+│ • ${prefix}kusonime
+│ • ${prefix}megumin
+│ • ${prefix}otakudesu
+│ • ${prefix}doujindesu
+│ • ${prefix}storyanime
+│ • ${prefix}otakuongoing
+│ • ${prefix}nhentai *code*
+│ • ${prefix}nekopoi *link*
+╰────
+
+
 ╭─「 Baileys menu 」
 │ • ${prefix}searchmsg *query*
 │ • ${prefix}tagme
@@ -2069,6 +2167,16 @@ Menuju Tahun Baru 🎉: ${days} Hari ${hours} Jam ${minutes} Menit ${seconds} De
 │ • ${prefix}viewonce
 │ • ${prefix}size [teks]
 │ • ${prefix}getpp @tag atau 'group'
+╰────
+
+
+╭─「 Islam menu 」
+│ • ${prefix}listsurah
+│ • ${prefix}kisahnabi
+│ • ${prefix}jadwalsholat
+│ • ${prefix}alquran
+│ • ${prefix}asmaulhusna
+│ • ${prefix}alquranaudio
 ╰────
 
 
@@ -2200,7 +2308,6 @@ Menuju Tahun Baru 🎉: ${days} Hari ${hours} Jam ${minutes} Menit ${seconds} De
 │ • ${prefix}poke
 │ • ${prefix}slap
 │ • ${prefix}bokep
-│ • ${prefix}nhentaipdf
 ╰────
 
 
@@ -4212,7 +4319,239 @@ if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted
               let premiumnya = `*「 SEWA EXPIRE 」*\n\n➤ *ID User*: ${from}\n➤ *Expired :* ${cekvip.days} day(s) ${cekvip.hours} hour(s) ${cekvip.minutes} minute(s)`
               reply(premiumnya)
               break*/
-              
+              case 'nhentaipdf':
+             if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+
+             if (args.length == 0) return reply(`Usage: ${prefix + command} query\nExample: ${prefix + command} 317986`)
+             if (isNaN(Number(args[0]))) return await reply(mess.wrongFormat)
+             try {
+             henid = args[0]
+             get_result = await fetchJson(`https://api.lolhuman.xyz/api/nhentai/${henid}?apikey=${setting.lolkey}`)
+             get_result = get_result.result
+             get_info = get_result.info
+             teks = `\n${get_result.title_romaji}\n\n${get_result.title_native}\n\nCharacter : ${get_info.characters.join(", ")}\n`
+             ini_image = await getBuffer(get_result.image[0])
+             denz.sendMessage(from, ini_image, image, { caption: teks, quoted: mek })
+             anu = await fetchJson(`https://api.lolhuman.xyz/api/nhentaipdf/${henid}?apikey=${setting.lolkey}`)
+             pdf = await getBuffer(anu.result)
+             denz.sendMessage(from, pdf, document, { quoted: mek, mimetype: Mimetype.pdf, filename: `${get_result.title_romaji}.pdf`, thumbnail: ini_image })
+             } catch (e) {
+             console.log(e)
+             reply(String(e))
+}
+             break
+       case 'nhentai':
+              if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+
+              if (args.length == 0) return reply(`Example: ${prefix + command} 344253`)
+              reply(mess.wait)
+              henid = args[0]
+              get_result = await fetchJson(`https://api.lolhuman.xyz/api/nhentai/${henid}?apikey=${setting.lolkey}`)
+              get_result = get_result.result
+              ini_txt = `Title Romaji : ${get_result.title_romaji}\n`
+              ini_txt += `Title Native : ${get_result.title_native}\n`
+              ini_txt += `Read Online : ${get_result.read}\n`
+              get_info = get_result.info
+              ini_txt += `Parodies : ${get_info.parodies}\n`
+              ini_txt += `Character : ${get_info.characters.join(", ")}\n`
+              ini_txt += `Tags : ${get_info.tags.join(", ")}\n`
+              ini_txt += `Artist : ${get_info.artists}\n`
+              ini_txt += `Group : ${get_info.groups}\n`
+              ini_txt += `Languager : ${get_info.languages.join(", ")}\n`
+              ini_txt += `Categories : ${get_info.categories}\n`
+              ini_txt += `Pages : ${get_info.pages}\n`
+              ini_txt += `Uploaded : ${get_info.uploaded}\n`
+              reply(ini_txt)
+              break
+       case 'manga':
+       if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+
+              if (args.length == 0) return reply(`Example: ${prefix + command} Gotoubun No Hanayome`)
+              reply(mess.wait)
+              query = args.join(" ")
+              get_result = await fetchJson(`https://api.lolhuman.xyz/api/manga?apikey=${setting.lolkey}&query=${query}`)
+              get_result = get_result.result
+              ini_txt = `Id : ${get_result.id}\n`
+              ini_txt += `Id MAL : ${get_result.idMal}\n`
+              ini_txt += `Title : ${get_result.title.romaji}\n`
+              ini_txt += `English : ${get_result.title.english}\n`
+              ini_txt += `Native : ${get_result.title.native}\n`
+              ini_txt += `Format : ${get_result.format}\n`
+              ini_txt += `Chapters : ${get_result.chapters}\n`
+              ini_txt += `Volume : ${get_result.volumes}\n`
+              ini_txt += `Status : ${get_result.status}\n`
+              ini_txt += `Source : ${get_result.source}\n`
+              ini_txt += `Start Date : ${get_result.startDate.day} - ${get_result.startDate.month} - ${get_result.startDate.year}\n`
+              ini_txt += `End Date : ${get_result.endDate.day} - ${get_result.endDate.month} - ${get_result.endDate.year}\n`
+              ini_txt += `Genre : ${get_result.genres.join(", ")}\n`
+              ini_txt += `Synonyms : ${get_result.synonyms.join(", ")}\n`
+              ini_txt += `Score : ${get_result.averageScore}%\n`
+              ini_txt += `Characters : \n`
+              ini_character = get_result.characters.nodes
+              for (var x of ini_character) {
+              ini_txt += `- ${x.name.full} (${x.name.native})\n`
+}
+              ini_txt += `\nDescription : ${get_result.description}`
+              thumbnail = await getBuffer(get_result.coverImage.large)
+              await denz.sendMessage(from, thumbnail, image, { quoted: mek, caption: ini_txt })
+              break
+       case 'doujindesu':
+       if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+
+             if (!q) return reply(mess.wrongFormat)
+             reply(mess.wait)
+             try {
+             doujinnya = await got.get(`http://api-melodicxt-2.herokuapp.com/api/doujindesu/search?query=${q}&apiKey=administrator`).json()
+             let { data } = await doujinnya
+             xixixai = `*Doujindesu Search*\n`
+             for (let i = 0; i < data.length; i++) {
+             xixixai += `\n*Urutan ${i+1}*\n*Title:* ${data[i].title}\n*Type:* ${data[i].type}\n*Status:* ${data[i].status}\n*Rating:* ${data[i].rating}\n*Followers:* ${data[i].followers}\n`
+}
+             buffer = await getBuffer(data[0].thumb)
+             denz.sendMessage(from, buffer, image, {caption: xixixai, quoted: mek})
+             } catch (e) {
+             console.log(e)
+             reply(String(e))
+}
+             break
+      case 'anime':
+      if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+
+             if (args.length == 0) return reply(`Example: ${prefix + command} Gotoubun No Hanayome`)
+             reply(mess.wait)
+             query = args.join(" ")
+             get_result = await fetchJson(`https://api.lolhuman.xyz/api/anime?apikey=${setting.lolkey}&query=${query}`)
+             get_result = get_result.result
+             ini_txt = `Id : ${get_result.id}\n`
+             ini_txt += `Id MAL : ${get_result.idMal}\n`
+             ini_txt += `Title : ${get_result.title.romaji}\n`
+             ini_txt += `English : ${get_result.title.english}\n`
+             ini_txt += `Native : ${get_result.title.native}\n`
+             ini_txt += `Format : ${get_result.format}\n`
+             ini_txt += `Episodes : ${get_result.episodes}\n`
+             ini_txt += `Duration : ${get_result.duration} mins.\n`
+             ini_txt += `Status : ${get_result.status}\n`
+             ini_txt += `Season : ${get_result.season}\n`
+             ini_txt += `Season Year : ${get_result.seasonYear}\n`
+             ini_txt += `Source : ${get_result.source}\n`
+             ini_txt += `Start Date : ${get_result.startDate.day} - ${get_result.startDate.month} - ${get_result.startDate.year}\n`
+             ini_txt += `End Date : ${get_result.endDate.day} - ${get_result.endDate.month} - ${get_result.endDate.year}\n`
+             ini_txt += `Genre : ${get_result.genres.join(", ")}\n`
+             ini_txt += `Synonyms : ${get_result.synonyms.join(", ")}\n`
+             ini_txt += `Score : ${get_result.averageScore}%\n`
+             ini_txt += `Characters : \n`
+             ini_character = get_result.characters.nodes
+             for (var x of ini_character) {
+             ini_txt += `- ${x.name.full} (${x.name.native})\n`
+ }
+             ini_txt += `\nDescription : ${get_result.description}`
+             thumbnail = await getBuffer(get_result.coverImage.large)
+             await denz.sendMessage(from, thumbnail, image, { quoted: mek, caption: ini_txt })
+             break
+      case 'kusonime':
+      if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+
+             if (args.length == 0) return reply(`Example: ${prefix + command} Gotoubun No Hanayome`)
+             reply(mess.wait)
+             query = args.join(" ")
+             get_result = await fetchJson(`https://api.lolhuman.xyz/api/kusonimesearch?apikey=${setting.lolkey}&query=${query}`)
+             get_result = get_result.result
+             ini_txt = `Title : ${get_result.title}\n`
+             ini_txt += `Japanese : ${get_result.japanese}\n`
+             ini_txt += `Genre : ${get_result.genre}\n`
+             ini_txt += `Seasons : ${get_result.seasons}\n`
+             ini_txt += `Producers : ${get_result.producers}\n`
+             ini_txt += `Type : ${get_result.type}\n`
+             ini_txt += `Status : ${get_result.status}\n`
+             ini_txt += `Total Episode : ${get_result.total_episode}\n`
+             ini_txt += `Score : ${get_result.score}\n`
+             ini_txt += `Duration : ${get_result.duration}\n`
+             ini_txt += `Released On : ${get_result.released_on}\n`
+             ini_txt += `Desc : ${get_result.desc}\n`
+             link_dl = get_result.link_dl
+             for (var x in link_dl) {
+             ini_txt += `\n${x}\n`
+             for (var y in link_dl[x]) {
+             ini_txt += `${y} - ${link_dl[x][y]}\n`
+}
+}
+             ini_buffer = await getBuffer(get_result.thumbnail)
+             await denz.sendMessage(from, ini_buffer, image, { quoted: mek, caption: ini_txt })
+             break
+       case 'otakudesu':
+       if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+
+              if (args.length == 0) return reply(`Example: ${prefix + command} Gotoubun No Hanayome`)
+              reply(mess.wait)
+              query = args.join(" ")
+              get_result = await fetchJson(`https://api.lolhuman.xyz/api/otakudesusearch?apikey=${setting.lolkey}&query=${query}`)
+              get_result = get_result.result
+              ini_txt = `Title : ${get_result.title}\n`
+              ini_txt += `Japanese : ${get_result.japanese}\n`
+              ini_txt += `Judul : ${get_result.judul}\n`
+              ini_txt += `Type : ${get_result.type}\n`
+              ini_txt += `Episode : ${get_result.episodes}\n`
+              ini_txt += `Aired : ${get_result.aired}\n`
+              ini_txt += `Producers : ${get_result.producers}\n`
+              ini_txt += `Genre : ${get_result.genres}\n`
+              ini_txt += `Duration : ${get_result.duration}\n`
+              ini_txt += `Studios : ${get_result.status}\n`
+              ini_txt += `Rating : ${get_result.rating}\n`
+              ini_txt += `Credit : ${get_result.credit}\n`
+              get_link = get_result.link_dl
+              for (var x in get_link) {
+              ini_txt += `\n\n*${get_link[x].title}*\n`
+              for (var y in get_link[x].link_dl) {
+              ini_info = get_link[x].link_dl[y]
+              ini_txt += `\n\`\`\`Reso : \`\`\`${ini_info.reso}\n`
+              ini_txt += `\`\`\`Size : \`\`\`${ini_info.size}\n`
+              ini_txt += `\`\`\`Link : \`\`\`\n`
+              down_link = ini_info.link_dl
+              for (var z in down_link) {
+              ini_txt += `${z} - ${down_link[z]}\n`
+}
+}
+}
+              reply(ini_txt)
+              break
+       case 'nekopoi':
+       if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+
+              if (args.length == 0) return reply(`Example: ${prefix + command} https://nekopoi.care/isekai-harem-monogatari-episode-4-subtitle-indonesia/`)
+              ini_url = args[0]
+              get_result = await fetchJson(`https://api.lolhuman.xyz/api/nekopoi?apikey=${setting.lolkey}&url=${ini_url}`)
+              get_result = get_result.result
+              ini_txt = `\`\`\`き⃟🦈 Title : ${get_result.anime}\`\`\`\n`
+              ini_txt += `\`\`\`き⃟🦈 Porducers : ${get_result.producers}\`\`\`\n`
+              ini_txt += `\`\`\`き⃟🦈 Duration : ${get_result.duration}\`\`\`\n`
+              ini_txt += `\`\`\`き⃟🦈 Size : ${get_result.size}\`\`\`\n`
+              ini_txt += `\`\`\`き⃟🦈 Sinopsis : ${get_result.sinopsis}\`\`\`\n`
+              link = get_result.link
+              for (var x in link) {
+              ini_txt += `\n${link[x].name}\n`
+              link_dl = link[x].link
+              for (var y in link_dl) {
+              ini_txt += `${y} - ${link_dl[y]}\n`
+}
+}
+              ini_buffer = await getBuffer(get_result.thumb)
+              await denz.sendMessage(from, ini_buffer, image, { quoted: mek, caption: ini_txt })
+              break
+       case 'nekopoisearch':
+       if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+
+              if (args.length == 0) return reply(`Example: ${prefix + command} Isekai Harem`)
+              query = args.join(" ")
+              get_result = await fetchJson(`https://api.lolhuman.xyz/api/nekopoisearch?apikey=${setting.lolkey}&query=${query}`)
+              get_result = get_result.result
+              ini_txt = ""
+              for (var x of get_result) {
+              ini_txt += `\`\`\`き⃟🦈 Title : ${x.title}\`\`\`\n`
+              ini_txt += `\`\`\`き⃟🦈 Link : ${x.link}\`\`\`\n`
+              ini_txt += `\`\`\`き⃟🦈 Thumbnail : ${x.thumbnail}\`\`\`\n\n`
+}
+              reply(ini_txt)
+              break
 case 'card':
 if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
                                       try {
@@ -5247,6 +5586,7 @@ if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted
     if (!qse.quoted) return reply('pesan yang anda reply tidak mengandung reply!')
     await qse.quoted.copyNForward(m.chat, true)
 break
+
 case 'listgc':
 case 'gclist':
 case 'listgroup':
@@ -5322,6 +5662,94 @@ if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted
                     reply(mess.error.api)
                 }
                 break
+// ISLAM
+
+case 'kisahnabi':
+if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+
+                if (args.length == 0) return reply(`Example: ${prefix + command} Muhammad`)
+                    query = args.join(" ")
+                    get_result = await fetchJson(`http://api.lolhuman.xyz/api/kisahnabi/${query}?apikey=${setting.lolkey}`)
+                    get_result = get_result.result
+                    ini_txt = `Name : ${get_result.name}\n`
+                    ini_txt += `Lahir : ${get_result.thn_kelahiran}\n`
+                    ini_txt += `Umur : ${get_result.age}\n`
+                    ini_txt += `Tempat : ${get_result.place}\n`
+                    ini_txt += `Story : \n${get_result.story}`
+                    reply(ini_txt)
+                    break
+case 'jadwalsholat':
+if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+
+                    if (args.length == 0) return reply(`Example: ${prefix + command} Yogyakarta`)
+                    daerah = args.join(" ")
+get_result = await fetchJson(`http://api.lolhuman.xyz/api/sholat/${daerah}?apikey=${setting.lolkey}`)
+                    get_result = get_result.result
+                    ini_txt = `Wilayah : ${get_result.wilayah}\n`
+                    ini_txt += `Tanggal : ${get_result.tanggal}\n`
+                    ini_txt += `Sahur : ${get_result.sahur}\n`
+                    ini_txt += `Imsak : ${get_result.imsak}\n`
+                    ini_txt += `Subuh : ${get_result.subuh}\n`
+                    ini_txt += `Terbit : ${get_result.terbit}\n`
+                    ini_txt += `Dhuha : ${get_result.dhuha}\n`
+                    ini_txt += `Dzuhur : ${get_result.dzuhur}\n`
+                    ini_txt += `Ashar : ${get_result.ashar}\n`
+                    ini_txt += `Maghrib : ${get_result.imsak}\n`
+                    ini_txt += `Isya : ${get_result.isya}`
+                    reply(ini_txt)
+                    break  
+             case 'listsurah':
+             if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+
+                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/quran?apikey=${setting.lolkey}`)
+                    get_result = get_result.result
+                    ini_txt = 'List Surah:\n'
+                    for (var x in get_result) {
+                        ini_txt += `${x}. ${get_result[x]}\n`
+                    }
+                    reply(ini_txt)
+                    break                                              
+case 'alquran':
+if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+
+                    if (args.length < 1) return reply(`Example: ${prefix + command} 18 or ${prefix + command} 18/10 or ${prefix + command} 18/1-10`)
+                    urls = `http://api.lolhuman.xyz/api/quran/${args[0]}?apikey=${setting.lolkey}`
+                    quran = await fetchJson(urls)
+                    result = quran.result
+                    ayat = result.ayat
+                    ini_txt = `QS. ${result.surah} : 1-${ayat.length}\n\n`
+                    for (var x of ayat) {
+                        arab = x.arab
+                        nomor = x.ayat
+                        latin = x.latin
+                        indo = x.indonesia
+                        ini_txt += `${arab}\n${nomor}. ${latin}\n${indo}\n\n`
+                    }
+                    ini_txt = ini_txt.replace(/<u>/g, "").replace(/<\/u>/g, "")
+                    ini_txt = ini_txt.replace(/<strong>/g, "").replace(/<\/strong>/g, "")
+                    ini_txt = ini_txt.replace(/<u>/g, "").replace(/<\/u>/g, "")
+                    reply(ini_txt)
+                    break
+case 'asmaulhusna':
+if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+
+                    get_result = await fetchJson(`http://api.lolhuman.xyz/api/asmaulhusna?apikey=${setting.lolkey}`)
+                    get_result = get_result.result
+                    ini_txt = `No : ${get_result.index}\n`
+                    ini_txt += `Latin: ${get_result.latin}\n`
+                    ini_txt += `Arab : ${get_result.ar}\n`
+                    ini_txt += `Indonesia : ${get_result.id}\n`
+                    ini_txt += `English : ${get_result.en}`
+                    reply(ini_txt)
+                    break
+ case 'alquranaudio':
+ if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+
+                    if (args.length == 0) return reply(`Example: ${prefix + command} 18 or ${prefix + command} 18/10`)
+                    surah = args[0]
+                    ini_buffer = await getBuffer(`http://api.lolhuman.xyz/api/quran/audio/${surah}?apikey=${setting.lolkey}`)
+                    denz.sendMessage(from, ini_buffer, audio, { quoted: mek, mimetype: Mimetype.mp4Audio })      
+                    break            
                 case 'setprefix':
       if (!isOwner && !mek.key.fromMe) return reply(mess.only.ownerB)
        if (args.length < 1) return reply(`Masukkan prefix\nOptions :\n=> multi\n=> nopref`)
