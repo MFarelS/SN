@@ -121,6 +121,7 @@ const delets = JSON.parse(fs.readFileSync('./database/delete.json'))
 const _registered = JSON.parse(fs.readFileSync('./database/registered.json'))
 const mute = JSON.parse(fs.readFileSync('./database/mute.json'))
 const settings = JSON.parse(fs.readFileSync('./settings.json'))
+let setting = JSON.parse(fs.readFileSync('./setting.json'))
 const kickarea = JSON.parse(fs.readFileSync('./database/kickarea.json'))
 let tebaklagu = JSON.parse(fs.readFileSync('./database/tebaklagu.json'))
 //let sewa = JSON.parse(fs.readFileSync('./database/sewa.json'));
