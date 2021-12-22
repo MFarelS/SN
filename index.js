@@ -202,7 +202,8 @@ console.log(color('|TRM|'), color(`Demote Admin ${num.split('@')[0]} In ${mdata.
 
 denz.on('CB:action,,call', async json => {
         const callerId = json[2][0][1].from;
-        var vcard = 'BEGIN:VCARD\n' + 'VERSION:3.0\n' + 'FN:' + `${NamaOwner}` + '\n' + `ORG:Developer ${NamaBot}\n` + 'TEL;type=CELL;type=VOICE;waid=' + `${NomorOwner}` + ':+' + `${NomorOwner}` + '\n' + 'END:VCARD'
+        //var vcard = 'BEGIN:VCARD\n' + 'VERSION:3.0\n' + 'FN:' + `${NamaOwner}` + '\n' + `ORG:Developer ${NamaBot}\n` + 'TEL;type=CELL;type=VOICE;waid=' + `${NomorOwner}` + ':+' + `${NomorOwner}` + '\n' + 'END:VCARD'
+var vcard = 'BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:Bang Finn\nitem1.TEL;waid=6285732415700:6285732415700\nitem1.X-ABLabel:👑 Creator\nitem2.EMAIL;type=INTERNET:vinxnon@leyscoders.com\nitem2.X-ABLabel:📧 Email\nitem3.URL:https://api-sneazy.herokuapp.com/\nitem3.X-ABLabel:⚙️ Rest Api\nitem4.ADR:;;🇮🇩 Indonesia;;;;\nitem4.X-ABADR:ac\nitem4.X-ABLabel:🌍 Region\nitem5.X-ABLabel:⚔️ SNEAZY - BOT DEVELOPER\nEND:VCARD'
         denz.sendMessage(callerId, "\`\`\`[ ! ] CALL DETECTED [ ! ]\`\`\`\n\n\`\`\`Anda Di Block Karena Telepon Bot , Silahkan Hubungi Developer Bot Untuk Membuka Block\`\`\`", MessageType.text)
         denz.sendMessage(callerId, { displayname: `${NamaOwner}`, vcard: vcard}, MessageType.contact, {contextInfo: { externalAdReply:{title: `Developer ${NamaBot}`,body:"",previewType:"PHOTO",thumbnail:fs.readFileSync('./denz.jpg'),sourceUrl:`https://wa.me/6285732415700?text=Assalamualaikum`}}})
         await sleep(5000)
