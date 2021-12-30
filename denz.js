@@ -2289,29 +2289,6 @@ Menuju Tahun Baru 🎉: ${days} Hari ${hours} Jam ${minutes} Menit ${seconds} De
 ╰────
 
 
-╭─「 18+ menu 」
-│ • ${prefix}trapnime
-│ • ${prefix}neko
-│ • ${prefix}pussy
-│ • ${prefix}megumin
-│ • ${prefix}blowjob
-│ • ${prefix}hentai
-│ • ${prefix}awoo
-│ • ${prefix}bj
-│ • ${prefix}eroneko
-│ • ${prefix}lesbian
-│ • ${prefix}anal
-│ • ${prefix}yuri
-│ • ${prefix}baka
-│ • ${prefix}neko2
-│ • ${prefix}kitsune
-│ • ${prefix}keta
-│ • ${prefix}poke
-│ • ${prefix}slap
-│ • ${prefix}bokep
-╰────
-
-
 ╭─「 Sticker menu 」
 │ • ${prefix}sticker
 │ • ${prefix}take
