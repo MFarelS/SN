@@ -1622,7 +1622,7 @@ denz.updatePresence(from, Presence.recording)
         case 'menu':
         case 'help':
         case 'list':
-        if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+      //  if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
         ptod = "6282138919347@s.whatsapp.net"
         stod = `${sender}`
         uwu = '```'
@@ -1979,7 +1979,7 @@ case 'speedtest':
               mentions(teks, jds, true)
               break
 case 'allmenu':
-if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+//if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
 countDownDate = new Date("Jan 01, 2022 00:00:00").getTime();
                 now = new Date().getTime();
                 distance = countDownDate - now;
@@ -7841,7 +7841,6 @@ break
 			case 'stickergif':  
 				case 'sticker':
 				  case 'stiker':
-				  if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
 					     if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
             const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
             const media = await denz.downloadAndSaveMediaMessage(encmedia)
