@@ -6009,7 +6009,16 @@ break
 					buff = await getBuffer(anu.result.avatar_url)
 					denz.sendMessage(from, buff, image, {quoted: ftok, caption: gstalk})
 					break 
-					
+					case 'igstalk':
+					if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
+					if (args.length < 1) return reply('Usernamenya?')
+					var teksz = body.slice(9)
+					anuz = await fetchJson(`https://api.ichikaa.xyz/api/stalkig?username=${teksz}&apikey=bdHqIlrf`, {method: 'get'})
+					gstalk = `❏ *IG STALK*\n\n❏ Username : ${anuz.result.metadata.username}\n❏ Name : ${anuz.result.metadata.name}\n❏ Followers : ${anuz.result.metadata.follower}\n❏ Following : ${anuz.result.metadata.following}\n❏ Private : ${anuz.result.metadata.private}\n❏ Verified : ${anuz.result.metadata.verified}\n❏ Bio : ${anuz.result.metadata.bio}`
+					reply(mess.wait)
+					buff = await getBuffer(anuz.result.picUrl.hd)
+					denz.sendMessage(from, buff, image, {quoted: ftok, caption: gstalk})
+					break 
 					case 'infogempa':
 					if (!isRegistered) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: ftrol})
 					anu = await fetchJson(`https://bx-hunter.herokuapp.com/api/info/gempa?apikey=${HunterApi}`, {method: 'get'})
