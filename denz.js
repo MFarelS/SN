@@ -5069,7 +5069,7 @@ for (let i of ownerNumberr) {
 const vname = denz.contacts[i] != undefined ? denz.contacts[i].vname || denz.contacts[i].notify : undefined
 ini_list.push({
 "displayName": `Developer ${NamaBot}`,
-"vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:Bang Finn\nitem1.TEL;waid=6285732415700:6285732415700\nitem1.X-ABLabel:👑 Creator\nitem2.EMAIL;type=INTERNET:vinxnon@leyscoders.com\nitem2.X-ABLabel:📧 Email\nitem3.URL:https://api-sneazy.herokuapp.com/\nitem3.X-ABLabel:⚙️ Rest Api\nitem4.ADR:;;🇮🇩 Indonesia;;;;\nitem4.X-ABADR:ac\nitem4.X-ABLabel:🌍 Region\nitem5.X-ABLabel:⚔️ SNEAZY - BOT DEVELOPER\nEND:VCARD`
+"vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:Punya Rissa Cantek\nitem1.TEL;waid=6285732415700:6285732415700\nitem1.X-ABLabel:👑 Creator\nitem2.EMAIL;type=INTERNET:vinxnon@leyscoders.com\nitem2.X-ABLabel:📧 Email\nitem3.URL:https://api-sneazy.herokuapp.com/\nitem3.X-ABLabel:⚙️ Rest Api\nitem4.ADR:;;🇮🇩 Indonesia;;;;\nitem4.X-ABADR:ac\nitem4.X-ABLabel:🌍 Region\nitem5.X-ABLabel:⚔️ SNEAZY - BOT DEVELOPER\nEND:VCARD`
 })
 }
 denz.sendMessage(from, {
